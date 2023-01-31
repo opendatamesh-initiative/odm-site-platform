@@ -1,0 +1,112 @@
+site_name: Open Data Mesh
+site_description: Open Data Mesh
+site_url: https://platform.opendatamesh.org
+
+repo_url: https://github.com/opendatamesh-initiative/odm-platform
+edit_uri: edit/main/docs/
+
+dev_addr: '127.0.0.1:1234'
+
+nav:
+  - Home: './index.md'
+
+##theme: readthedocs
+theme:
+  name: material
+  features:
+    - navigation.tabs  
+    #- navigation.tabs.sticky
+    - navigation.top
+    - toc.follow
+    #- toc.integrate
+    - navigation.instant
+    - navigation.tracking
+    - navigation.expand
+    - navigation.indexes
+  favicon: favicon.ico
+  palette:
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  logo: icon.png
+  icon:
+    repo: fontawesome/brands/github
+  #custom_dir: docs/overrides
+
+extra:
+  # analytics:
+  #   provider: google
+  #   property: G-N7ZP6EW9XH
+  #   feedback:
+  #     title: Was this page helpful?
+  #     ratings:
+  #       - icon: material/emoticon-happy-outline
+  #         name: This page was helpful
+  #         data: 1
+  #         note: >-
+  #           Thanks for your feedback!
+  #           <br><a href="https://github.com/opendatamesh-initiative/odm-specification-dpdescriptor" target="_blank">⭐Star the project on GitHub⭐</a>
+  #       - icon: material/emoticon-sad-outline
+  #         name: This page could be improved
+  #         data: 0
+  #         note: >-
+  #           Thanks for your feedback! 
+  #           <br><a href="https://github.com/opendatamesh-initiative/odm-specification-dpdescriptor/issues" target="_blank">Consider opening an issue on GitHub</a>
+  consent:
+    title: Cookie consent
+    description: >- 
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our documentation and whether users
+      find what they're searching for. With your consent, you're helping us to
+      make our documentation better.
+
+  social:
+    - icon: octicons/mail-16
+      link: mailto:odm.info@quantyca.it
+    - icon: fontawesome/brands/mailchimp
+      link: https://mailchi.mp/936d787cac89/open-data-mesh-initiative
+    - icon: fontawesome/brands/github
+      link: https://github.com/opendatamesh-initiative/odm-specification-dpdescriptor
+    - icon: fontawesome/brands/slack
+      link: https://join.slack.com/t/opendatamesh/shared_invite/zt-1jrqfghls-68AxK_QzypaOeNyOkOwuog
+
+extra_css:
+  - stylesheets/extra.css
+  
+markdown_extensions:
+  - toc:
+      toc_depth: 4
+      permalink: ⚓︎
+  - attr_list
+  - md_in_html
+  - admonition
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      auto_title: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
+plugins:
+  - git-revision-date-localized:
+      enable_creation_date: true
+  - social:
+      cards_color:
+        fill: "#ff8f00" 
+        text: "#FFFFFF"
+      
+copyright: >
+  Copyright &copy; 2023 Quantyca s.r.l. - <a href="#__consent">Change cookie settings</a>
