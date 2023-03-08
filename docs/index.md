@@ -1,3 +1,6 @@
-#Coming Soon!
+---
+template: home.html
+title: "Open Data Mesh"
+description: "Open Data Mesh"
 
-![Open Data Mesh](WIP.jpeg){: style="height:30em"}
+---
