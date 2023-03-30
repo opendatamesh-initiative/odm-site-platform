@@ -9,6 +9,13 @@ dev_addr: '127.0.0.1:1234'
 
 nav:
   - Home: './index.md'
+  - Overview: './tmp.md'
+  - Concepts: 
+    - './concepts/index.md'
+    - Logical Planes: './concepts/logical-planes.md'
+  - Platform: './tmp.md'
+  - Community: './tmp.md'
+  - Resources: './tmp.md'
 
 ##theme: readthedocs
 theme:
