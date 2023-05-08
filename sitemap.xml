@@ -2,7 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://platform.opendatamesh.org/</loc>
-         <lastmod>2023-03-08</lastmod>
+         <lastmod>2023-05-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://platform.opendatamesh.org/tmp/</loc>
+         <lastmod>2023-05-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://platform.opendatamesh.org/concepts/</loc>
+         <lastmod>2023-05-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://platform.opendatamesh.org/concepts/data-product-experience-plane/</loc>
+         <lastmod>2023-05-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://platform.opendatamesh.org/concepts/logical-planes/</loc>
+         <lastmod>2023-05-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://platform.opendatamesh.org/concepts/mesh-experience-plane/</loc>
+         <lastmod>2023-05-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://platform.opendatamesh.org/concepts/utility-plane/</loc>
+         <lastmod>2023-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
