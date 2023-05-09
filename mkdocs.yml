@@ -1,21 +1,23 @@
-site_name: Open Data Mesh - Platform
-site_description: Open Data Mesh - Platform
+site_name: Open Data Mesh Platform
+site_description: Open Data Mesh Platform
 site_url: https://platform.opendatamesh.org
 
-repo_url: https://github.com/opendatamesh-initiative/odm-platform
+repo_url: https://github.com/opendatamesh-initiative/odm-site-platform
 edit_uri: edit/main/docs/
 
 dev_addr: '127.0.0.1:1234'
 
 nav:
   - Home: './index.md'
-  - Overview: './tmp.md'
-  - Concepts: 
-    - './concepts/index.md'
-    - Logical Planes: './concepts/logical-planes.md'
-  - Platform: './tmp.md'
-  - Community: './tmp.md'
-  - Resources: './tmp.md'
+  #- Overview: './tmp.md'
+  #- Concepts: 
+  #  - './concepts/index.md'
+  #  - Logical Planes: './concepts/logical-planes.md'
+  #- Platform: './tmp.md'
+  - Community: 
+    - './community/index.md'
+    - 'Quantyca': './community/quantyca.md'
+  #- Resources: './tmp.md'
 
 ##theme: readthedocs
 theme:
