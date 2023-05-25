@@ -2,67 +2,67 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://platform.opendatamesh.org/</loc>
-         <lastmod>2023-05-09</lastmod>
+         <lastmod>2023-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://platform.opendatamesh.org/tmp/</loc>
-         <lastmod>2023-05-09</lastmod>
+         <lastmod>2023-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://platform.opendatamesh.org/community/</loc>
-         <lastmod>2023-05-09</lastmod>
+         <lastmod>2023-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://platform.opendatamesh.org/community/quantyca/</loc>
-         <lastmod>2023-05-09</lastmod>
+         <lastmod>2023-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://platform.opendatamesh.org/concepts/</loc>
-         <lastmod>2023-05-09</lastmod>
+         <lastmod>2023-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://platform.opendatamesh.org/concepts/data-product-experience-plane/</loc>
-         <lastmod>2023-05-09</lastmod>
+         <lastmod>2023-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://platform.opendatamesh.org/concepts/logical-planes/</loc>
-         <lastmod>2023-05-09</lastmod>
+         <lastmod>2023-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://platform.opendatamesh.org/concepts/mesh-experience-plane/</loc>
-         <lastmod>2023-05-09</lastmod>
+         <lastmod>2023-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://platform.opendatamesh.org/concepts/utility-plane/</loc>
-         <lastmod>2023-05-09</lastmod>
+         <lastmod>2023-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://platform.opendatamesh.org/resources/</loc>
-         <lastmod>2023-05-09</lastmod>
+         <lastmod>2023-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://platform.opendatamesh.org/resources/dm-resources/</loc>
-         <lastmod>2023-05-09</lastmod>
+         <lastmod>2023-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://platform.opendatamesh.org/resources/tools/</loc>
-         <lastmod>2023-05-09</lastmod>
+         <lastmod>2023-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://platform.opendatamesh.org/resources/howto/build-site-doc/</loc>
-         <lastmod>2023-05-09</lastmod>
+         <lastmod>2023-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
