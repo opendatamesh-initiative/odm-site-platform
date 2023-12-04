@@ -9,12 +9,12 @@ We love your input! That is afterall the  main reason why we decieded to relese 
 You can contribute to this project in the following ways:
 
 - send an informal feedback through our comunication channels (<a href="https://join.slack.com/t/opendatamesh/shared_invite/zt-1jrqfghls-68AxK_QzypaOeNyOkOwuog" target="_blank">slack :material-slack:</a> and <a href="mailto:odm.info@quantyca.it" target="_blank">mail :octicons-mail-16:</a>)
-- open a formal request through <a href="https://github.com/opendatamesh-initiative/odm-specification-dpdescriptor/issues" target="_blank">github issues :material-github:</a>
-- propose to marge your modifications to our <a href="https://github.com/opendatamesh-initiative/odm-specification-dpdescriptors" target="_blank">github main repository :material-github:</a> through a <a href="https://github.com/opendatamesh-initiative/odm-specification-dpdescriptor/pulls" target="_blank">github pull request :material-github:</a>
+- open a formal request through <a href="https://github.com/opendatamesh-initiative/odm-platform/issues" target="_blank">github issues :material-github:</a>
+- propose to marge your modifications to our <a href="https://github.com/opendatamesh-initiative/odm-platform" target="_blank">github main repository :material-github:</a> through a <a href="https://github.com/opendatamesh-initiative/odm-platform/pulls" target="_blank">github pull request :material-github:</a>
 
 
 ???+ note
-    The **Open Data Mesh Descriptor Specificatioon (DPDS)** project uses  <a href="https://github.com/opendatamesh-initiative/odm-specification-dpdescriptors" target="_blank">GitHub :material-github:</a> to maintain its content.
+    The **Open Data Mesh Platform** project uses  <a href="https://github.com/opendatamesh-initiative/odm-platform" target="_blank">GitHub :material-github:</a> to maintain its content.
     
     This repository is publicly visible; however, if you want to contribute new content you need to create a GitHub account. This can be created from the top of the GitHub home page.
     
