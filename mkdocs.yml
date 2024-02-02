@@ -17,7 +17,9 @@ nav:
   - Community: 
     - './community/index.md'
     - 'Quantyca': './community/quantyca.md'
-  #- Resources: './tmp.md'
+  - Resources:
+    - 'How to': 
+      - 'build this site': './resources/howto/build-site-doc.md'
 
 ##theme: readthedocs
 theme:
@@ -118,4 +120,4 @@ plugins:
         text: "#FFFFFF"
       
 copyright: >
-  Copyright &copy; 2023 Quantyca s.r.l. - <a href="#__consent">Change cookie settings</a>
+  Copyright &copy; 2023 Quantyca S.p.A. - <a href="#__consent">Change cookie settings</a>
