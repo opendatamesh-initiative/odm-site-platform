@@ -1,17 +1,11 @@
 # Utility Plane
 
-The Utility Plane is the layer that decouples Open Data Mesh Platform, and in particular the [Data Product Experience Plane](./data-product-experience-plane.md), from the actual infrastructural layer. It offers standard interfaces to abstract the specific implementations of the services so that the platform doesn't need to know the dialect of each service. For each service offered by the utility plane, multiple adapters can be developed and utilized within the platform without affecting the other planes.
+The *Utility Plane*, or *Data Infrastructure Plane*, assumes the critical role of offering the foundational infrastructure resources required for the establishment and operation of the mesh network. Its responsibilities include the management of various low-level components essential for the mesh's functionality, such as storage systems, computational resources, and identity management frameworks.
 
-![Utility Plane](../images/utility-plane.png)
+All the interfaces exposed by the *Utility Plane* should be standardized as much as possibile to decouple the consumers from the actual implementation. Due to this decoupling, it enables:
 
-## Policy Service
+1. Maintaining platform planes' independence from underlying technology, facilitating reusability across various technological environments.
+2. Designing a standardized API for infrastructure utility plane services, eliminating unnecessary technological complexities.
+3. Changing the implementation of infrastructure utility plane services without affecting other planes.
 
-## Security Service
-
-## Meta Service
-
-## Provisioning Service
-
-## Build Service
-
-## Integration Service
+This kind of infrastructure management not only streamlines operations but also promotes consistency, scalability, and interoperability within the broader ecosystem.

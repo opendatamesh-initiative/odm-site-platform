@@ -14,7 +14,13 @@ nav:
     - 'Site Map': './overview/sitemap.md'
   - Concepts: 
     - './concepts/index.md'
-  #  - Logical Planes: './concepts/logical-planes.md'
+    - 'Data Product Descriptor': './concepts/data-product-descriptor.md'
+    - 'Logical Planes': './concepts/logical-planes.md'
+    - 'Data Product Experience Plane': './concepts/data-product-experience-plane.md'
+    - 'Utility Plane': './concepts/utility-plane.md'
+    - 'Mesh Experience Plane': './concepts/mesh-experience-plane.md'
+    - 'Self-serve Data Platform': './concepts/self-serve-data-platform.md'
+    - 'Federated Computational Governance': './concepts/federated-computational-governance.md'
   - Architecture: 
     - './architecture/index.md'
   - Community: 
