@@ -50,6 +50,7 @@ nav:
             - './architecture/utility-plane/policy/index.md'
             - 'Adapters':
                 - 'OPA': './architecture/utility-plane/policy/adapters/opa.md'
+    - 'ODM CLI': './architecture/odm-cli/odm-cli.md'
   - Community:
     - './community/index.md'
     - 'Quantyca': './community/quantyca.md'
