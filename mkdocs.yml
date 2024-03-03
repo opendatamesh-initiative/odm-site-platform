@@ -23,7 +23,34 @@ nav:
     - 'Federated Computational Governance': './concepts/federated-computational-governance.md'
   - Architecture: 
     - './architecture/index.md'
-  - Community: 
+    - 'Platform Core':
+        - './architecture/platform-core/index.md'
+        - 'Commons':
+            - './architecture/platform-core/commons/index.md'
+        - 'DPDS Parser':
+            - './architecture/platform-core/dpds-parser/index.md'
+    - 'Product Plane':
+        - './architecture/product-plane/index.md'
+        - 'Registry': './architecture/product-plane/registry.md'
+        - 'DevOps': './architecture/product-plane/devops.md'
+        - 'Policy': './architecture/product-plane/index.md'
+        - 'Params': './architecture/product-plane/params.md'
+        - 'Blueprint': './architecture/product-plane/blueprint.md'
+    - 'Utility Plane':
+        - './architecture/utility-plane/index.md'
+        - 'Executor':
+          - './architecture/utility-plane/executor/index.md'
+          - 'Adapters':
+              - 'Executor Azure DevOps': './architecture/utility-plane/executor/adapters/executor-azuredevops.md'
+        - 'Notification':
+          - './architecture/utility-plane/notification/index.md'
+          - 'Adapters':
+              - 'Blindata': './architecture/utility-plane/notification/adapters/blindata.md'
+        - 'Policy':
+            - './architecture/utility-plane/policy/index.md'
+            - 'Adapters':
+                - 'OPA': './architecture/utility-plane/policy/adapters/opa.md'
+  - Community:
     - './community/index.md'
     - 'Quantyca': './community/quantyca.md'
   - Resources:
