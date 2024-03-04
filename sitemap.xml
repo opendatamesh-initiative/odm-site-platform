@@ -2,97 +2,182 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://platform.opendatamesh.org/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://platform.opendatamesh.org/tmp/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://platform.opendatamesh.org/architecture/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://platform.opendatamesh.org/architecture/odm-cli/odm-cli/</loc>
+         <lastmod>2024-03-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://platform.opendatamesh.org/architecture/platform-core/</loc>
+         <lastmod>2024-03-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://platform.opendatamesh.org/architecture/platform-core/commons/</loc>
+         <lastmod>2024-03-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://platform.opendatamesh.org/architecture/platform-core/dpds-parser/</loc>
+         <lastmod>2024-03-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://platform.opendatamesh.org/architecture/product-plane/</loc>
+         <lastmod>2024-03-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://platform.opendatamesh.org/architecture/product-plane/blueprint/</loc>
+         <lastmod>2024-03-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://platform.opendatamesh.org/architecture/product-plane/devops/</loc>
+         <lastmod>2024-03-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://platform.opendatamesh.org/architecture/product-plane/params/</loc>
+         <lastmod>2024-03-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://platform.opendatamesh.org/architecture/product-plane/policy/</loc>
+         <lastmod>2024-03-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://platform.opendatamesh.org/architecture/product-plane/registry/</loc>
+         <lastmod>2024-03-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://platform.opendatamesh.org/architecture/utility-plane/</loc>
+         <lastmod>2024-03-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://platform.opendatamesh.org/architecture/utility-plane/executor/</loc>
+         <lastmod>2024-03-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://platform.opendatamesh.org/architecture/utility-plane/executor/adapters/executor-azuredevops/</loc>
+         <lastmod>2024-03-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://platform.opendatamesh.org/architecture/utility-plane/notification/</loc>
+         <lastmod>2024-03-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://platform.opendatamesh.org/architecture/utility-plane/notification/adapters/blindata/</loc>
+         <lastmod>2024-03-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://platform.opendatamesh.org/architecture/utility-plane/policy/</loc>
+         <lastmod>2024-03-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://platform.opendatamesh.org/architecture/utility-plane/policy/adapters/opa/</loc>
+         <lastmod>2024-03-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://platform.opendatamesh.org/community/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://platform.opendatamesh.org/community/quantyca/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://platform.opendatamesh.org/concepts/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://platform.opendatamesh.org/concepts/data-product-descriptor/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://platform.opendatamesh.org/concepts/data-product-experience-plane/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://platform.opendatamesh.org/concepts/federated-computational-governance/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://platform.opendatamesh.org/concepts/logical-planes/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://platform.opendatamesh.org/concepts/mesh-experience-plane/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://platform.opendatamesh.org/concepts/self-serve-data-platform/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://platform.opendatamesh.org/concepts/utility-plane/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://platform.opendatamesh.org/overview/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://platform.opendatamesh.org/overview/sitemap/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://platform.opendatamesh.org/resources/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://platform.opendatamesh.org/resources/dm-resources/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://platform.opendatamesh.org/resources/tools/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://platform.opendatamesh.org/resources/howto/build-site-doc/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
