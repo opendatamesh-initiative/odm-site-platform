@@ -968,8 +968,6 @@
         
       
         
-          
-        
       
         
       
@@ -1032,6 +1030,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Registry
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1041,6 +1050,85 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technologies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technologies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relationships" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relationships
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Relationships">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Policy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notification
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1075,7 +1163,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../policy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1898,6 +1986,74 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technologies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technologies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relationships" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relationships
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Relationships">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Policy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notification
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1915,7 +2071,45 @@
 
 
 <h1 id="registry">Registry<a class="headerlink" href="#registry" title="Permanent link">⚓︎</a></h1>
-<p>Coming Soon!</p>
+<h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">⚓︎</a></h2>
+<p>Registry is the ODM Platform Product Plane main module, and it could act both as a standalone service or interact with 
+different ODM services, such as <a href="../policy/">Policy</a> or <a href="../../utility-plane/notification/">Notification systems</a>.</p>
+<p>As the main module, it's the service that allows to create, edit, retrieve and delete Data Product 
+and Data Product Version objects through <a href="../../../concepts/data-product-descriptor/">Data Product descriptors</a>.</p>
+<p>In addition to the basic features to store and manage Data Product and Data Product Version objects, 
+it offers syntactic and semantic validation to ensure the correctness of every object.</p>
+<p>The optional interaction with other ODM services, configurable through properties, makes also possible to:</p>
+<ul>
+<li>ensure that each object is compliant with a set of policies, potentially blocking the creation and/or update of a not compliant object (<a href="../policy/">Policy</a>)</li>
+<li>notify <em>Event</em> such as <em>creation</em>, <em>update</em> or <em>deletion</em> to a list of active observers (<a href="../../utility-plane/notification/">Notification</a>)</li>
+</ul>
+<p>A basic description and a how-to guide for execution is available on the module <a href="https://github.com/opendatamesh-initiative/odm-platform/blob/main/product-plane-services/registry-server/README.md">README.md</a> on GitHub.</p>
+<h2 id="technologies">Technologies<a class="headerlink" href="#technologies" title="Permanent link">⚓︎</a></h2>
+<ul>
+<li>Java 11</li>
+<li>Maven 3.8.6</li>
+<li>Spring 5.3.28</li>
+<li>Spring Boot 2.7.13</li>
+</ul>
+<p>Other than the default Java, Maven and Spring technologies, the Registry module does not make use of any particular technology.</p>
+<h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">⚓︎</a></h2>
+<p>As the majority of the ODM services, the Blueprint Service is composed by:</p>
+<ul>
+<li>Registry API module: a module containing abstract controller, resource definition and a client to interact with the controller</li>
+<li>Registry Server module: a module implementing the abstract controller, any other component to interact with the DB, and any service needed for the Registry operations</li>
+</ul>
+<p><img alt="Registry-diagram" src="../../images/architecture/product-plane/registry/registry_architecture.png" /></p>
+<h2 id="relationships">Relationships<a class="headerlink" href="#relationships" title="Permanent link">⚓︎</a></h2>
+<p>Registry service, as described in the introduction, could act as a standalone project, but also interacts with other 
+ODM services, such as Policy service and Notification services. 
+Each interaction is enabled or disabled through properties file.</p>
+<p>Additional information about service configuration or configuration and execution through Docker is available on the module
+<a href="https://github.com/opendatamesh-initiative/odm-platform/blob/main/product-plane-services/registry-server/README.md">README.md</a> 
+on GitHub.</p>
+<h3 id="policy">Policy<a class="headerlink" href="#policy" title="Permanent link">⚓︎</a></h3>
+<p>TODO</p>
+<h3 id="notification">Notification<a class="headerlink" href="#notification" title="Permanent link">⚓︎</a></h3>
+<p>TODO</p>
 
 
 
@@ -1938,7 +2132,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 3, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 4, 2024</span>
   </span>
 
     

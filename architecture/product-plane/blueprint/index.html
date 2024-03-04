@@ -968,8 +968,6 @@
         
       
         
-          
-        
       
         
       
@@ -1065,7 +1063,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../policy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2113,9 +2111,11 @@
 <p>Blueprint is a module of the Product Plane of the ODM Platform. 
 It's an independent module that allows users to initialize a new Git-based project starting from a base template, 
 that is the <strong>blueprint</strong>, and a series of parameters.</p>
-<p>At the state of the art, Blueprint supports 2 main Git Provider:
-* Azure DevOps
-* GitHub</p>
+<p>At the state of the art, Blueprint supports two main Git Providers:</p>
+<ul>
+<li>Azure DevOps</li>
+<li>GitHub</li>
+</ul>
 <p>A basic description and a how-to guide for execution is available on the module <a href="https://github.com/opendatamesh-initiative/odm-platform/blob/main/product-plane-services/blueprint-server/README.md">README.md</a> on GitHub.</p>
 <h2 id="technologies">Technologies<a class="headerlink" href="#technologies" title="Permanent link">⚓︎</a></h2>
 <ul>
@@ -2124,7 +2124,7 @@ that is the <strong>blueprint</strong>, and a series of parameters.</p>
 <li>Spring 5.3.28</li>
 <li>Spring Boot 2.7.13</li>
 <li>Git</li>
-<li>OAuth 2</li>
+<li><a href="https://oauth.net/2/">OAuth 2.0</a></li>
 <li><a href="https://velocity.apache.org/">Apache Velocity 2.2</a></li>
 </ul>
 <h3 id="git">Git<a class="headerlink" href="#git" title="Permanent link">⚓︎</a></h3>
@@ -2222,7 +2222,7 @@ where <code>renamedFile.json</code> content will be:
 <li>Blueprint API module: a module containing abstract controller, resource definition and a client to interact with the controller</li>
 <li>Blueprint Server module: a module implementing the abstract controller, any other component to interact with the DB, and any service needed for the templating operations</li>
 </ul>
-<p><img alt="Blueprint-diagram" src="../../../images/architecture/product-plane/blueprint/blueprint.png" /></p>
+<p><img alt="Blueprint-diagram" src="../../../images/architecture/product-plane/blueprint/blueprint_architecture.png" /></p>
 <h2 id="relationships">Relationships<a class="headerlink" href="#relationships" title="Permanent link">⚓︎</a></h2>
 <p>Blueprint service, as described in the introduction, doesn't require any other ODM module,
 and it doesn't directly interact with any of them.

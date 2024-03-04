@@ -966,8 +966,6 @@
         
       
         
-          
-        
       
         
       
@@ -1065,7 +1063,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../product-plane/" class="md-nav__link">
+      <a href="../../product-plane/policy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2369,10 +2367,12 @@ available for command linde usage.</p>
 <p>Each commands map a feature of other ODM projects and/or modules. Depending on the command, some of them doesn't require
 any interaction with a reachable service and some requires and available and reachable ODM service.</p>
 <h2 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link">⚓︎</a></h2>
-<p>This section list all the available command, grouped by used modules.
-* Local: local commands that doesn't need interaction with any ODM modules
-* Registry: commands that interact with the <em>Registry Server</em> of ODM
-* Blueprint: commands that interact with the <em>Blueprint Server</em> of ODM</p>
+<p>This section list all the available command, grouped by used modules.</p>
+<ul>
+<li>Local: local commands that doesn't need interaction with any ODM modules</li>
+<li>Registry: commands that interact with the <em>Registry Server</em> of ODM</li>
+<li>Blueprint: commands that interact with the <em>Blueprint Server</em> of ODM</li>
+</ul>
 <h3 id="local-commands">Local commands<a class="headerlink" href="#local-commands" title="Permanent link">⚓︎</a></h3>
 <p>Commands that doesn't require any reachable ODM module.</p>
 <hr />
@@ -2392,23 +2392,30 @@ any interaction with a reachable service and some requires and available and rea
 </ul>
 <h3 id="registry-commands">Registry commands<a class="headerlink" href="#registry-commands" title="Permanent link">⚓︎</a></h3>
 <p>Commands that require an active and reachable instance of the ODM <em>Registry Server</em></p>
-<p>Common parameters:
-* <code>-f / --properties-file</code>: file path of the configuration file describing how to communicate with ODM modules
-  * it's an optional YAML file that, if present, list all the modules and their URL in the following format: <code>module-server: http://&lt;hostname&gt;:&lt;port&gt;</code> (e.g., <code>registry-server: http://localhost:8001</code>)
-  * the default file in the project list the modules as if they were exposed locally with their default ports
-* <code>-s / --server</code>: server address (port included) of the ODM <em>Registry Server</em>; If explicit, override the property in the <code>properties-file</code>
-* <code>-h / --help</code>: command helper
-* <code>-V / --version</code>: command version</p>
+<p>Common parameters:</p>
+<ul>
+<li><code>-f / --properties-file</code>: file path of the configuration file describing how to communicate with ODM modules<ul>
+<li>it's an optional YAML file that, if present, list all the modules and their URL in the following format: <code>module-server: http://&lt;hostname&gt;:&lt;port&gt;</code> (e.g., <code>registry-server: http://localhost:8001</code>)</li>
+<li>the default file in the project lists the modules as if they were exposed locally with their default ports</li>
+</ul>
+</li>
+<li><code>-s / --server</code>: server address (port included) of the ODM <em>Registry Server</em>; If explicit, override the property in the <code>properties-file</code></li>
+<li><code>-h / --help</code>: command helper</li>
+<li><code>-V / --version</code>: command version</li>
+</ul>
+<hr />
 <h4 id="list-dp">list dp<a class="headerlink" href="#list-dp" title="Permanent link">⚓︎</a></h4>
 <div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>odm-cli<span class="w"> </span>registry<span class="w"> </span>list<span class="w"> </span>dp
 </code></pre></div>
 <ul>
 <li><strong>name</strong>: List Data Product</li>
 <li><strong>description</strong>: List all registered Data Product</li>
-<li><strong>examples</strong>: </li>
+<li><strong>examples</strong>: <ul>
 <li><code>odm-cli registry list dp</code> [with default <code>properties.yml</code> in module <code>root</code>]</li>
 <li><code>odm-cli registry -f properties.yml list dp</code></li>
 <li><code>odm-cli registry --server http://localhost:8001 list dp</code></li>
+</ul>
+</li>
 </ul>
 <hr />
 <h4 id="list-dpv">list dpv<a class="headerlink" href="#list-dpv" title="Permanent link">⚓︎</a></h4>
@@ -2417,12 +2424,16 @@ any interaction with a reachable service and some requires and available and rea
 <ul>
 <li><strong>name</strong>: List Data Product Version</li>
 <li><strong>description</strong>: List all registered Data Product Version given a Data Product ID</li>
-<li><strong>parameters</strong>:</li>
+<li><strong>parameters</strong>:<ul>
 <li><code>--id</code>: Data Product identifier</li>
-<li><strong>examples</strong>: </li>
+</ul>
+</li>
+<li><strong>examples</strong>: <ul>
 <li><code>odm-cli registry list dpv --id abc123</code> [with default <code>properties.yml</code> in module <code>root</code>]</li>
 <li><code>odm-cli registry -f properties.yml list dpv --id abc123</code></li>
 <li><code>odm-cli registry --server http://localhost:8001 list dpv --id abc123</code></li>
+</ul>
+</li>
 </ul>
 <hr />
 <h4 id="get-dp">get dp<a class="headerlink" href="#get-dp" title="Permanent link">⚓︎</a></h4>
@@ -2431,12 +2442,16 @@ any interaction with a reachable service and some requires and available and rea
 <ul>
 <li><strong>name</strong>: Get Data Product</li>
 <li><strong>description</strong>: Get a specific Data Product given its ID</li>
-<li><strong>parameters</strong>:</li>
+<li><strong>parameters</strong>:<ul>
 <li><code>--id</code> : Data Product identifier</li>
-<li><strong>examples</strong>:</li>
+</ul>
+</li>
+<li><strong>examples</strong>:<ul>
 <li><code>odm-cli registry get dp --id abc123</code> [with default <code>properties.yml</code> in module <code>root</code>]</li>
 <li><code>odm-cli registry -f properties.yml get dpv --id abc123</code></li>
 <li><code>odm-cli registry --server http://localhost:8001 get dpv --id abc123</code></li>
+</ul>
+</li>
 </ul>
 <hr />
 <h4 id="get-dpv">get dpv<a class="headerlink" href="#get-dpv" title="Permanent link">⚓︎</a></h4>
@@ -2445,13 +2460,17 @@ any interaction with a reachable service and some requires and available and rea
 <ul>
 <li><strong>name</strong>: Get Data Product Version</li>
 <li><strong>description</strong>: Get a specific Data Product Version given the Data Product ID and the version number</li>
-<li><strong>parameters</strong>:</li>
+<li><strong>parameters</strong>:<ul>
 <li><code>--id</code> : Data Product identifier</li>
 <li><code>--dpv</code>: desired version number</li>
-<li><strong>examples</strong>: </li>
+</ul>
+</li>
+<li><strong>examples</strong>: <ul>
 <li><code>odm-cli registry get dpv --id abc123 --dpv 1.0.0</code> [with default <code>properties.yml</code> in module <code>root</code>]</li>
 <li><code>odm-cli registry -f properties.yml get dpv --id abc123 --dpv 1.0.0</code></li>
 <li><code>odm-cli registry --server http://localhost:8001 get dpv --id abc123 --dpv 1.0.0</code></li>
+</ul>
+</li>
 </ul>
 <hr />
 <h4 id="publish-dp">publish dp<a class="headerlink" href="#publish-dp" title="Permanent link">⚓︎</a></h4>
@@ -2460,12 +2479,16 @@ any interaction with a reachable service and some requires and available and rea
 <ul>
 <li><strong>name</strong>: Publish Data Product</li>
 <li><strong>description</strong>: Publish a Data Product given the file path of its JSON descriptor</li>
-<li><strong>parameters</strong>:</li>
+<li><strong>parameters</strong>: <ul>
 <li><code>--dp-file</code>: file path of the Data Product JSON descriptor</li>
-<li><strong>examples</strong>: </li>
-<li><code>odm-cli registry publish dp --dp-file src/main/resources/dpds/dp-example.json</code> [with default <code>properties.yml</code> in module <code>root</code>]</li>
-<li><code>odm-cli registry -f properties.yml publish dp --dp-file src/main/resources/dpds/dp-example.json</code></li>
+</ul>
+</li>
+<li><strong>examples</strong>:  <ul>
+<li><code>odm-cli registry publish dp --dp-file src/main/resources/dpds/dp-example.json</code> [with default <code>properties.yml</code> in module <code>root</code>] </li>
+<li><code>odm-cli registry -f properties.yml publish dp --dp-file src/main/resources/dpds/dp-example.json</code> </li>
 <li><code>odm-cli registry --server http://localhost:8001 publish dp --dp-file src/main/resources/dpds/dp-example.json</code></li>
+</ul>
+</li>
 </ul>
 <hr />
 <h4 id="publish-dpv">publish dpv<a class="headerlink" href="#publish-dpv" title="Permanent link">⚓︎</a></h4>
@@ -2474,13 +2497,17 @@ any interaction with a reachable service and some requires and available and rea
 <ul>
 <li><strong>name</strong>: Publish Data Product Version</li>
 <li><strong>description</strong>: Publish a Data Product Version givne the file path of its JSON descriptor and the ID of the parent Data Product</li>
-<li><strong>parameters</strong>:</li>
-<li><code>--id</code>: Data Product identifier</li>
+<li><strong>parameters</strong>: <ul>
+<li><code>--id</code>: Data Product identifier </li>
 <li><code>--dpv-file</code>: local file path of the Data Product Version JSON descriptor</li>
-<li><strong>examples</strong>: </li>
-<li><code>odm-cli registry publish dpv --id abc123 --dpv-file src/main/resources/dpds/dpv.json</code> [with default <code>properties.yml</code> in module <code>root</code>]</li>
-<li><code>odm-cli registry -f properties.yml publish dpv --id abc123 --dpv-file src/main/resources/dpds/dpd-example.json</code></li>
+</ul>
+</li>
+<li><strong>examples</strong>:  <ul>
+<li><code>odm-cli registry publish dpv --id abc123 --dpv-file src/main/resources/dpds/dpv.json</code> [with default <code>properties.yml</code> in module <code>root</code>] </li>
+<li><code>odm-cli registry -f properties.yml publish dpv --id abc123 --dpv-file src/main/resources/dpds/dpd-example.json</code> </li>
 <li><code>odm-cli registry --server http://localhost:8001 publish dpv --id abc123 --dpv-file src/main/resources/dpds/dpd-example.json</code></li>
+</ul>
+</li>
 </ul>
 <hr />
 <h4 id="uploaddpv">uploadDPV<a class="headerlink" href="#uploaddpv" title="Permanent link">⚓︎</a></h4>
@@ -2488,24 +2515,32 @@ any interaction with a reachable service and some requires and available and rea
 </code></pre></div>
 <ul>
 <li><strong>name</strong>: Upload Data Product Version</li>
-<li><strong>description</strong>: Publish a Data Product Version given the Git repository that store its description objects. The command will interactively ask the user the following information: </li>
-<li>SSH URI of the Git repo</li>
-<li>Designated branch of the Git repo (default: <code>main</code>)</li>
+<li><strong>description</strong>: Publish a Data Product Version given the Git repository that store its description objects. The command will interactively ask the user the following information:  <ul>
+<li>SSH URI of the Git repo </li>
+<li>Designated branch of the Git repo (default: <code>main</code>) </li>
 <li>Relative path inside the Git repo of the root JSON descriptor of the Data Product Version object</li>
-<li><strong>examples</strong>: </li>
-<li><code>odm-cli registry upload dpv</code> [with default <code>properties.yml</code> in module <code>root</code>]</li>
-<li><code>odm-cli registry -f properties.yml upload dpv</code></li>
+</ul>
+</li>
+<li><strong>examples</strong>:  <ul>
+<li><code>odm-cli registry upload dpv</code> [with default <code>properties.yml</code> in module <code>root</code>] </li>
+<li><code>odm-cli registry -f properties.yml upload dpv</code> </li>
 <li><code>odm-cli registry --server http://localhost:8001 upload dpv</code></li>
+</ul>
+</li>
 </ul>
 <h3 id="blueprint-commands">Blueprint commands<a class="headerlink" href="#blueprint-commands" title="Permanent link">⚓︎</a></h3>
 <p>Commands that require an active and reachable instance of the ODM <em>Blueprint Server</em></p>
-<p>Common parameters:
-* <code>-f / --properties-file</code>: file path of the configuration file describing how to communicate with ODM modules
-  * it's an optional YAML file that, if present, list all the modules and their URL in the following format: <code>module-server: http://&lt;hostname&gt;:&lt;port&gt;</code> (e.g., <code>blueprint-server: http://localhost:8003</code>)
-  * the default file in the project list the modules as if they were exposed locally with their default ports
-* <code>-s / --server</code>: server address (port included) of the ODM <em>Blueprint Server</em>; If explicit, override the property in the <code>properties-file</code>
-* <code>-h / --help</code>: command helper
-* <code>-V / --version</code>: command version</p>
+<p>Common parameters:</p>
+<ul>
+<li><code>-f / --properties-file</code>: file path of the configuration file describing how to communicate with ODM modules <ul>
+<li>it's an optional YAML file that, if present, list all the modules and their URL in the following format: <code>module-server: http://&lt;hostname&gt;:&lt;port&gt;</code> (e.g., <code>blueprint-server: http://localhost:8003</code>) </li>
+<li>the default file in the project list the modules as if they were exposed locally with their default ports</li>
+</ul>
+</li>
+<li><code>-s / --server</code>: server address (port included) of the ODM <em>Blueprint Server</em>; If explicit, override the property in the <code>properties-file</code></li>
+<li><code>-h / --help</code>: command helper</li>
+<li><code>-V / --version</code>: command version</li>
+</ul>
 <hr />
 <h4 id="create">create<a class="headerlink" href="#create" title="Permanent link">⚓︎</a></h4>
 <div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>odm-cli<span class="w"> </span>blueprint<span class="w"> </span>create
@@ -2513,14 +2548,18 @@ any interaction with a reachable service and some requires and available and rea
 <ul>
 <li><strong>name</strong>: Create Blueprint</li>
 <li><strong>description</strong>: Create a Blueprint given its JSON descriptor</li>
-<li><strong>parameters</strong>:</li>
-<li><code>--blueprint-file</code>: file path of the JSON descriptor</li>
+<li><strong>parameters</strong>: <ul>
+<li><code>--blueprint-file</code>: file path of the JSON descriptor </li>
 <li><code>--check</code>: [Optional] whether to verify or not the content of the Blueprint remote repository while creating it</li>
-<li><strong>examples</strong>:</li>
-<li><code>odm-cli blueprint create --blueprint-file src/main/resources/bp-example.json</code> [with default <code>properties.yml</code> in module <code>root</code>]</li>
-<li><code>odm-cli blueprint -f properties.yml create --blueprint-file src/main/resources/bp-example.json</code></li>
-<li><code>odm-cli blueprint --server http://localhost:8003 create --blueprint-file src/main/resources/bp-example.json</code></li>
+</ul>
+</li>
+<li><strong>examples</strong>: <ul>
+<li><code>odm-cli blueprint create --blueprint-file src/main/resources/bp-example.json</code> [with default <code>properties.yml</code> in module <code>root</code>] </li>
+<li><code>odm-cli blueprint -f properties.yml create --blueprint-file src/main/resources/bp-example.json</code> </li>
+<li><code>odm-cli blueprint --server http://localhost:8003 create --blueprint-file src/main/resources/bp-example.json</code> </li>
 <li><code>odm-cli blueprint create --blueprint-file src/main/resources/bp-example.json --check</code></li>
+</ul>
+</li>
 </ul>
 <hr />
 <h4 id="list">list<a class="headerlink" href="#list" title="Permanent link">⚓︎</a></h4>
@@ -2529,10 +2568,12 @@ any interaction with a reachable service and some requires and available and rea
 <ul>
 <li><strong>name</strong>: List Blueprint</li>
 <li><strong>description</strong>: List all registered Blueprints</li>
-<li><strong>examples</strong>: </li>
-<li><code>odm-cli blueprint list</code> [with default <code>properties.yml</code> in module <code>root</code>]</li>
-<li><code>odm-cli blueprint -f properties.yml list</code></li>
+<li><strong>examples</strong>:  <ul>
+<li><code>odm-cli blueprint list</code> [with default <code>properties.yml</code> in module <code>root</code>] </li>
+<li><code>odm-cli blueprint -f properties.yml list</code> </li>
 <li><code>odm-cli blueprint --server http://localhost:8003 list</code></li>
+</ul>
+</li>
 </ul>
 <hr />
 <h4 id="init">init<a class="headerlink" href="#init" title="Permanent link">⚓︎</a></h4>
@@ -2540,16 +2581,22 @@ any interaction with a reachable service and some requires and available and rea
 </code></pre></div>
 <ul>
 <li><strong>name</strong>: Init Blueprint</li>
-<li><strong>description</strong>: Init a target Git from the Blueprint source repo. It requires the Blueprint ID and the following parameters that they'll be interactively asked the user::</li>
-<li>URL of the target Git repository</li>
-<li>Whether to create or not (i.e., already exists) the target repository</li>
+<li><strong>description</strong>: Init a target Git from the Blueprint source repo. It requires the Blueprint ID and the following parameters that they'll be interactively asked the user:: <ul>
+<li>URL of the target Git repository </li>
+<li>Whether to create or not (i.e., already exists) the target repository </li>
 <li>each parameter required by the Blueprint (i.e., the parameters explicitly described in the Blueprint <code>params.json</code> file). if a parameter is skipped by the user, the default value will be used.</li>
-<li><strong>parameters</strong>:</li>
+</ul>
+</li>
+<li><strong>parameters</strong>: <ul>
 <li><code>--id</code>: Blueprint identifier</li>
-<li><strong>examples</strong>: </li>
-<li><code>odm-cli blueprint init --id 1</code> [with default <code>properties.yml</code> in module <code>root</code>]</li>
-<li><code>odm-cli blueprint -f properties.yml initBlueprint --id 1</code></li>
+</ul>
+</li>
+<li><strong>examples</strong>:  <ul>
+<li><code>odm-cli blueprint init --id 1</code> [with default <code>properties.yml</code> in module <code>root</code>] </li>
+<li><code>odm-cli blueprint -f properties.yml initBlueprint --id 1</code> </li>
 <li><code>odm-cli blueprint --server http://localhost:8003 init --id 1</code></li>
+</ul>
+</li>
 </ul>
 
 
