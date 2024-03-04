@@ -33,7 +33,7 @@ nav:
         - './architecture/product-plane/index.md'
         - 'Registry': './architecture/product-plane/registry.md'
         - 'DevOps': './architecture/product-plane/devops.md'
-        - 'Policy': './architecture/product-plane/index.md'
+        - 'Policy': './architecture/product-plane/policy.md'
         - 'Params': './architecture/product-plane/params.md'
         - 'Blueprint': './architecture/product-plane/blueprint.md'
     - 'Utility Plane':

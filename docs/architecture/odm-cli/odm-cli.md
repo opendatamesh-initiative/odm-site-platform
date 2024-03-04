@@ -33,6 +33,7 @@ any interaction with a reachable service and some requires and available and rea
 
 ## Commands
 This section list all the available command, grouped by used modules.
+
 * Local: local commands that doesn't need interaction with any ODM modules
 * Registry: commands that interact with the _Registry Server_ of ODM
 * Blueprint: commands that interact with the _Blueprint Server_ of ODM
@@ -59,13 +60,15 @@ odm-cli local validate dpv
 Commands that require an active and reachable instance of the ODM *Registry Server*
 
 Common parameters:
+
 * `-f / --properties-file`: file path of the configuration file describing how to communicate with ODM modules
-  * it's an optional YAML file that, if present, list all the modules and their URL in the following format: `module-server: http://<hostname>:<port>` (e.g., `registry-server: http://localhost:8001`)
-  * the default file in the project list the modules as if they were exposed locally with their default ports
+    * it's an optional YAML file that, if present, list all the modules and their URL in the following format: `module-server: http://<hostname>:<port>` (e.g., `registry-server: http://localhost:8001`)
+    * the default file in the project lists the modules as if they were exposed locally with their default ports
 * `-s / --server`: server address (port included) of the ODM *Registry Server*; If explicit, override the property in the `properties-file`
 * `-h / --help`: command helper
 * `-V / --version`: command version
 
+---
 #### list dp
 
 ```bash
@@ -75,9 +78,9 @@ odm-cli registry list dp
 * **name**: List Data Product
 * **description**: List all registered Data Product
 * **examples**: 
-  * `odm-cli registry list dp` [with default `properties.yml` in module `root`]
-  * `odm-cli registry -f properties.yml list dp`
-  * `odm-cli registry --server http://localhost:8001 list dp`
+    * `odm-cli registry list dp` [with default `properties.yml` in module `root`]
+    * `odm-cli registry -f properties.yml list dp`
+    * `odm-cli registry --server http://localhost:8001 list dp`
 
 ---
 #### list dpv
@@ -89,11 +92,11 @@ odm-cli registry list dpv
 * **name**: List Data Product Version
 * **description**: List all registered Data Product Version given a Data Product ID
 * **parameters**:
-  * `--id`: Data Product identifier
+    * `--id`: Data Product identifier
 * **examples**: 
-  * `odm-cli registry list dpv --id abc123` [with default `properties.yml` in module `root`]
-  * `odm-cli registry -f properties.yml list dpv --id abc123`
-  * `odm-cli registry --server http://localhost:8001 list dpv --id abc123`
+    * `odm-cli registry list dpv --id abc123` [with default `properties.yml` in module `root`]
+    * `odm-cli registry -f properties.yml list dpv --id abc123`
+    * `odm-cli registry --server http://localhost:8001 list dpv --id abc123`
 
 ---
 #### get dp
@@ -105,11 +108,11 @@ odm-cli registry get dp
 * **name**: Get Data Product
 * **description**: Get a specific Data Product given its ID
 * **parameters**:
-  * `--id` : Data Product identifier
+    * `--id` : Data Product identifier
 * **examples**:
-  * `odm-cli registry get dp --id abc123` [with default `properties.yml` in module `root`]
-  * `odm-cli registry -f properties.yml get dpv --id abc123`
-  * `odm-cli registry --server http://localhost:8001 get dpv --id abc123`
+    * `odm-cli registry get dp --id abc123` [with default `properties.yml` in module `root`]
+    * `odm-cli registry -f properties.yml get dpv --id abc123`
+    * `odm-cli registry --server http://localhost:8001 get dpv --id abc123`
 
 ---
 #### get dpv
@@ -121,12 +124,12 @@ odm-cli registry get dpv
 * **name**: Get Data Product Version
 * **description**: Get a specific Data Product Version given the Data Product ID and the version number
 * **parameters**:
-  * `--id` : Data Product identifier
-  * `--dpv`: desired version number
+    * `--id` : Data Product identifier
+    * `--dpv`: desired version number
 * **examples**: 
-  * `odm-cli registry get dpv --id abc123 --dpv 1.0.0` [with default `properties.yml` in module `root`]
-  * `odm-cli registry -f properties.yml get dpv --id abc123 --dpv 1.0.0`
-  * `odm-cli registry --server http://localhost:8001 get dpv --id abc123 --dpv 1.0.0`
+    * `odm-cli registry get dpv --id abc123 --dpv 1.0.0` [with default `properties.yml` in module `root`]
+    * `odm-cli registry -f properties.yml get dpv --id abc123 --dpv 1.0.0`
+    * `odm-cli registry --server http://localhost:8001 get dpv --id abc123 --dpv 1.0.0`
 
 
 ---
@@ -138,12 +141,12 @@ odm-cli registry publish dp
 
 * **name**: Publish Data Product
 * **description**: Publish a Data Product given the file path of its JSON descriptor
-* **parameters**:
-  * `--dp-file`: file path of the Data Product JSON descriptor
-* **examples**: 
-  * `odm-cli registry publish dp --dp-file src/main/resources/dpds/dp-example.json` [with default `properties.yml` in module `root`]
-  * `odm-cli registry -f properties.yml publish dp --dp-file src/main/resources/dpds/dp-example.json`
-  * `odm-cli registry --server http://localhost:8001 publish dp --dp-file src/main/resources/dpds/dp-example.json`
+* **parameters**: 
+    * `--dp-file`: file path of the Data Product JSON descriptor
+* **examples**:  
+    * `odm-cli registry publish dp --dp-file src/main/resources/dpds/dp-example.json` [with default `properties.yml` in module `root`] 
+    * `odm-cli registry -f properties.yml publish dp --dp-file src/main/resources/dpds/dp-example.json` 
+    * `odm-cli registry --server http://localhost:8001 publish dp --dp-file src/main/resources/dpds/dp-example.json`
 
 ---
 #### publish dpv
@@ -154,13 +157,13 @@ odm-cli registry publish dpv
 
 * **name**: Publish Data Product Version
 * **description**: Publish a Data Product Version givne the file path of its JSON descriptor and the ID of the parent Data Product
-* **parameters**:
-  * `--id`: Data Product identifier
-  * `--dpv-file`: local file path of the Data Product Version JSON descriptor
-* **examples**: 
-  * `odm-cli registry publish dpv --id abc123 --dpv-file src/main/resources/dpds/dpv.json` [with default `properties.yml` in module `root`]
-  * `odm-cli registry -f properties.yml publish dpv --id abc123 --dpv-file src/main/resources/dpds/dpd-example.json`
-  * `odm-cli registry --server http://localhost:8001 publish dpv --id abc123 --dpv-file src/main/resources/dpds/dpd-example.json`
+* **parameters**: 
+    * `--id`: Data Product identifier 
+    * `--dpv-file`: local file path of the Data Product Version JSON descriptor
+* **examples**:  
+    * `odm-cli registry publish dpv --id abc123 --dpv-file src/main/resources/dpds/dpv.json` [with default `properties.yml` in module `root`] 
+    * `odm-cli registry -f properties.yml publish dpv --id abc123 --dpv-file src/main/resources/dpds/dpd-example.json` 
+    * `odm-cli registry --server http://localhost:8001 publish dpv --id abc123 --dpv-file src/main/resources/dpds/dpd-example.json`
 
 ---
 #### uploadDPV
@@ -170,23 +173,24 @@ odm-cli registry upload dpv
 ```
 
 * **name**: Upload Data Product Version
-* **description**: Publish a Data Product Version given the Git repository that store its description objects. The command will interactively ask the user the following information: 
-  * SSH URI of the Git repo
-  * Designated branch of the Git repo (default: `main`)
-  * Relative path inside the Git repo of the root JSON descriptor of the Data Product Version object
-* **examples**: 
-  * `odm-cli registry upload dpv` [with default `properties.yml` in module `root`]
-  * `odm-cli registry -f properties.yml upload dpv`
-  * `odm-cli registry --server http://localhost:8001 upload dpv`
+* **description**: Publish a Data Product Version given the Git repository that store its description objects. The command will interactively ask the user the following information:  
+    * SSH URI of the Git repo 
+    * Designated branch of the Git repo (default: `main`) 
+    * Relative path inside the Git repo of the root JSON descriptor of the Data Product Version object
+* **examples**:  
+    * `odm-cli registry upload dpv` [with default `properties.yml` in module `root`] 
+    * `odm-cli registry -f properties.yml upload dpv` 
+    * `odm-cli registry --server http://localhost:8001 upload dpv`
 
 
 ### Blueprint commands
 Commands that require an active and reachable instance of the ODM *Blueprint Server*
 
 Common parameters:
-* `-f / --properties-file`: file path of the configuration file describing how to communicate with ODM modules
-  * it's an optional YAML file that, if present, list all the modules and their URL in the following format: `module-server: http://<hostname>:<port>` (e.g., `blueprint-server: http://localhost:8003`)
-  * the default file in the project list the modules as if they were exposed locally with their default ports
+
+* `-f / --properties-file`: file path of the configuration file describing how to communicate with ODM modules 
+    * it's an optional YAML file that, if present, list all the modules and their URL in the following format: `module-server: http://<hostname>:<port>` (e.g., `blueprint-server: http://localhost:8003`) 
+    * the default file in the project list the modules as if they were exposed locally with their default ports
 * `-s / --server`: server address (port included) of the ODM *Blueprint Server*; If explicit, override the property in the `properties-file`
 * `-h / --help`: command helper
 * `-V / --version`: command version
@@ -199,14 +203,14 @@ odm-cli blueprint create
 
 * **name**: Create Blueprint
 * **description**: Create a Blueprint given its JSON descriptor
-* **parameters**:
-  * `--blueprint-file`: file path of the JSON descriptor
-  * `--check`: [Optional] whether to verify or not the content of the Blueprint remote repository while creating it
-* **examples**:
-  * `odm-cli blueprint create --blueprint-file src/main/resources/bp-example.json` [with default `properties.yml` in module `root`]
-  * `odm-cli blueprint -f properties.yml create --blueprint-file src/main/resources/bp-example.json`
-  * `odm-cli blueprint --server http://localhost:8003 create --blueprint-file src/main/resources/bp-example.json`
-  * `odm-cli blueprint create --blueprint-file src/main/resources/bp-example.json --check`
+* **parameters**: 
+    * `--blueprint-file`: file path of the JSON descriptor 
+    * `--check`: [Optional] whether to verify or not the content of the Blueprint remote repository while creating it
+* **examples**: 
+    * `odm-cli blueprint create --blueprint-file src/main/resources/bp-example.json` [with default `properties.yml` in module `root`] 
+    * `odm-cli blueprint -f properties.yml create --blueprint-file src/main/resources/bp-example.json` 
+    * `odm-cli blueprint --server http://localhost:8003 create --blueprint-file src/main/resources/bp-example.json` 
+    * `odm-cli blueprint create --blueprint-file src/main/resources/bp-example.json --check`
 
 ---
 #### list
@@ -216,10 +220,10 @@ odm-cli blueprint list
 
 * **name**: List Blueprint
 * **description**: List all registered Blueprints
-* **examples**: 
-  * `odm-cli blueprint list` [with default `properties.yml` in module `root`]
-  * `odm-cli blueprint -f properties.yml list`
-  * `odm-cli blueprint --server http://localhost:8003 list`
+* **examples**:  
+    * `odm-cli blueprint list` [with default `properties.yml` in module `root`] 
+    * `odm-cli blueprint -f properties.yml list` 
+    * `odm-cli blueprint --server http://localhost:8003 list`
 
 ---
 #### init
@@ -229,13 +233,13 @@ odm-cli blueprint init
 ```
 
 * **name**: Init Blueprint
-* **description**: Init a target Git from the Blueprint source repo. It requires the Blueprint ID and the following parameters that they'll be interactively asked the user::
-  * URL of the target Git repository
-  * Whether to create or not (i.e., already exists) the target repository
-  * each parameter required by the Blueprint (i.e., the parameters explicitly described in the Blueprint `params.json` file). if a parameter is skipped by the user, the default value will be used.
-* **parameters**:
-  * `--id`: Blueprint identifier
-* **examples**: 
-  * `odm-cli blueprint init --id 1` [with default `properties.yml` in module `root`]
-  * `odm-cli blueprint -f properties.yml initBlueprint --id 1`
-  * `odm-cli blueprint --server http://localhost:8003 init --id 1`
+* **description**: Init a target Git from the Blueprint source repo. It requires the Blueprint ID and the following parameters that they'll be interactively asked the user:: 
+    * URL of the target Git repository 
+    * Whether to create or not (i.e., already exists) the target repository 
+    * each parameter required by the Blueprint (i.e., the parameters explicitly described in the Blueprint `params.json` file). if a parameter is skipped by the user, the default value will be used.
+* **parameters**: 
+    * `--id`: Blueprint identifier
+* **examples**:  
+    * `odm-cli blueprint init --id 1` [with default `properties.yml` in module `root`] 
+    * `odm-cli blueprint -f properties.yml initBlueprint --id 1` 
+    * `odm-cli blueprint --server http://localhost:8003 init --id 1`

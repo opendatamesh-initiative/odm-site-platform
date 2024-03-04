@@ -6,7 +6,8 @@ Blueprint is a module of the Product Plane of the ODM Platform.
 It's an independent module that allows users to initialize a new Git-based project starting from a base template, 
 that is the **blueprint**, and a series of parameters.
 
-At the state of the art, Blueprint supports 2 main Git Provider:
+At the state of the art, Blueprint supports two main Git Providers:
+
 * Azure DevOps
 * GitHub
 
@@ -19,7 +20,7 @@ A basic description and a how-to guide for execution is available on the module 
 * Spring 5.3.28
 * Spring Boot 2.7.13
 * Git
-* OAuth 2
+* [OAuth 2.0](https://oauth.net/2/)
 * [Apache Velocity 2.2](https://velocity.apache.org/)
 
 ### Git
@@ -128,7 +129,7 @@ As the majority of the ODM services, the Blueprint Service is composed by:
 * Blueprint API module: a module containing abstract controller, resource definition and a client to interact with the controller
 * Blueprint Server module: a module implementing the abstract controller, any other component to interact with the DB, and any service needed for the templating operations
 
-![Blueprint-diagram](../../images/architecture/product-plane/blueprint/blueprint.png)
+![Blueprint-diagram](../../images/architecture/product-plane/blueprint/blueprint_architecture.png)
 
 ## Relationships
 Blueprint service, as described in the introduction, doesn't require any other ODM module,
