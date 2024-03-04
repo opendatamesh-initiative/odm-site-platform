@@ -8,7 +8,7 @@ It has commands that doesn't require the connection to any ODM service, like the
 syntax, and commands that requires an available and reachable ODM service, such as commands to create a Data Product, 
 create a Blueprint, read all the registered Data Products, ...
 
-A basic description and an how-to guide for execution is available on the module [README.md](https://github.com/opendatamesh-initiative/odm-platform/blob/main/odm-cli/README.md) on GitHub.
+A basic description and a how-to guide for execution is available on the module [README.md](https://github.com/opendatamesh-initiative/odm-platform/blob/main/odm-cli/README.md) on GitHub.
 
 ## Technologies
 * Java 11
