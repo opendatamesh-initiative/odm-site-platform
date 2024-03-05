@@ -38,14 +38,78 @@ As the majority of the ODM services, the Blueprint Service is composed by:
 ## Relationships
 Registry service, as described in the introduction, could act as a standalone project, but also interacts with other 
 ODM services, such as Policy service and Notification services. 
-Each interaction is enabled or disabled through properties file.
+Each interaction is enabled or disabled through properties file, as shown by the following snippet:
+
+```yaml
+odm:
+  productPlane:
+    policyService:
+      active: false
+      address: http://localhost:8005
+  utilityPlane:
+    notificationServices:
+      blindata:
+        active: false
+        address: http://localhost:9002
+```
+In this example, the interactions with the Policy service are disabled, through the attribute `active: false`, 
+but there is an active notification system, only one, named `blindata`, reachable at `http://localhost:9002`.
 
 Additional information about service configuration or configuration and execution through Docker is available on the module
 [README.md](https://github.com/opendatamesh-initiative/odm-platform/blob/main/product-plane-services/registry-server/README.md) 
 on GitHub.
 
 ### Policy
-TODO
+<span style="color:red">[WIP - this section describe code that is still evolving]</span>
+
+The Registry could interact with the [Policy Service](../product-plane/policy.md) to check compliance of Data Product 
+and Data Product Version objects both on creation and update of them.
+
+As shown in the dedicated section, the Policy Service stores policies that have a special tag to specify the phase 
+in which the policy must be evaluated and whether the evaluation result is blocking or not for the phase.
+Blocking policy with a negative evaluation will lead to the failure of the relative phase.
+
+As an example, consider the existence of a few policies that check if before the creation of a Data Product Version
+all the names of the components are compliant with a specific naming convention.
+If the interaction with the Policy service is active, the creation of a Data Product Version with one or more components'
+name not compliant with the naming convention will fail returning an error from the Policy Service.
 
 ### Notification
-TODO
+The Registry service has a [notification system](../utility-plane/notification/index.md) based on the Observer Design Pattern.
+On the application startup, every notification _listener_ listed in the property file is registered, 
+and when an event occurs, a dispatcher sends the notification to every active listener.
+
+Events for the Registry Service are: 
+
+* DATA_PRODUCT_CREATED 
+* DATA_PRODUCT_UPDATED 
+* DATA_PRODUCT_DELETED
+* DATA_PRODUCT_VERSION_CREATED 
+* DATA_PRODUCT_VERSION_DELETED
+
+To register a new notification _listener_, edit the active Spring profile property file as follows: 
+
+```yaml
+odm:
+  utilityPlane:
+    notificationServices:
+      blindata:
+        active: false
+        address: http://localhost:9002
+      <newNotificationListenerName>:
+        active: <activeFlag>
+        address: http://<hostname>:<port>
+```
+As an example, consider adding a new _listener_ called `customListener` reachable at `http://locahost:9003` to the active listeners; 
+the section of the property file shown before will be: 
+```yaml
+odm:
+  utilityPlane:
+    notificationServices:
+      blindata:
+        active: false
+        address: http://localhost:9002
+      customListener:
+        active: true
+        address: http://localhost:9003
+```
