@@ -21,6 +21,15 @@ After the creation of an _Activity_, the ODM DevOps Service allows executing it,
 To make the execution possible, an _Executor_ must be running and reachable, to receive the execution call and forward it 
 to the DevOps tool, properly handling request and response from it.
 
+<span style="color:red">[WIP - this section describe code that is still evolving]</span>
+
+In addition to the basic behaviour, it could also have optional interactions with:
+
+* [Policy Service](../product-plane/policy.md): to optionally validate stage transitions and _Tasks_ and _Activity_ results
+* [Notification services](../utility-plane/notification/index.md): to optionally send policy evaluation events and/or stage transition events
+
+<span style="color:red">[END WIP]</span>
+
 A basic description and a how-to guide for execution is available on the module [README.md](https://github.com/opendatamesh-initiative/odm-platform/blob/main/product-plane-services/devops-server/README.md) on GitHub.
 
 ## Technologies
@@ -35,16 +44,121 @@ Other than the default Java, Maven and Spring technologies, the DevOps module do
 ## Concepts
 
 ### Activity
-TODO
+An _Activity_ is a set of one or more _Tasks_ that represent a stage transition in the lifecycle of a Data Product Version.
+For example, an _Activity_ could be a set of _Tasks_ that correctly deploy the Data Product Version in its `dev` stage.
+
+An _Activity_ is created through:
+
+* Data Product ID
+* Data Product Version
+* Stage
+
+Information about the content of the _Activity_ is retrieved from the _Registry Server_.
 
 ### Task
-TODO
+A _Task_ is a single execution point of an _Activity_, like, for example, a pipeline on a DevOps tool.
+One or more _Task_ could be part of an _Activity_.
+
+A _Task_ will be automatically created when the creation of an _Activity_ is required and the proper information is 
+retrieved from the _Registry Server_.
 
 ### Callback
-TODO
+A Task must return a _callback_ to the DevOps Server when its execution finishes. 
+The URL for the callback is automatically passed to the _executor_ and then to the _DevOps tool_ in a parameter named
+`callbackRef`.
+
+Such _callback_ have an optional body; if not present, the DevOps server will assume that the _Task_ status is successful,
+ if it is present, it must have the following format: 
+```json
+{
+  "status": <status>,
+  "errors": <errors>,
+  "results": <results> 
+}
+```
+where:
+
+* `<status>` could be one of `PROCESSED` or `FAILED`
+* `<errors>` is an optional string with the error encountered while executing the _Task_
+* `<results>` is an optional JSON object with any kind of depth
+* only one of `errors` and `results` must be given
+
+The body of the _callback_ is stored in the _Task_ results.
 
 ### Lifecycle section of a Data Product Descriptor
-TODO
+As previously stated, _Activity_ and _Tasks_ are not created giving their content.
+The DevOps server fetches the information required for the creation directly from the _Registry Server_.
+
+A Data Product Version object could indeed have a _lifecycle_ section in its descriptor and _Activity_ and _Tasks_ 
+can only be created for a Data Product Version object that has this section.
+
+To briefly describe how the _lifecycle_ section works, let's consider the following example:
+
+```json
+{
+  ..., 
+  "internalComponents":{
+    "lifecycleInfo":{
+      "dev":[
+        {
+          "service": {
+            "$href":"azure-devops"
+          }, 
+          "template":{
+            "specification":"spec", 
+            "specificationVersion":"2.0",
+            "definition":{
+              "organization":"[organizationName]",
+              "project":"[projectName]",
+              "pipelineId":"[pipelineID]",
+              "branch":"master"
+            }
+          },
+          "configurations":{
+            "params":{
+              "paramOne":"Hello World"
+            }
+          }
+        }
+      ], 
+      "prod":[
+        {
+          "service":{
+            "$href":"azure-devops"
+          },
+          "template":{
+            "specification":"spec",
+            "specificationVersion":"2.0",
+            "definition":{
+              "organization":"[organizationName]",
+              "project":"[projectName]",
+              "pipelineId":"[pipelineID]",
+              "branch":"master"
+            }
+          },
+          "configurations":{
+            "params":{
+              "paramOne": "Value of paramOne",
+              "paramTwo": "Value of paramTwo"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+```
+The Data Product Version considered in the example have two _Activity_ that could be created: `dev` and `prod`.
+Each of them is composed by a single _Task_ and each _Task_ has `azure-devops` as service. This means that in order to
+execute them an _Executor_ called `azure-devops` must be registered on the DevOps Service startup 
+(as shown in the section [Executor Adapters](#executor-adapters)). 
+
+Each _Task_ has a mandatory `template` attribute that is a JSON object containing a `definition` 
+attribute showing how to execute the _Task_. In the example, the _Tasks_ are _Azure DevOps_ pipeline 
+and the `definition` contains the information to identify and execute the pipeline.
+In addition to this, each _Task_ could also have a `configuration` attribute with extra information needed for the execution.
+The content of both attributes is strictly dependent from the implementation of the _Executor Adapter_ that will handle the _Tasks_.
+In the example, the Executor Adapter is the [Azure DevOps Executor](../utility-plane/executor/adapters/executor-azuredevops.md).
 
 ## Architecture
 As the majority of the ODM services, the Blueprint Service is composed by:
@@ -87,7 +201,7 @@ Each _Activity_ could be potentially executed on a different DevOps provider, ad
 adapters to the requirements. 
 So, the number of _Executor Adapters_ that the DevOps service needs to know depends on the desired behaviour of it.
 
-To make sure to correctly configure the interaction among them,  check the presence of something similar to 
+To make sure to correctly configure the interaction among them, check the presence of something similar to 
 the following configurations in the property file of the active _Spring profile_ before running the service:
 ```yaml
 odm:
@@ -106,7 +220,51 @@ To configure more than one executor, add another block like the `azure-devops` o
 _Executor Adapter_ could also have an API to check the status of a pipeline once the DevOps server received 
 a callback from it. If a specific adapter has that ability, 
 it could be enabled or disabled through the `checkAfterCallback` property.
+The check after the callback reception, if enabled, will be executed whether the callback has a body or not.
 
 Additional information about service configuration or configuration and execution through Docker is available on the module 
 [README.md](https://github.com/opendatamesh-initiative/odm-platform/blob/main/product-plane-services/devops-server/README.md)
 on GitHub.
+
+### Notification
+<span style="color:red">[WIP - this section describe code that is still evolving]</span>
+
+The DevOps service has a [notification system](../utility-plane/notification/index.md) based on the Observer Design Pattern.
+On the application startup, every notification _listener_ listed in the property file is registered, 
+and when an event occurs, a dispatcher sends the notification to every active listener.
+
+To make sure to correctly configure the interaction among them, check the presence of something similar to 
+the following configurations in the property file of the active _Spring profile_ before running the service:
+```yaml
+odm:
+  utilityPlane:
+    notificationServices:
+      <notificationListenerName>:
+        active: true
+        address: http://<hostname>:<port>
+```
+To enable multiple listeners just add another listener in the properties under the `notificationServices` attribute.
+
+Events for the DevOps Service are: 
+
+* DATA_PRODUCT_STAGE_TRANSITION 
+* DATA_PRODUCT_TASK_RESULTS
+* DATA_PRODUCT_ACTIVITY_RESULTS
+
+### Policy
+<span style="color:red">[WIP - this section describe code that is still evolving]</span>
+
+The DevOps Service could interact with the [Policy Service](../product-plane/policy.md) to check:
+
+* whether a stage transition (i.e., start an _Activity_) it's valid or not depending on future and previous stage
+* compliance of _Task_ results
+  * _Tasks_ could return results with the callback
+  * e.g., validating a _terraform plan_ returned in the callback of a _Task_ before proceeding with the next _Task_ or closing the _Activity_
+* compliance of _Activity_ results
+  * the result of an _Activity_ is the combination of the results of each of its _Task_
+  * the full set of results could be evaluated
+  * when an _Activity_ ends successfully, it's possible to evaluate whether the exposed services are coherent or not with the initial contract
+
+As shown in the dedicated section, the Policy Service stores policies that have a special tag to specify the phase 
+in which the policy must be evaluated and whether the evaluation result is blocking or not for the phase.
+Blocking policy with a negative evaluation will lead to the failure of the relative phase.
