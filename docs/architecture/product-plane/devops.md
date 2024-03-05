@@ -156,7 +156,8 @@ execute them an _Executor_ called `azure-devops` must be registered on the DevOp
 Each _Task_ has a mandatory `template` attribute that is a JSON object containing a `definition` 
 attribute showing how to execute the _Task_. In the example, the _Tasks_ are _Azure DevOps_ pipeline 
 and the `definition` contains the information to identify and execute the pipeline.
-In addition to this, each _Task_ could also have a `configuration` attribute with extra information needed for the execution.
+In addition to this, each _Task_ could also have a `configuration` attribute with extra information, 
+such as parameters for the pipeline, needed for the execution.
 The content of both attributes is strictly dependent from the implementation of the _Executor Adapter_ that will handle the _Tasks_.
 In the example, the Executor Adapter is the [Azure DevOps Executor](../utility-plane/executor/adapters/executor-azuredevops.md).
 
@@ -174,6 +175,15 @@ In order to properly operate as an orchestrator for DevOps operations, it requir
 
 * Registry Server: to retrieve Data Product Version objects
 * Executor adapters: to invoke the execution of _Tasks_ on the correct target DevOps tool
+
+<span style="color:red">[WIP - this section describe code that is still evolving]</span>
+
+In addition to them, it could also have optional interactions with:
+
+* [Policy Service](../product-plane/policy.md): to optionally validate stage transitions and _Tasks_ and _Activity_ results
+* [Notification services](../utility-plane/notification/index.md): to optionally send policy evaluation events and/or stage transition events
+
+<span style="color:red">[END WIP]</span>
 
 ### Registry Server
 The creation of an _Activity_, including its Tasks, requires a reachable instance of the _Registry Server_ to fetch the
