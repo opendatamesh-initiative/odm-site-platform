@@ -1193,6 +1193,24 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#notification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Policy
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2149,6 +2167,24 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#notification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Policy
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2192,6 +2228,13 @@ of a DevOps tool (e.g., Azure DevOps).
 After the creation of an <em>Activity</em>, the ODM DevOps Service allows executing it, executing one by one each of its <em>Tasks</em>. 
 To make the execution possible, an <em>Executor</em> must be running and reachable, to receive the execution call and forward it 
 to the DevOps tool, properly handling request and response from it.</p>
+<p><span style="color:red">[WIP - this section describe code that is still evolving]</span></p>
+<p>In addition to the basic behaviour, it could also have optional interactions with:</p>
+<ul>
+<li><a href="../policy/">Policy Service</a>: to optionally validate stage transitions and <em>Tasks</em> and <em>Activity</em> results</li>
+<li><a href="../../utility-plane/notification/">Notification services</a>: to optionally send policy evaluation events and/or stage transition events</li>
+</ul>
+<p><span style="color:red">[END WIP]</span></p>
 <p>A basic description and a how-to guide for execution is available on the module <a href="https://github.com/opendatamesh-initiative/odm-platform/blob/main/product-plane-services/devops-server/README.md">README.md</a> on GitHub.</p>
 <h2 id="technologies">Technologies<a class="headerlink" href="#technologies" title="Permanent link">⚓︎</a></h2>
 <ul>
@@ -2203,20 +2246,117 @@ to the DevOps tool, properly handling request and response from it.</p>
 <p>Other than the default Java, Maven and Spring technologies, the DevOps module does not make use of any particular technology.</p>
 <h2 id="concepts">Concepts<a class="headerlink" href="#concepts" title="Permanent link">⚓︎</a></h2>
 <h3 id="activity">Activity<a class="headerlink" href="#activity" title="Permanent link">⚓︎</a></h3>
-<p>TODO</p>
+<p>An <em>Activity</em> is a set of one or more <em>Tasks</em> that represent a stage transition in the lifecycle of a Data Product Version.
+For example, an <em>Activity</em> could be a set of <em>Tasks</em> that correctly deploy the Data Product Version in its <code>dev</code> stage.</p>
+<p>An <em>Activity</em> is created through:</p>
+<ul>
+<li>Data Product ID</li>
+<li>Data Product Version</li>
+<li>Stage</li>
+</ul>
+<p>Information about the content of the <em>Activity</em> is retrieved from the <em>Registry Server</em>.</p>
 <h3 id="task">Task<a class="headerlink" href="#task" title="Permanent link">⚓︎</a></h3>
-<p>TODO</p>
+<p>A <em>Task</em> is a single execution point of an <em>Activity</em>, like, for example, a pipeline on a DevOps tool.
+One or more <em>Task</em> could be part of an <em>Activity</em>.</p>
+<p>A <em>Task</em> will be automatically created when the creation of an <em>Activity</em> is required and the proper information is 
+retrieved from the <em>Registry Server</em>.</p>
 <h3 id="callback">Callback<a class="headerlink" href="#callback" title="Permanent link">⚓︎</a></h3>
-<p>TODO</p>
+<p>A Task must return a <em>callback</em> to the DevOps Server when its execution finishes. 
+The URL for the callback is automatically passed to the <em>executor</em> and then to the <em>DevOps tool</em> in a parameter named
+<code>callbackRef</code>.</p>
+<p>Such <em>callback</em> have an optional body; if not present, the DevOps server will assume that the <em>Task</em> status is successful,
+ if it is present, it must have the following format: 
+<div class="highlight"><span class="filename">JSON</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;s</span><span class="kc">tatus</span><span class="err">&gt;</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">&quot;errors&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;errors&gt;</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nt">&quot;results&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;resul</span><span class="kc">ts</span><span class="err">&gt;</span><span class="w"> </span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">}</span>
+</code></pre></div>
+where:</p>
+<ul>
+<li><code>&lt;status&gt;</code> could be one of <code>PROCESSED</code> or <code>FAILED</code></li>
+<li><code>&lt;errors&gt;</code> is an optional string with the error encountered while executing the <em>Task</em></li>
+<li><code>&lt;results&gt;</code> is an optional JSON object with any kind of depth</li>
+<li>only one of <code>errors</code> and <code>results</code> must be given</li>
+</ul>
+<p>The body of the <em>callback</em> is stored in the <em>Task</em> results.</p>
 <h3 id="lifecycle-section-of-a-data-product-descriptor">Lifecycle section of a Data Product Descriptor<a class="headerlink" href="#lifecycle-section-of-a-data-product-descriptor" title="Permanent link">⚓︎</a></h3>
-<p>TODO</p>
+<p>As previously stated, <em>Activity</em> and <em>Tasks</em> are not created giving their content.
+The DevOps server fetches the information required for the creation directly from the <em>Registry Server</em>.</p>
+<p>A Data Product Version object could indeed have a <em>lifecycle</em> section in its descriptor and <em>Activity</em> and <em>Tasks</em> 
+can only be created for a Data Product Version object that has this section.</p>
+<p>To briefly describe how the <em>lifecycle</em> section works, let's consider the following example:</p>
+<p><div class="highlight"><span class="filename">JSON</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="err">...</span><span class="p">,</span><span class="w"> </span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">&quot;internalComponents&quot;</span><span class="p">:{</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nt">&quot;lifecycleInfo&quot;</span><span class="p">:{</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">      </span><span class="nt">&quot;dev&quot;</span><span class="p">:[</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">          </span><span class="nt">&quot;service&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">            </span><span class="nt">&quot;$href&quot;</span><span class="p">:</span><span class="s2">&quot;azure-devops&quot;</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">          </span><span class="p">},</span><span class="w"> </span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">          </span><span class="nt">&quot;template&quot;</span><span class="p">:{</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">            </span><span class="nt">&quot;specification&quot;</span><span class="p">:</span><span class="s2">&quot;spec&quot;</span><span class="p">,</span><span class="w"> </span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">            </span><span class="nt">&quot;specificationVersion&quot;</span><span class="p">:</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">            </span><span class="nt">&quot;definition&quot;</span><span class="p">:{</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">              </span><span class="nt">&quot;organization&quot;</span><span class="p">:</span><span class="s2">&quot;[organizationName]&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">              </span><span class="nt">&quot;project&quot;</span><span class="p">:</span><span class="s2">&quot;[projectName]&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">              </span><span class="nt">&quot;pipelineId&quot;</span><span class="p">:</span><span class="s2">&quot;[pipelineID]&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">              </span><span class="nt">&quot;branch&quot;</span><span class="p">:</span><span class="s2">&quot;master&quot;</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">          </span><span class="p">},</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">          </span><span class="nt">&quot;configurations&quot;</span><span class="p">:{</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">            </span><span class="nt">&quot;params&quot;</span><span class="p">:{</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">              </span><span class="nt">&quot;paramOne&quot;</span><span class="p">:</span><span class="s2">&quot;Hello World&quot;</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">          </span><span class="p">}</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="w">      </span><span class="p">],</span><span class="w"> </span>
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="w">      </span><span class="nt">&quot;prod&quot;</span><span class="p">:[</span>
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="w">          </span><span class="nt">&quot;service&quot;</span><span class="p">:{</span>
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="w">            </span><span class="nt">&quot;$href&quot;</span><span class="p">:</span><span class="s2">&quot;azure-devops&quot;</span>
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="w">          </span><span class="p">},</span>
+<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="w">          </span><span class="nt">&quot;template&quot;</span><span class="p">:{</span>
+<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="w">            </span><span class="nt">&quot;specification&quot;</span><span class="p">:</span><span class="s2">&quot;spec&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a><span class="w">            </span><span class="nt">&quot;specificationVersion&quot;</span><span class="p">:</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a><span class="w">            </span><span class="nt">&quot;definition&quot;</span><span class="p">:{</span>
+<a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a><span class="w">              </span><span class="nt">&quot;organization&quot;</span><span class="p">:</span><span class="s2">&quot;[organizationName]&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a><span class="w">              </span><span class="nt">&quot;project&quot;</span><span class="p">:</span><span class="s2">&quot;[projectName]&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a><span class="w">              </span><span class="nt">&quot;pipelineId&quot;</span><span class="p">:</span><span class="s2">&quot;[pipelineID]&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a><span class="w">              </span><span class="nt">&quot;branch&quot;</span><span class="p">:</span><span class="s2">&quot;master&quot;</span>
+<a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a><span class="w">          </span><span class="p">},</span>
+<a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a><span class="w">          </span><span class="nt">&quot;configurations&quot;</span><span class="p">:{</span>
+<a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a><span class="w">            </span><span class="nt">&quot;params&quot;</span><span class="p">:{</span>
+<a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a><span class="w">              </span><span class="nt">&quot;paramOne&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Value of paramOne&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a><span class="w">              </span><span class="nt">&quot;paramTwo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Value of paramTwo&quot;</span>
+<a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a><span class="w">          </span><span class="p">}</span>
+<a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-1-49" name="__codelineno-1-49" href="#__codelineno-1-49"></a><span class="w">      </span><span class="p">]</span>
+<a id="__codelineno-1-50" name="__codelineno-1-50" href="#__codelineno-1-50"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-51" name="__codelineno-1-51" href="#__codelineno-1-51"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-1-52" name="__codelineno-1-52" href="#__codelineno-1-52"></a><span class="p">}</span>
+</code></pre></div>
+The Data Product Version considered in the example have two <em>Activity</em> that could be created: <code>dev</code> and <code>prod</code>.
+Each of them is composed by a single <em>Task</em> and each <em>Task</em> has <code>azure-devops</code> as service. This means that in order to
+execute them an <em>Executor</em> called <code>azure-devops</code> must be registered on the DevOps Service startup 
+(as shown in the section <a href="#executor-adapters">Executor Adapters</a>). </p>
+<p>Each <em>Task</em> has a mandatory <code>template</code> attribute that is a JSON object containing a <code>definition</code> 
+attribute showing how to execute the <em>Task</em>. In the example, the <em>Tasks</em> are <em>Azure DevOps</em> pipeline 
+and the <code>definition</code> contains the information to identify and execute the pipeline.
+In addition to this, each <em>Task</em> could also have a <code>configuration</code> attribute with extra information, 
+such as parameters for the pipeline, needed for the execution.
+The content of both attributes is strictly dependent from the implementation of the <em>Executor Adapter</em> that will handle the <em>Tasks</em>.
+In the example, the Executor Adapter is the <a href="../../utility-plane/executor/adapters/executor-azuredevops/">Azure DevOps Executor</a>.</p>
 <h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">⚓︎</a></h2>
 <p>As the majority of the ODM services, the Blueprint Service is composed by:</p>
 <ul>
 <li>DevOps API module: a module containing abstract controller, resource definition and a client to interact with the controller</li>
 <li>DevOps Server module: a module implementing the abstract controller, any other component to interact with the DB, and any service needed for DevOps operations</li>
 </ul>
-<p><img alt="DevOps-diagram" src="../../images/architecture/product-plane/devops/devops_architecture.png" /></p>
+<p><img alt="DevOps-diagram" src="../../../images/architecture/product-plane/devops/devops_architecture.png" /></p>
 <h2 id="relationships">Relationships<a class="headerlink" href="#relationships" title="Permanent link">⚓︎</a></h2>
 <p>As previously stated, the DevOps service is not meant to be a standalone service. 
 In order to properly operate as an orchestrator for DevOps operations, it requires:</p>
@@ -2224,17 +2364,24 @@ In order to properly operate as an orchestrator for DevOps operations, it requir
 <li>Registry Server: to retrieve Data Product Version objects</li>
 <li>Executor adapters: to invoke the execution of <em>Tasks</em> on the correct target DevOps tool</li>
 </ul>
+<p><span style="color:red">[WIP - this section describe code that is still evolving]</span></p>
+<p>In addition to them, it could also have optional interactions with:</p>
+<ul>
+<li><a href="../policy/">Policy Service</a>: to optionally validate stage transitions and <em>Tasks</em> and <em>Activity</em> results</li>
+<li><a href="../../utility-plane/notification/">Notification services</a>: to optionally send policy evaluation events and/or stage transition events</li>
+</ul>
+<p><span style="color:red">[END WIP]</span></p>
 <h3 id="registry-server">Registry Server<a class="headerlink" href="#registry-server" title="Permanent link">⚓︎</a></h3>
 <p>The creation of an <em>Activity</em>, including its Tasks, requires a reachable instance of the <em>Registry Server</em> to fetch the
 content of the <em>Activity</em>. 
 The DevOps server will start even without a reachable Registry Server, but every creation will return an error.</p>
 <p>To make sure to correctly configure the interaction among them, check the presence of the following configurations in 
 the property file of the active <em>Spring profile</em> before running the service:
-<div class="highlight"><span class="filename">YAML</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">odm</span><span class="p">:</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">productPlane</span><span class="p">:</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">registryService</span><span class="p">:</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">      </span><span class="nt">active</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">      </span><span class="nt">address</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://&lt;hostname&gt;:&lt;port&gt;</span>
+<div class="highlight"><span class="filename">YAML</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">odm</span><span class="p">:</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">productPlane</span><span class="p">:</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">registryService</span><span class="p">:</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">      </span><span class="nt">active</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">      </span><span class="nt">address</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://&lt;hostname&gt;:&lt;port&gt;</span>
 </code></pre></div></p>
 <p>Additional information about service configuration or configuration and execution through Docker is available on the module 
 <a href="https://github.com/opendatamesh-initiative/odm-platform/blob/main/product-plane-services/devops-server/README.md">README.md</a>
@@ -2245,15 +2392,15 @@ right <em>Executor Adapter</em>.
 Each <em>Activity</em> could be potentially executed on a different DevOps provider, adding multiple 
 adapters to the requirements. 
 So, the number of <em>Executor Adapters</em> that the DevOps service needs to know depends on the desired behaviour of it.</p>
-<p>To make sure to correctly configure the interaction among them,  check the presence of something similar to 
+<p>To make sure to correctly configure the interaction among them, check the presence of something similar to 
 the following configurations in the property file of the active <em>Spring profile</em> before running the service:
-<div class="highlight"><span class="filename">YAML</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">odm</span><span class="p">:</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">utilityPlane</span><span class="p">:</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">executorServices</span><span class="p">:</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">      </span><span class="nt">azure-devops</span><span class="p">:</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">        </span><span class="nt">active</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">        </span><span class="nt">address</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://&lt;hostname&gt;:&lt;port&gt;</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">        </span><span class="nt">checkAfterCallback</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<div class="highlight"><span class="filename">YAML</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">odm</span><span class="p">:</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">utilityPlane</span><span class="p">:</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nt">executorServices</span><span class="p">:</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">      </span><span class="nt">azure-devops</span><span class="p">:</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">        </span><span class="nt">active</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span><span class="nt">address</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://&lt;hostname&gt;:&lt;port&gt;</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">        </span><span class="nt">checkAfterCallback</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 </code></pre></div>
 In this example, only one <em>Executor Adapter</em> (i.e., the <a href="../../utility-plane/executor/adapters/executor-azuredevops/"><em>Azure DevOps Executor Adapter</em></a>)
 is configured for usage. 
@@ -2261,10 +2408,48 @@ It could be used for the execution of Tasks that have <code>azure-devops</code> 
 To configure more than one executor, add another block like the <code>azure-devops</code> one under the <code>executorServices</code> attribute.</p>
 <p><em>Executor Adapter</em> could also have an API to check the status of a pipeline once the DevOps server received 
 a callback from it. If a specific adapter has that ability, 
-it could be enabled or disabled through the <code>checkAfterCallback</code> property.</p>
+it could be enabled or disabled through the <code>checkAfterCallback</code> property.
+The check after the callback reception, if enabled, will be executed whether the callback has a body or not.</p>
 <p>Additional information about service configuration or configuration and execution through Docker is available on the module 
 <a href="https://github.com/opendatamesh-initiative/odm-platform/blob/main/product-plane-services/devops-server/README.md">README.md</a>
 on GitHub.</p>
+<h3 id="notification">Notification<a class="headerlink" href="#notification" title="Permanent link">⚓︎</a></h3>
+<p><span style="color:red">[WIP - this section describe code that is still evolving]</span></p>
+<p>The DevOps service has a <a href="../../utility-plane/notification/">notification system</a> based on the Observer Design Pattern.
+On the application startup, every notification <em>listener</em> listed in the property file is registered, 
+and when an event occurs, a dispatcher sends the notification to every active listener.</p>
+<p>To make sure to correctly configure the interaction among them, check the presence of something similar to 
+the following configurations in the property file of the active <em>Spring profile</em> before running the service:
+<div class="highlight"><span class="filename">YAML</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">odm</span><span class="p">:</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">utilityPlane</span><span class="p">:</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="nt">notificationServices</span><span class="p">:</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">      </span><span class="nt">&lt;notificationListenerName&gt;</span><span class="p">:</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">        </span><span class="nt">active</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">        </span><span class="nt">address</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://&lt;hostname&gt;:&lt;port&gt;</span>
+</code></pre></div>
+To enable multiple listeners just add another listener in the properties under the <code>notificationServices</code> attribute.</p>
+<p>Events for the DevOps Service are: </p>
+<ul>
+<li>DATA_PRODUCT_STAGE_TRANSITION </li>
+<li>DATA_PRODUCT_TASK_RESULTS</li>
+<li>DATA_PRODUCT_ACTIVITY_RESULTS</li>
+</ul>
+<h3 id="policy">Policy<a class="headerlink" href="#policy" title="Permanent link">⚓︎</a></h3>
+<p><span style="color:red">[WIP - this section describe code that is still evolving]</span></p>
+<p>The DevOps Service could interact with the <a href="../policy/">Policy Service</a> to check:</p>
+<ul>
+<li>whether a stage transition (i.e., start an <em>Activity</em>) it's valid or not depending on future and previous stage</li>
+<li>compliance of <em>Task</em> results</li>
+<li><em>Tasks</em> could return results with the callback</li>
+<li>e.g., validating a <em>terraform plan</em> returned in the callback of a <em>Task</em> before proceeding with the next <em>Task</em> or closing the <em>Activity</em></li>
+<li>compliance of <em>Activity</em> results</li>
+<li>the result of an <em>Activity</em> is the combination of the results of each of its <em>Task</em></li>
+<li>the full set of results could be evaluated</li>
+<li>when an <em>Activity</em> ends successfully, it's possible to evaluate whether the exposed services are coherent or not with the initial contract</li>
+</ul>
+<p>As shown in the dedicated section, the Policy Service stores policies that have a special tag to specify the phase 
+in which the policy must be evaluated and whether the evaluation result is blocking or not for the phase.
+Blocking policy with a negative evaluation will lead to the failure of the relative phase.</p>
 
 
 
@@ -2287,7 +2472,7 @@ on GitHub.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 4, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 5, 2024</span>
   </span>
 
     
