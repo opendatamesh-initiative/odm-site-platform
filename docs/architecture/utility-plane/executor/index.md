@@ -27,7 +27,7 @@ that is a module containing abstract controller, resource definition and a clien
 A default implementation of the _Executor Server_ module does not exist.
 
 
-![Executor-diagram](../../../images/architecture/utility-plane/executor/executor-architecture.png)
+![Executor-diagram](../../../images/architecture/utility-plane/executor/executor_architecture.png)
 
 ## Relationships
 Executor in Utility Plane is a generalization of the common parts that any
