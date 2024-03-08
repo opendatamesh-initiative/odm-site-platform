@@ -121,22 +121,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://platform.opendatamesh.org/concepts/data-product-experience-plane/</loc>
-         <lastmod>2024-03-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://platform.opendatamesh.org/concepts/federated-computational-governance/</loc>
-         <lastmod>2024-03-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://platform.opendatamesh.org/concepts/logical-planes/</loc>
-         <lastmod>2024-03-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://platform.opendatamesh.org/concepts/mesh-experience-plane/</loc>
          <lastmod>2024-03-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -146,7 +131,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://platform.opendatamesh.org/concepts/utility-plane/</loc>
+         <loc>https://platform.opendatamesh.org/concepts/logical-planes/</loc>
+         <lastmod>2024-03-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://platform.opendatamesh.org/concepts/logical-planes/data-product-experience-plane/</loc>
+         <lastmod>2024-03-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://platform.opendatamesh.org/concepts/logical-planes/mesh-experience-plane/</loc>
+         <lastmod>2024-03-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://platform.opendatamesh.org/concepts/logical-planes/utility-plane/</loc>
          <lastmod>2024-03-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
