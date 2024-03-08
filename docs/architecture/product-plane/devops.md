@@ -161,6 +161,353 @@ such as parameters for the pipeline, needed for the execution.
 The content of both attributes is strictly dependent from the implementation of the _Executor Adapter_ that will handle the _Tasks_.
 In the example, the Executor Adapter is the [Azure DevOps Executor](../utility-plane/executor/adapters/executor-azuredevops.md).
 
+### Task Context
+The DevOps Service allows combining the Data Product descriptor and a specific usage of the callback feature 
+to enrich a Task with a _Context_. The _Context_ of a _Task_, summarized, is a brief recap of the status and the results 
+of each previous Task of the same Activity and each Task of eventual previous Activity. It allows the current _Task_
+to access results from previous ones and, if explicitly declared, use them as parameter for the execution.
+
+A _Context_ is created every time the execution of a _Task_ is triggered 
+while handling the request to execute the parent _Activity_. 
+It's then forwarded, embedded inside the `configuration` attribute of the _Task_,
+to the [_Executor Adapter_](../utility-plane/executor/index.md) that will handle its execution.
+The receiving _Executor Adapter_ could handle or ignoring it depending on its implementation.
+
+#### Example
+To make the concept clearer, let's explain it step by step through the following example.
+
+Consider a Data Product Version with two Activities which have, respectively, two Tasks and one Task. 
+The JSON descriptor is something similar to:
+```json
+{
+  ...,
+  "lifecycleInfo": {
+    "dev": [
+      {
+        "service": {
+          "$href": "azure-devops" // AzureDevOps Executor Adapter required
+        },
+        "template": {
+          "specification": "spec",
+          "specificationVersion": "2.0",
+          "definition": {
+            // references for the AzureDevOps pipeline
+          }
+        },
+        "configurations": {
+          "stageToSkip": [],
+          "params": {
+            // parameters for the AzureDevOps pipeline
+          }
+        }
+      },
+      {
+        "service": {
+          "$href": "azure-devops"
+        },
+        "template": {
+          "specification": "spec",
+          "specificationVersion": "2.0",
+          "definition": {
+            // references for the AzureDevOps pipeline
+          }
+        },
+        "configurations": {
+          "stageToSkip": [],
+          "params": {
+            // parameters for the AzureDevOps pipeline
+          }
+        }
+      }
+    ],
+    "test":[
+      {
+        "service":{
+          "$href":"azure-devops"
+        },
+        "template":{
+          "specification":"spec",
+          "specificationVersion":"2.0",
+          "definition":{
+            // references for the AzureDevOps pipeline
+          }
+        },
+        "configurations":{
+          "stageToSkip": [],
+          "params": {
+            // parameters for the AzureDevOps pipeline
+          }
+        }
+      }
+    ]
+  },
+  ...
+}
+```
+
+The first Activity aims to deploy the Data Product Version in the `dev` stage, 
+while the latter has as goal the deployment to the `test` stage. 
+Let's assume that for the former one, 
+the first Task provisions the infrastructure and the second one deploys the application.
+
+When the DevOps server receives the request to execute the first Activity, it extracts from the Activity the Tasks. 
+Then, it sequentially forwards the Task execution request to the right Executor Adapter. 
+The request for the second Task is forwarded only if and when a callback from the DevOps tool is received.
+Before forwarding the request to the Executor Adapter, the DevOps service enriches the Task with a Context.
+
+For the first Task of the first Activity, the Context will be:
+```json
+{
+  "dev": {
+    "status": "RUNNING",
+    "finishedAt": null,
+    "results": null
+  }
+}
+```
+and the `configurations` attribute of the Task will become:
+```json
+{
+  ...,
+  "configurations": {
+    "params": {
+      // parameters for the AzureDevOps pipeline
+    },
+    "context": {
+      "dev": {
+        "status": "RUNNING",
+        "finishedAt": null,
+        "results": null
+      }
+    }
+  }
+}
+```
+
+The first Task of the first Activity finishes its execution with a successful state and forwards a callback 
+to the DevOps server communicating its status and the IP to access the provisioned infrastructure. 
+The callback body is:
+```json
+{
+  "status": "PROCESSED",
+  "results": {
+    "vm": {
+      "name": "vm-dev",
+      "ip": "198.168.20.120"
+    }
+  }
+}
+```
+The callback is then processed and the results stored in the Database.
+
+Now that the first Task is successfully processed, the DevOps service will take the second one, enrich it with a 
+Context, and forward it to the Executor Adapter. Context now is:
+```json
+{
+  "dev": {
+    "status": "RUNNING",
+    "finishedAt": null,
+    "results": {
+      "task1": {
+        "vm": {
+          "name": "vm-dev",
+          "ip": "198.168.20.120"
+        }
+      }
+    }
+  }
+}
+```
+and the `configurations` attribute of the Task will become:
+```json
+{
+  ...,
+  "configurations": {
+    "params": {
+      // parameters for the AzureDevOps pipeline
+    },
+    "context": {
+      "dev": {
+        "status": "RUNNING",
+        "finishedAt": null,
+        "results": {
+          "task1": {
+            "vm": {
+              "name": "vm-dev",
+              "ip": "198.168.20.120"
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+The first Task of the first Activity finishes its execution with a successful state and forwards a callback 
+to the DevOps server communicating its status and a _Hello World_ endpoint URL of the deployed application.
+The callback body is:
+```json
+{
+  "status": "PROCESSED",
+  "results": {
+    "url": "localhost:8121/helloWorld"
+  }
+}
+```
+
+Finally, the DevOps server receives a request to execute the second Activity of the same Data Product Version.
+It extracts the single Task and repeat the same operations showed above. 
+This time the context and the enriched Task (only its `configurations` attribute is shown) will be: 
+```json
+{
+  "dev": {
+    "status": "PROCESSED",
+    "finishedAt": "2023-11-23 14:32:00",
+    "results": {
+      "task1": {
+        "vm": {
+          "name": "vm-dev",
+          "ip": "198.168.20.120"
+        }
+      },
+      "task2": {
+        "url": "localhost:8121/helloWorld"
+      }
+    }
+  },
+  "test": {
+    "status": "RUNNING",
+    "finishedAt": null,
+    "results": null
+  }
+}
+```
+```json
+{
+  ...,
+  "configurations": {
+    "params": {
+      // parameters for the AzureDevOps pipeline
+    },
+    "context": {
+      "dev": {
+        "status": "PROCESSED",
+        "finishedAt": "2023-11-23 14:32:00",
+        "results": {
+          "task1": {
+            "vm": {
+              "name": "vm-dev",
+              "ip": "198.168.20.120"
+            }
+          },
+          "task2": {
+            "url": "localhost:8121/helloWorld"
+          }
+        }
+      },
+      "test": {
+        "status": "RUNNING",
+        "finishedAt": null,
+        "results": null
+      }
+    }
+  }
+}
+```
+
+In this way, each Task can potentially access any previous result in the Data Product Version DevOps lifecycle.
+
+Considering the same example, how can the Context be used? 
+Suppose that the second Task of the first Activity requires the IP of the provisioned infrastructure to deploy the application,
+and the only Task of the second Activity needs to know the URL of the application endpoint.
+Through a specific syntax, it's possible to encode directly in the Data Product descriptor a placeholder variable whose
+value would be retrieved from the context. The JSON descriptor will be similar to:
+```json
+{
+  ...,
+  "lifecycleInfo": {
+    "dev": [
+      {
+        "service": {
+          "$href": "azure-devops" // AzureDevOps Executor Adapter required
+        },
+        "template": {
+          "specification": "spec",
+          "specificationVersion": "2.0",
+          "definition": {
+            "organization":"mycustomorg",
+            "project":"mycustomproject",
+            "pipelineId":"2",
+            "branch":"master"
+          }
+        },
+        "configurations": {
+          "stageToSkip": [],
+          "params": {
+            "param1": "value1",
+            "param2": "value2"
+          }
+        }
+      },
+      {
+        "service": {
+          "$href": "azure-devops"
+        },
+        "template": {
+          "specification": "spec",
+          "specificationVersion": "2.0",
+          "definition": {
+            "organization":"mycustomorg",
+            "project":"mycustomproject",
+            "pipelineId":"3",
+            "branch":"master"
+          }
+        },
+        "configurations": {
+          "stageToSkip": [],
+          "params": {
+            "param": "value",
+            "vmIp": "${dev.results.task1.vm.ip}"
+          }
+        }
+      }
+    ],
+    "test":[
+      {
+        "service":{
+          "$href":"azure-devops"
+        },
+        "template":{
+          "specification":"spec",
+          "specificationVersion":"2.0",
+          "definition":{
+            "organization":"mycustomorg",
+            "project":"mycustomproject",
+            "pipelineId":"6",
+            "branch":"master"
+          }
+        },
+        "configurations":{
+          "stageToSkip": [],
+          "params": {
+            "param": "value",
+            "endpointURL": "${dev.results.task2.url}"
+          }
+        }
+      }
+    ]
+  },
+  ...
+}
+```
+
+Thanks to this strategy, the [_Executor AzureDevOps_](../utility-plane/executor/adapters/executor-azuredevops.md), 
+and, generally, every other Executor Adapter, can replace the placeholder for the variable with values from the context.
+In the example, the Azure DevOps pipeline of the second Task of the `dev` Activity can use a `vmIp` parameter, as well
+as the pipeline for the Task of the `prod` Activity can use a `endpointURL` parameter. 
+In both scenarios, the Executor Adapter will assign the right value for the parameters extracting them from the Context.
+
 ## Architecture
 As the majority of the ODM services, the Blueprint Service is composed by:
 
