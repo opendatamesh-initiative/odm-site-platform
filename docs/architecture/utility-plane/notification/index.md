@@ -30,7 +30,6 @@ the abstract controller and other common parts such as entities, repository, exc
 The difference is that it doesn't have a main class, and it isn't directly executable, leaving to the 
 specific adapter the task of overriding specific behaviours and defining a runnable application.
 
-
 ![Notification-diagram](../../../images/architecture/utility-plane/notification/notification_architecture.png)
 
 ## Relationships
