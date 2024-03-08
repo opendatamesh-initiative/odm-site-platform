@@ -1307,6 +1307,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Executor Azure DevOps
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1316,6 +1327,91 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#technologies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technologies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technologies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#oauth2" class="md-nav__link">
+    <span class="md-ellipsis">
+      OAuth2
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#azure-devops-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Azure DevOps pipeline
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relationships" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relationships
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1896,6 +1992,80 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#technologies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technologies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technologies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#oauth2" class="md-nav__link">
+    <span class="md-ellipsis">
+      OAuth2
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#azure-devops-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Azure DevOps pipeline
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relationships" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relationships
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1913,7 +2083,72 @@
 
 
 <h1 id="executor-azure-devops">Executor Azure DevOps<a class="headerlink" href="#executor-azure-devops" title="Permanent link">⚓︎</a></h1>
-<p>Coming Soon!</p>
+<p>The Executor Azure DevOps is an <a href="../../"><em>Executor Adapter</em></a> that acts as a proxy between the
+<a href="../../../../product-plane/devops/"><em>DevOps Server</em></a> and Azure DevOps.</p>
+<p>Its main task is to receive <em>Task</em> to execute, process them and forward the processed request to Azure DevOps.
+In addition to this, it also keeps track of the mapping between the <em>Task</em> and the requested
+<em>Azure DevOps pipeline</em>, exposes and endpoint to check the pipeline status 
+and update the mapping properties with status information.</p>
+<p>In order to properly interact with Azure DevOps, it needs to handle <em>authorization</em>; for this reason, 
+the Executor AzureDevOps module uses OAuth 2.0 requiring configuration of credentials before the service execution.</p>
+<p>A basic description and a how-to guide for execution is available on the module <a href="https://github.com/opendatamesh-initiative/odm-platform-up-services-executor-azuredevops/README.md">README.md</a> on GitHub.</p>
+<h2 id="technologies">Technologies<a class="headerlink" href="#technologies" title="Permanent link">⚓︎</a></h2>
+<ul>
+<li>Java 11</li>
+<li>Maven 3.8.6</li>
+<li>Spring 5.3.28</li>
+<li>Spring Boot 2.7.13</li>
+<li><a href="https://oauth.net/2/">OAuth 2.0</a></li>
+</ul>
+<h3 id="oauth2">OAuth2<a class="headerlink" href="#oauth2" title="Permanent link">⚓︎</a></h3>
+<p><a href="https://oauth.net/2/">OAuth 2.0</a> is the <em>authorization</em> protocol used for interactions with Azure DevOps.
+It makes sure to add authorization information to any request forwarded to the DevOps provider through an <em>Access Token</em>.</p>
+<p>On start-up, the Executor DevOps must be configured through the <em>property files</em> with OAuth parameters like:</p>
+<ul>
+<li>Token URI</li>
+<li>Client ID</li>
+<li>Client Secret</li>
+<li>Scope</li>
+</ul>
+<p>Detailed information on how to create an <em>Azure DevOps Service Principal</em> and configure the adapter is available on the 
+<a href="https://github.com/opendatamesh-initiative/odm-platform-up-services-executor-azuredevops/README.md">README.md</a> on GitHub.</p>
+<h2 id="concepts">Concepts<a class="headerlink" href="#concepts" title="Permanent link">⚓︎</a></h2>
+<h3 id="azure-devops-pipeline">Azure DevOps pipeline<a class="headerlink" href="#azure-devops-pipeline" title="Permanent link">⚓︎</a></h3>
+<p>Every Executor AzureDevOps task involves interactions with an ODM Task and an Azure DevOps pipeline.
+Any information required to identify the right pipeline is encoded in the input <em>Task</em> itself, 
+as detailed in the <a href="../../../../product-plane/devops/">DevOps Service documentation page</a>, 
+specifically in the <code>lifecycle</code> attribute of the <code>internalComponents</code> attribute of the Data Product descriptor.</p>
+<p>After the <em>Task</em> creation, the adapter for AzureDevOps requires the <em>Task</em> object to have:</p>
+<ul>
+<li><code>template</code> attribute, containing:</li>
+<li><code>organization</code></li>
+<li><code>project</code> (i.e., project ID)</li>
+<li><code>pipelineId</code></li>
+<li><code>branch</code></li>
+<li><code>configurations</code> attribute, containing:</li>
+<li><code>stagesToSkip</code>: a List with the name of stages of the desired pipeline to skip</li>
+<li><code>params</code>: a Map, a set of <em>key-value</em> pairs representing the parameters required from the pipeline in order to be executed</li>
+</ul>
+<h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">⚓︎</a></h2>
+<p>As the majority of the ODM services, the Executor AzureDevOps Service is composed by:</p>
+<ul>
+<li>Azure DevOps API module: a module containing resource definition and a client to interact with Azure DevOps</li>
+<li>differently from the <em>Product Plane</em> services, it does not expose any abstract controller</li>
+<li>Blueprint Server module: a module implementing the abstract controller, any other component to interact with the DB, and any service needed for the logic</li>
+<li>the abstract controller and commons part are not retrieved from the API module, but from the <a href="../../"><em>Executor</em></a> module of the Utility Plane</li>
+</ul>
+<p>The <em>Executor AzureDevOps</em> is an adapter, an implementation of Executor,
+so it only overrides parts specific to Azure DevOps, including communication with it and handling resources.</p>
+<p><img alt="Executor-AzureDevOps-diagram" src="../../../../../images/architecture/utility-plane/executor/adapters/executor_azuredevops_architecture.png" /></p>
+<h2 id="relationships">Relationships<a class="headerlink" href="#relationships" title="Permanent link">⚓︎</a></h2>
+<p>Executor AzureDevOps it's not meant to be a standalone service,
+but it has the ability to be used as an independent module.
+It exposes reachable APIs, and it includes any information needed to communicate with Azure.</p>
+<p>Even if it's possible, the only actions that don't involve any other ODM services are access to the adapter Database 
+to retrieve information about Task executions.</p>
+<p>Its default usage always includes interactions with:
+* DevOps Service, to receive Task to be executed and to, eventually, check the status of the pipeline once the Task returns a callback to the DevOps server
+* Azure DevOps, to request pipeline executions or information about a specific run of a pipeline</p>
 
 
 
@@ -1936,7 +2171,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 3, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 8, 2024</span>
   </span>
 
     
