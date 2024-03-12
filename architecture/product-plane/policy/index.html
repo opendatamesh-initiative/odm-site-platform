@@ -1115,6 +1115,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Policy
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1124,6 +1135,94 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technologies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technologies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#policy-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      Policy Engine
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policy_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Policy
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relationships" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relationships
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1939,6 +2038,83 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technologies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technologies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#policy-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      Policy Engine
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policy_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Policy
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relationships" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relationships
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1956,7 +2132,99 @@
 
 
 <h1 id="policy">Policy<a class="headerlink" href="#policy" title="Permanent link">⚓︎</a></h1>
-<p>Coming Soon!</p>
+<p>Policy Service is the ODM Product Plane module that handles the concept of <em>Policy</em>. 
+It allows creating, updating, deleting, deploying and evaluating policies.
+These operations are possible both as independent operations or as a reaction to event of the platform, 
+such as <em>Registry events</em> (e.g. creation of a Data Product)
+or <em>DevOps events</em> (e.g. transition from a <em>dev</em> stage to a <em>prod</em> stage).</p>
+<p>Even if it's potentially an independent module, it strictly requires at least one active 
+<a href="../../utility-plane/policy/"><em>Policy Engine Adapter</em></a> in order to evaluate a policy.</p>
+<p>Policy Service implements the logic to create:</p>
+<ul>
+<li>specific <em>Engines</em>, that are services with the ability to execute a policy, defined through:</li>
+<li>unique name</li>
+<li>URL to reach the Engine or the Adapater for the Engine</li>
+<li><em>Policy Implementations</em>, that represent a Policy including:</li>
+<li>the <em>Engine</em> for the execution</li>
+<li>metadata</li>
+<li>eventually, the raw content of the Policy</li>
+</ul>
+<p>It stores Policy objects and orchestrates their execution through the choice and the usage of the right
+Engine (i.e., Engine that will be served through a <em>Policy Engine Adapter</em>).</p>
+<p>Even if it is possible to use the Policy Service as a simple Policy store and validator, 
+the default usage involves interactions with <a href="../registry/"><em>Registry Server</em></a> and/or <a href="../devops/"><em>DevOps Server</em></a>.
+In this scenario, a Policy could be <em>blocking</em> or not, and the evaluation of specific sets of Policies is required
+in pre-defined phases of the Platform processes. </p>
+<p>As an example, a set of policies, blocking and/or not blocking, could be evaluated
+during the creation of a Data Product Version. If at least one blocking policy returns a negative evaluation, 
+the creation process is blocked and and error is returned to the user.</p>
+<p>A basic description and a how-to guide for execution is available on the module <a href="https://github.com/opendatamesh-initiative/odm-platform/blob/main/product-plane-services/devops-server/README.md">README.md</a> on GitHub.</p>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">⚓︎</a></h2>
+<ul>
+<li>GitHub repository: <a href="https://github.com/opendatamesh-initiative/odm-platform-up-services-meta-blindata">odm-platform-up-services-meta-blindata</a></li>
+<li>GitHub readme: <a href="https://github.com/opendatamesh-initiative/odm-platform-up-services-meta-blindata/README.md">README.md</a></li>
+<li>API Doc: <a href="https://opendatamesh-initiative.github.io/odm-api-doc/index.html">ODM Api Documentation</a>, section <em>Doc</em>, item <em>1.0.0-DRAFT</em>, sub-item <em>policy-server-redoc-static.html</em></li>
+</ul>
+<h2 id="technologies">Technologies<a class="headerlink" href="#technologies" title="Permanent link">⚓︎</a></h2>
+<ul>
+<li>Java 11</li>
+<li>Maven 3.8.6</li>
+<li>Spring 5.3.28</li>
+<li>Spring Boot 2.7.13</li>
+</ul>
+<p>Other than the default Java, Maven and Spring technologies, 
+the Policy module does not make use of any particular technology.</p>
+<h2 id="concepts">Concepts<a class="headerlink" href="#concepts" title="Permanent link">⚓︎</a></h2>
+<h3 id="policy-engine">Policy Engine<a class="headerlink" href="#policy-engine" title="Permanent link">⚓︎</a></h3>
+<p>A Policy Engine is an object able to directly execute policies
+or to interact with specific existing policy services like <a href="https://www.openpolicyagent.org/"><em>OPA</em></a> (i.e. Open Policy Agent).</p>
+<p>In the Policy Service, a Policy Engine is represented through a unique name and a URL to reach it.
+If the Engine is a <a href="../../utility-plane/policy/"><em>Policy Engine Adapter</em></a>, the URL is the one to reach it, 
+then the adapter will know how to properly interact with the underlying policy service and answer the request.
+If the Engine is directly a service able to execute a policy, it will be reached directly through the stored URL.</p>
+<h3 id="policy_1">Policy<a class="headerlink" href="#policy_1" title="Permanent link">⚓︎</a></h3>
+<p>A Policy in the Policy Service is the representation of the implementation of a policy.
+The representation includes a unique name, useful metadata and, most important, 
+the reference of the <em>Engine</em> needed for the evaluation.</p>
+<p>When the evaluation of one or more policy is requested, the right  Engine will be used.</p>
+<p>Another important part of a Policy is the <em>suite</em> attribute. 
+When the Policy Service is used by Registry and DevOps services, 
+specific points of the processes require the evaluation of pre-defined set of policies.
+Such sets are defined through the <em>suite</em> attribute.
+Possible <em>suite</em> values are:</p>
+<ul>
+<li>DATA_PRODUCT_CREATION (Registry)</li>
+<li>DATA_PRODUCT_UPDATE (Registry)</li>
+<li>ACTIVITY_STAGE_TRANSITION (DevOps)</li>
+<li>TASK_EXECUTOR_INITIAL_CALL (DevOps)</li>
+<li>TASK_EXECUTOR_FINAL_CALL (DevOps)</li>
+</ul>
+<p>Each value represents a specific phase of ODM processes. </p>
+<p>As an example, consider the creation of a Data Product or a Data Product Version object; 
+that is encoded by the <em>suite</em> value DATA_PRODUCT_CREATION.
+After assessing the syntactic validity of the input descriptor, 
+the Registry asks the Policy Service for the evaluation of any policy with <em>suite</em> DATA_PRODUCT_CREATION.</p>
+<h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">⚓︎</a></h2>
+<p>As the majority of the ODM services, the Policy Service is composed by:</p>
+<ul>
+<li>Policy API module: a module containing abstract controller, resource definition and a client to interact with the controller</li>
+<li>Policy Server module: a module implementing the abstract controller, any other component to interact with the DB, and any service needed for the Policy operations</li>
+</ul>
+<p><img alt="Registry-diagram" src="../../images/architecture/product-plane/policy/policy_architecture.png" /></p>
+<p>Diagram coming soon!</p>
+<h2 id="relationships">Relationships<a class="headerlink" href="#relationships" title="Permanent link">⚓︎</a></h2>
+<p>Policy Service, as described in the introduction, could act as a standalone project,
+but it's meant to interact with other ODM services, such as Registry service and DevOps services. </p>
+<p>Any relationship is indirect, the Policy service doesn't directly know or interact with other services,
+but it replies to pre-defined requests from the ODM services.</p>
+<p><em>Registy</em> interacts with it to block the creation or the update of Data Product objects 
+not compliant with global policies.</p>
+<p><em>DevOps</em> interacts with the Policy server to evaluate:</p>
+<ul>
+<li>whenever a stage transition is valid, </li>
+<li>if a Task result is the expected one and</li>
+<li>if at the end of an <em>Activity</em> the application status reflects the one described in the contract</li>
+</ul>
 
 
 
@@ -1979,7 +2247,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 3, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 12, 2024</span>
   </span>
 
     
