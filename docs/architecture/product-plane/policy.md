@@ -93,9 +93,7 @@ As the majority of the ODM services, the Policy Service is composed by:
 * Policy API module: a module containing abstract controller, resource definition and a client to interact with the controller
 * Policy Server module: a module implementing the abstract controller, any other component to interact with the DB, and any service needed for the Policy operations
 
-![Registry-diagram](../../images/architecture/product-plane/policy/policy_architecture.png)
-
-Diagram coming soon!
+![Policy-diagram](../../images/architecture/product-plane/policy/policy_architecture.png)
 
 ## Relationships
 Policy Service, as described in the introduction, could act as a standalone project,
@@ -112,3 +110,8 @@ _DevOps_ interacts with the Policy server to evaluate:
 * whenever a stage transition is valid, 
 * if a Task result is the expected one and
 * if at the end of an _Activity_ the application status reflects the one described in the contract
+
+As explained in the [Policy section](#policy), interactions are orchestrated by ODM processes 
+and strictly dependent on events. 
+Some phases of the processes require policy evaluations and which policy must be evaluated in which phase 
+is regulated by the _suite_ attribute of the stored policies.
