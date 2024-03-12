@@ -509,7 +509,7 @@ as the pipeline for the Task of the `prod` Activity can use a `endpointURL` para
 In both scenarios, the Executor Adapter will assign the right value for the parameters extracting them from the Context.
 
 ## Architecture
-As the majority of the ODM services, the Blueprint Service is composed by:
+As the majority of the ODM services, the DevOps Service is composed by:
 
 * DevOps API module: a module containing abstract controller, resource definition and a client to interact with the controller
 * DevOps Server module: a module implementing the abstract controller, any other component to interact with the DB, and any service needed for DevOps operations

@@ -20,7 +20,7 @@ Other than the default Java, Maven and Spring technologies,
 the Notification module does not make use of any particular technology.
 
 ## Architecture
-As the majority of the ODM services, the Blueprint Service is composed by:
+As the majority of the ODM services, the Notification Service is composed by:
 
 * Notification API module: a module containing abstract controller, resource definition and a client to interact with the controller.
 * Notification Server: a basic server eventually implementing common parts between each possible Notification Adapter

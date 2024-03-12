@@ -28,7 +28,7 @@ A basic description and a how-to guide for execution is available on the module 
 Other than the default Java, Maven and Spring technologies, the Registry module does not make use of any particular technology.
 
 ## Architecture
-As the majority of the ODM services, the Blueprint Service is composed by:
+As the majority of the ODM services, the Registry Service is composed by:
 
 * Registry API module: a module containing abstract controller, resource definition and a client to interact with the controller
 * Registry Server module: a module implementing the abstract controller, any other component to interact with the DB, and any service needed for the Registry operations
