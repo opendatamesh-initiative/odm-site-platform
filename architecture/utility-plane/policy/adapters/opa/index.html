@@ -104,7 +104,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#opa-policy" class="md-skip">
+        <a href="#policy-engine-opa" class="md-skip">
           Skip to content
         </a>
       
@@ -1628,6 +1628,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    OPA
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1637,6 +1648,52 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#technologies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technologies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relationships" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relationships
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1939,6 +1996,41 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#technologies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technologies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relationships" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relationships
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1955,8 +2047,20 @@
   
 
 
-<h1 id="opa-policy">OPA Policy<a class="headerlink" href="#opa-policy" title="Permanent link">⚓︎</a></h1>
-<p>Coming Soon!</p>
+<h1 id="policy-engine-opa">Policy Engine OPA<a class="headerlink" href="#policy-engine-opa" title="Permanent link">⚓︎</a></h1>
+<p>Policy Engine OPA is a <a href="../../"><em>Policy Engine Adapter</em></a> that acts as a <em>proxy</em>
+between the <a href="../../../../product-plane/policy/"><em>Policy Server</em></a> and an instance of an OPA server 
+(i.e., <a href="https://www.openpolicyagent.org/">Open Policy Agent</a> server).</p>
+<p>The main task of the adapter is to receive requests for policy evaluations on a given input, 
+forward them to the OPA server, process and send back the results to the calling Policy Service.
+It also handles the process of policy deployment on the OPA server and synchronization with the policies 
+stored in the Policy Server (only for policy that have <em>Policy Engine OPA</em> as Policy Engine).</p>
+<h2 id="technologies">Technologies<a class="headerlink" href="#technologies" title="Permanent link">⚓︎</a></h2>
+<p>Coming soon!</p>
+<h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">⚓︎</a></h2>
+<p>Coming soon!</p>
+<h2 id="relationships">Relationships<a class="headerlink" href="#relationships" title="Permanent link">⚓︎</a></h2>
+<p>Coming soon!</p>
 
 
 
@@ -1979,7 +2083,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 3, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 12, 2024</span>
   </span>
 
     

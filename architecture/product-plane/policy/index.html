@@ -2210,8 +2210,7 @@ the Registry asks the Policy Service for the evaluation of any policy with <em>s
 <li>Policy API module: a module containing abstract controller, resource definition and a client to interact with the controller</li>
 <li>Policy Server module: a module implementing the abstract controller, any other component to interact with the DB, and any service needed for the Policy operations</li>
 </ul>
-<p><img alt="Registry-diagram" src="../../images/architecture/product-plane/policy/policy_architecture.png" /></p>
-<p>Diagram coming soon!</p>
+<p><img alt="Policy-diagram" src="../../../images/architecture/product-plane/policy/policy_architecture.png" /></p>
 <h2 id="relationships">Relationships<a class="headerlink" href="#relationships" title="Permanent link">⚓︎</a></h2>
 <p>Policy Service, as described in the introduction, could act as a standalone project,
 but it's meant to interact with other ODM services, such as Registry service and DevOps services. </p>
@@ -2225,6 +2224,10 @@ not compliant with global policies.</p>
 <li>if a Task result is the expected one and</li>
 <li>if at the end of an <em>Activity</em> the application status reflects the one described in the contract</li>
 </ul>
+<p>As explained in the <a href="#policy">Policy section</a>, interactions are orchestrated by ODM processes 
+and strictly dependent on events. 
+Some phases of the processes require policy evaluations and which policy must be evaluated in which phase 
+is regulated by the <em>suite</em> attribute of the stored policies.</p>
 
 
 

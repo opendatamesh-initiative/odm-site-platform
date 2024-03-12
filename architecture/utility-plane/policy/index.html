@@ -24,7 +24,7 @@
     
     
       
-        <title>Policy - Open Data Mesh Platform</title>
+        <title>Policy Engine - Open Data Mesh Platform</title>
       
     
     
@@ -61,7 +61,7 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Policy - Open Data Mesh Platform" >
+        <meta  property="og:title"  content="Policy Engine - Open Data Mesh Platform" >
       
         <meta  property="og:description"  content="Open Data Mesh Platform" >
       
@@ -77,7 +77,7 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Policy - Open Data Mesh Platform" >
+        <meta  name="twitter:title"  content="Policy Engine - Open Data Mesh Platform" >
       
         <meta  name="twitter:description"  content="Open Data Mesh Platform" >
       
@@ -104,7 +104,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#policy" class="md-skip">
+        <a href="#policy-engine" class="md-skip">
           Skip to content
         </a>
       
@@ -137,7 +137,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Policy
+              Policy Engine
             
           </span>
         </div>
@@ -1929,6 +1929,41 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#technologies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technologies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relationships" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relationships
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1945,8 +1980,26 @@
   
 
 
-<h1 id="policy">Policy<a class="headerlink" href="#policy" title="Permanent link">⚓︎</a></h1>
-<p>Coming Soon!</p>
+<h1 id="policy-engine">Policy Engine<a class="headerlink" href="#policy-engine" title="Permanent link">⚓︎</a></h1>
+<p>A Policy Engine is a service that answers to <em>policy evaluation requests</em> 
+received from the <a href="../../product-plane/policy/"><em>Policy Service</em></a>.</p>
+<p>It could act as a <em>proxy</em> between the Policy Service and a server for policy evaluation, 
+like OPA (i.e. Open Policy Agent), or it could directly evaluate the policy with custom code.</p>
+<p>As any other service in the Utility Plane, Policy Engine doesn't represent a directly executable project.
+It exposes an interface to implement an <em>Adapter</em> of it, such as the default <a href="adapters/opa/"><em>Policy Engine OPA</em></a>.</p>
+<h2 id="technologies">Technologies<a class="headerlink" href="#technologies" title="Permanent link">⚓︎</a></h2>
+<ul>
+<li>Java 11</li>
+<li>Maven 3.8.6</li>
+<li>Spring 5.3.28</li>
+<li>Spring Boot 2.7.13</li>
+</ul>
+<p>Other than the default Java, Maven and Spring technologies,
+the Policy Engine module does not make use of any particular technology.</p>
+<h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">⚓︎</a></h2>
+<p>Coming soon!</p>
+<h2 id="relationships">Relationships<a class="headerlink" href="#relationships" title="Permanent link">⚓︎</a></h2>
+<p>Coming soon!</p>
 
 
 
@@ -1969,7 +2022,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 3, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 12, 2024</span>
   </span>
 
     
