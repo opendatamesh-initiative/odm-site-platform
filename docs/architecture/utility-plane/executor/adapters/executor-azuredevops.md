@@ -13,6 +13,12 @@ the Executor AzureDevOps module uses OAuth 2.0 requiring configuration of creden
 
 A basic description and a how-to guide for execution is available on the module [README.md](https://github.com/opendatamesh-initiative/odm-platform-up-services-executor-azuredevops/README.md) on GitHub.
 
+## References
+
+* GitHub repository: [odm-platform](https://github.com/opendatamesh-initiative/odm-platform-up-services-executor-azuredevops)
+* GitHub readme: [README.md](https://github.com/opendatamesh-initiative/odm-platform-up-services-executor-azuredevops/README.md)
+* API Doc: Coming soon!
+
 ## Technologies
 
 * Java 11

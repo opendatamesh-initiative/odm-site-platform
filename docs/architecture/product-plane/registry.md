@@ -16,7 +16,13 @@ The optional interaction with other ODM services, configurable through propertie
 * ensure that each object is compliant with a set of policies, potentially blocking the creation and/or update of a not compliant object ([Policy](../product-plane/policy.md))
 * notify _Event_ such as _creation_, _update_ or _deletion_ to a list of active observers ([Notification](../utility-plane/notification/index.md))
 
-A basic description and a how-to guide for execution is available on the module [README.md](https://github.com/opendatamesh-initiative/odm-platform/blob/main/product-plane-services/registry-server/README.md) on GitHub.
+A basic description and a how-to guide for execution is available on the module [README.md](https://github.com/opendatamesh-initiative/odm-platform/blob/main/README.md) on GitHub.
+
+## References
+
+* GitHub repository: [odm-platform](https://github.com/opendatamesh-initiative/odm-platform)
+* GitHub readme: [README.md](https://github.com/opendatamesh-initiative/odm-platform/blob/main/README.md)
+* API Doc: [ODM Api Documentation](https://opendatamesh-initiative.github.io/odm-api-doc/index.html), section _Doc_, subitem _registry-server-redoc-static.html_ after selecting a version
 
 ## Technologies
 

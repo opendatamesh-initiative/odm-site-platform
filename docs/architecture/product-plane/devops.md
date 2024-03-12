@@ -32,6 +32,13 @@ In addition to the basic behaviour, it could also have optional interactions wit
 
 A basic description and a how-to guide for execution is available on the module [README.md](https://github.com/opendatamesh-initiative/odm-platform/blob/main/product-plane-services/devops-server/README.md) on GitHub.
 
+## References
+
+* GitHub repository: [odm-platform](https://github.com/opendatamesh-initiative/odm-platform)
+* GitHub readme: [README.md](https://github.com/opendatamesh-initiative/odm-platform/blob/main/product-plane-services/devops-server/README.md)
+* API Doc: [ODM Api Documentation](https://opendatamesh-initiative.github.io/odm-api-doc/index.html), section _Doc_, subitem _devops-server-redoc-static.html_ after selecting a version
+
+
 ## Technologies
 
 * Java 11

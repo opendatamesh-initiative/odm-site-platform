@@ -9,6 +9,12 @@ forward them to the OPA server, process and send back the results to the calling
 It also handles the process of policy deployment on the OPA server and synchronization with the policies 
 stored in the Policy Server (only for policy that have _Policy Engine OPA_ as Policy Engine).
 
+## References
+
+* GitHub repository: [odm-platform](https://github.com/opendatamesh-initiative/odm-platform-up-services-policy-opa)
+* GitHub readme: [README.md](https://github.com/opendatamesh-initiative/odm-platform-up-services-policy-opa/README.md)
+* API Doc: Coming soon!
+
 ## Technologies
 Coming soon!
 

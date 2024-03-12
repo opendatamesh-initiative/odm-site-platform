@@ -35,9 +35,9 @@ A basic description and a how-to guide for execution is available on the module 
 
 ## References
 
-* GitHub repository: [odm-platform-up-services-meta-blindata](https://github.com/opendatamesh-initiative/odm-platform-up-services-meta-blindata)
-* GitHub readme: [README.md](https://github.com/opendatamesh-initiative/odm-platform-up-services-meta-blindata/README.md)
-* API Doc: [ODM Api Documentation](https://opendatamesh-initiative.github.io/odm-api-doc/index.html), section _Doc_, item _1.0.0-DRAFT_, sub-item _policy-server-redoc-static.html_
+* GitHub repository: [odm-platform](https://github.com/opendatamesh-initiative/odm-platform)
+* GitHub readme: [README.md](https://github.com/opendatamesh-initiative/odm-platform/blob/main/product-plane-services/policy-server/README.md)
+* API Doc: [ODM Api Documentation](https://opendatamesh-initiative.github.io/odm-api-doc/index.html), section _Doc_, subitem _policy-server-redoc-static.html_ after selecting a version
 
 ## Technologies
 

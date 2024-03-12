@@ -24,7 +24,7 @@ A basic description and a how-to guide for execution is available on the module 
 
 * GitHub repository: [odm-platform-up-services-meta-blindata](https://github.com/opendatamesh-initiative/odm-platform-up-services-meta-blindata)
 * GitHub readme: [README.md](https://github.com/opendatamesh-initiative/odm-platform-up-services-meta-blindata/README.md)
-* API Doc: TODO
+* API Doc: Coming soon!
 
 ## Technologies
 
