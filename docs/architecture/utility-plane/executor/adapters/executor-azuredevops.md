@@ -17,7 +17,7 @@ A basic description and a how-to guide for execution is available on the module 
 
 * GitHub repository: [odm-platform](https://github.com/opendatamesh-initiative/odm-platform-up-services-executor-azuredevops)
 * GitHub readme: [README.md](https://github.com/opendatamesh-initiative/odm-platform-up-services-executor-azuredevops/README.md)
-* API Doc: Coming soon!
+* API Doc: [ODM Api Documentation](https://opendatamesh-initiative.github.io/odm-api-doc/index.html), section _Doc_, subitem _executor-azuredevops-redoc-static.html_ after selecting a version
 
 ## Technologies
 
