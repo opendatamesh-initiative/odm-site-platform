@@ -32,6 +32,13 @@ In addition to the basic behaviour, it could also have optional interactions wit
 
 A basic description and a how-to guide for execution is available on the module [README.md](https://github.com/opendatamesh-initiative/odm-platform/blob/main/product-plane-services/devops-server/README.md) on GitHub.
 
+## References
+
+* GitHub repository: [odm-platform](https://github.com/opendatamesh-initiative/odm-platform)
+* GitHub readme: [README.md](https://github.com/opendatamesh-initiative/odm-platform/blob/main/product-plane-services/devops-server/README.md)
+* API Doc: [ODM Api Documentation](https://opendatamesh-initiative.github.io/odm-api-doc/index.html), section _Doc_, subitem _devops-server-redoc-static.html_ after selecting a version
+
+
 ## Technologies
 
 * Java 11
@@ -509,7 +516,7 @@ as the pipeline for the Task of the `prod` Activity can use a `endpointURL` para
 In both scenarios, the Executor Adapter will assign the right value for the parameters extracting them from the Context.
 
 ## Architecture
-As the majority of the ODM services, the Blueprint Service is composed by:
+As the majority of the ODM services, the DevOps Service is composed by:
 
 * DevOps API module: a module containing abstract controller, resource definition and a client to interact with the controller
 * DevOps Server module: a module implementing the abstract controller, any other component to interact with the DB, and any service needed for DevOps operations
