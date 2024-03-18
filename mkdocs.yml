@@ -123,7 +123,7 @@ extra:
     - icon: fontawesome/brands/mailchimp
       link: https://mailchi.mp/936d787cac89/open-data-mesh-initiative
     - icon: fontawesome/brands/github
-      link: https://github.com/opendatamesh-initiative/odm-specification-dpdescriptor
+      link: https://github.com/opendatamesh-initiative/odm-platform
     - icon: fontawesome/brands/slack
       link: https://join.slack.com/t/opendatamesh/shared_invite/zt-1jrqfghls-68AxK_QzypaOeNyOkOwuog
 
