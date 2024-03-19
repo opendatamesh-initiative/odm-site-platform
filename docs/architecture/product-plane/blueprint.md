@@ -1,73 +1,79 @@
 # Blueprint
 
-## Description
+## Overview
 
-Blueprint is a module of the Product Plane of the ODM Platform. 
-It's an independent module that allows users to initialize a new Git-based project starting from a base template, 
-that is the **blueprint**, and a series of parameters.
+The *Blueprint Service* is a module of the Product Plane in the ODM Platform which allows to initialize a data product starting from a template. This module works independently from the others.
+
+Essentially, given a template repository on a Git provider with some of the file contents parameterized, the module is able to clone it, map the user's input data to parameters, and push the content to a brand new repository (i.e. creating a new data quantum).
 
 At the state of the art, Blueprint supports two main Git Providers:
 
 * Azure DevOps
 * GitHub
 
-A basic description and a how-to guide for execution is available on the module [README.md](https://github.com/opendatamesh-initiative/odm-platform/blob/main/product-plane-services/blueprint-server/README.md) on GitHub.
+## Concepts
 
-## References
+### Blueprint
 
-* GitHub repository: [odm-platform](https://github.com/opendatamesh-initiative/odm-platform)
-* GitHub readme: [README.md](https://github.com/opendatamesh-initiative/odm-platform/blob/main/product-plane-services/blueprint-server/README.md)
-* API Doc: [ODM Api Documentation](https://opendatamesh-initiative.github.io/odm-api-doc/index.html), section _Doc_, subitem _blueprint-server-redoc-static.html_ after selecting a version
+In ODM terminology, a **blueprint** is a Git repository containing the template composition of a data product. Each blueprint must contain two elements:
 
-## Technologies
+- A **data product template**: a set of folders and files, properly configured and parameterized, to allow the Blueprint Service to perform the appropriate parameter substitutions and value assignments.
+- A **parameters configuration**: a configuration file specifying all the parameters to be substituted in the blueprint.
 
-* Java 11
-* Maven 3.8.6
-* Spring 5.3.28
-* Spring Boot 2.7.13
-* Git
-* [OAuth 2.0](https://oauth.net/2/)
-* [Apache Velocity 2.2](https://velocity.apache.org/)
+## How it works
 
-### Git
-Input templates and output projects are both meant to be remote Git repository. 
-The project will fetch information from the source remote repository, templates them with a series of parameters
-given by the user, and push the resulting project on a new or already existing remote Git repository.
+### Architecture
+
+As the majority of the ODM services, the Blueprint Service is composed by two modules:
+
+* **Blueprint API**: a module containing abstract controllers, Java resource definitions, and a client to interact with the controller.
+* **Blueprint Server**: a module implementing the abstract controllers, any component useful to interact with the DB (entities, mappers, repositories, ...), and services needed for the templating operations.
+
+![Blueprint-diagram](../../images/architecture/product-plane/blueprint/blueprint_architecture.png)
+
+### Relations
+
+Blueprint service, as described in the introduction, doesn't require any other ODM module to work, and it doesn't directly interact with any of them. It's a stand-alone module that exposes features to register, manage and initialize templates.
+
+Nonetheless, even if its scope could be much wider, it's meant to be used in the ODM platform to initialize data product descriptors and data product components.
+
+### Tools
+
+#### Git
+
+Input templates and output projects are both meant to be remote Git repositories.  Git integration is used to fetch information from the source remote repository and to push the resulting project on a new (or already existing) remote Git repository.
 
 Git authorization could be handled in two different ways:
 
-1. SSH: if the instance of Blueprint has the SSH key to interact with the desired Git repositories and if the Blueprint remote repository URI is an SSH URI, SSH will be the default protocol
-2. OAuth2: if the Blueprint remote repository URI is an HTTPS URI, OAuth2 will be used to fetch an _Access Token_
+1. SSH: you can configure the instance of Blueprint to have an SSH key to interact with the desired Git repository.
+2. OAuth 2.0: you can configure the instance of Blueprint to access the remote repository via HTTPS using OAuth2 protocol for authorization using an _Access Token_.
 
-### OAuth2
-[OAuth 2.0](https://oauth.net/2/) is the _authorization_ protocol used for interactions with Git providers, 
-such as Azure DevOps.
+#### OAuth 2.0
 
-On start-up, Blueprint Server must be configured through the _property files_ with OAuth parameters like:
+OAuth 2.0 is the _authorization_ protocol we chose to interact with Git providers. During the start-up phase, Blueprint Server must be configured through the _property files_ to specify the typical OAuth parameters:
 
-* Token URI
+* Token URI (i.e. the identity provider URI to get the authorization token)
 * Client ID
 * Client Secret
 * Scope
 
-*_Actually, OAuth is implemented only for Azure DevOps; GitHub interactions are modeled with a single PAT 
-(i.e., Personal Access Token). In the future, when also different providers are supported, 
-OAuth will be the default authorization protocol for any Git provider_
+!!! note
+    
+    Actually, OAuth 2.0 is implemented only for Azure DevOps. GitHub interactions are modeled with a single PAT (i.e., Personal Access Token).
+    
+    In the future, when different Git providers will be supported, OAuth2 will be the default authorization protocol for any of them.
 
-### Apache Velocity
-[Apache Velocity](https://velocity.apache.org/) is a Java-based template engine that permits anyone to use 
-a simple yet powerful template language to reference objects. 
+#### Apache Velocity
 
-Even if it is mainly used for web development, Velocity's capabilities reach well beyond the realm of the web;
-for example, it can be used to generate SQL, PostScript, XML, JSON, ... from templates.
+Apache Velocity is a Java-based template engine that permits anyone to use a simple yet powerful template language to reference objects.
 
-In the Blueprint Server service it represents the only supported template engine and will be directly used to resolve
-any user template.
-The project doesn't override any native features, so check out Apache Velocity documentation for any specific information 
-about syntax and templating.
+Even if it is mainly used for web development, Velocity's capabilities reach well beyond the realm of the web; for example, it can be used to generate SQL, PostScript, XML, JSON, from templates.
 
-## Blueprint concept
-A blueprint in ODM, is a template with the following structure:
+Apache Velocity is the template engine we chose to resolve any user template on starting from the data product blueprint. Our project doesn't override any native feature, so check out Apache Velocity documentation for any specific information about its syntax and its templating capabilities.
+
+## Examples
+
+In the ODM framework, a blueprint must have the following structure:
 ```txt
 | repository/
 |-- blueprintDirectory/
@@ -77,12 +83,12 @@ A blueprint in ODM, is a template with the following structure:
 ```
 where:
 
-* `blueprintDirectory` is a root-level directory containing the real blueprint/template
+* `blueprintDirectory` is a root-level directory containing the real template
   
-    * it will be the only content of the target repository when instanciating a blueprint
+    * it will be the only content of the target repository when instantiating a blueprint
     * it could have a different name
 
-* Other content will be ignored and won't be templated
+* `Other content` will be ignored and won't be templated
 * `params.json` is a JSON file describing the parameters of the template with the following structure:
 ```json
 [
@@ -98,13 +104,18 @@ where:
 ]
 ```
 
-Both directory/file names and file contents could be templated, each parameter of the blueprint must have the following naming convention: `${parameterName}`. 
-The variable name can't also contain special characters such as `",",".","-","_", ...`
+File contents, file names, and directory names can all be templated. Each parameter of the blueprint must have the following naming convention: `${parameterName}`. 
 
-For example, given the parameters `dirName=renamedDirectory`, `fileName=renamedFile` and `fileContent=test`, and the following blueprint:
+!!! info
+    
+    Variable names can't contain any special character, such as `",",".","-","_", ...`.
+
+Let's have a look to an example.
+
+Given the parameters `dirName=renamedDirectory`, `fileName=renamedFile` and `fileContent=test`, and the following blueprint:
 ```txt
 | repository/
-|-- blueprint/
+|-- blueprintDirectory/
 |---- ${dirName}/
 |------ ${fileName}.json 
 ```
@@ -114,9 +125,10 @@ where `${fileName}.json` content is:
     "content": "${fileContent}"
 }
 ```
-the target repository will be:
+
+The target repository will be templated as follows:
 ```txt
-| targetRepository/
+| <your_target_repository>/
 |-- renamedDirectory/
 |---- renamedFile.json
 ```
@@ -127,21 +139,19 @@ where `renamedFile.json` content will be:
 }
 ```
 
-In addition to variables expressed as `${var}`, it supports any other native [Velocity Template Language](https://velocity.apache.org/engine/devel/user-guide.html#velocity-template-language-vtl-an-introduction) syntax
+In addition to variables expressed as `${var}`, the module supports any other native <a href="https://velocity.apache.org/engine/devel/user-guide.html#velocity-template-language-vtl-an-introduction" target="_blank">Velocity Template Language:octicons-link-external-24:</a> syntax.
 
-## Architecture
-As the majority of the ODM services, the Blueprint Service is composed by:
+## Technologies
 
-* Blueprint API module: a module containing abstract controller, resource definition and a client to interact with the controller
-* Blueprint Server module: a module implementing the abstract controller, any other component to interact with the DB, and any service needed for the templating operations
+* Java 11
+* Maven 3.8.6
+* Spring 5.3.28
+* Spring Boot 2.7.13
+* Git
+* <a href="https://oauth.net/2/" target="_blank">OAuth 2.0:octicons-link-external-24:</a>
+* <a href="https://velocity.apache.org/" target="_blank">Apache Velocity 2.2:octicons-link-external-24:</a>
 
-![Blueprint-diagram](../../images/architecture/product-plane/blueprint/blueprint_architecture.png)
+## References
 
-## Relationships
-Blueprint service, as described in the introduction, doesn't require any other ODM module,
-and it doesn't directly interact with any of them.
-It's a stand-alone project that exposes features to register, manage and initialize templates.
-
-Nonetheless, even if its scope could be much wider,
-it's meant to be used in the ODM world to initialize both full projects 
-and JSON descriptors of ODM objects such as Data Product.
+* GitHub repository: <a href="https://github.com/opendatamesh-initiative/odm-platform" target="_blank">odm-platform:octicons-link-external-24:</a>
+* API Documentation: <a href="https://opendatamesh-initiative.github.io/odm-api-doc/doc.html" target="_blank">ODM Api Documentation:octicons-link-external-24:</a>, subitem _blueprint-server-redoc-static.html_ after selecting a specific version
