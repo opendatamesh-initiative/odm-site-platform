@@ -44,7 +44,8 @@ The optional interaction with other ODM services, configurable through a propert
 
     This section describes code that is still evolving.
 
-The Registry service is able interact with the [Policy](../product-plane/policy.md) Service to check the compliance of a Data Product or of a Data Product Version both at creation and update time.
+The Registry service is able to interact with the [Policy](../product-plane/policy.md) Service 
+to check the compliance of a Data Product or of a Data Product Version both at creation and update time.
 
 As shown in the dedicated section, the Policy Service stores policies that have a special tag to specify the phase in which the policy must be evaluated and whether the evaluation result is blocking or not for the phase. A blocking policy with a negative evaluation will lead to the failure of the relative data product phase.
 
@@ -63,7 +64,7 @@ The following are the events handled by the Registry Service:
 * DATA_PRODUCT_VERSION_CREATED 
 * DATA_PRODUCT_VERSION_DELETED
 
-## Examples
+#### Examples
 
 Each interaction between the Registry service and other ODM services is enabled or disabled through properties file inside the Java application, as shown by the following snippet:
 
