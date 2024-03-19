@@ -1196,8 +1196,12 @@
   
 </li>
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
   
 </li>
         
@@ -1205,13 +1209,9 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      Examples
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2207,8 +2207,12 @@
   
 </li>
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
   
 </li>
         
@@ -2216,13 +2220,9 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      Examples
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2292,7 +2292,8 @@
 <p class="admonition-title">Warning</p>
 <p>This section describes code that is still evolving.</p>
 </div>
-<p>The Registry service is able interact with the <a href="../policy/">Policy</a> Service to check the compliance of a Data Product or of a Data Product Version both at creation and update time.</p>
+<p>The Registry service is able to interact with the <a href="../policy/">Policy</a> Service 
+to check the compliance of a Data Product or of a Data Product Version both at creation and update time.</p>
 <p>As shown in the dedicated section, the Policy Service stores policies that have a special tag to specify the phase in which the policy must be evaluated and whether the evaluation result is blocking or not for the phase. A blocking policy with a negative evaluation will lead to the failure of the relative data product phase.</p>
 <p>As an example, consider the existence of a few policies that check if before the creation of a Data Product Version all the names of the components are compliant with a specific naming convention. If the interaction with the Policy service is active, the creation of a Data Product Version with one or more components' name not compliant with the naming convention will fail returning an error from the Policy Service.</p>
 <h4 id="notification">Notification<a class="headerlink" href="#notification" title="Permanent link">⚓︎</a></h4>
@@ -2306,7 +2307,7 @@ and, when an event occurs, a dispatcher sends the notification to every active l
 <li>DATA_PRODUCT_VERSION_CREATED </li>
 <li>DATA_PRODUCT_VERSION_DELETED</li>
 </ul>
-<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">⚓︎</a></h2>
+<h4 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">⚓︎</a></h4>
 <p>Each interaction between the Registry service and other ODM services is enabled or disabled through properties file inside the Java application, as shown by the following snippet:</p>
 <p><div class="highlight"><span class="filename">YAML</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">odm</span><span class="p">:</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">productPlane</span><span class="p">:</span>
