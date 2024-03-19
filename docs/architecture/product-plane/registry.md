@@ -1,50 +1,71 @@
 # Registry
 
-## Description
+## Overview
 
-Registry is the ODM Platform Product Plane main module, and it could act both as a standalone service or interact with 
-different ODM services, such as [Policy](../product-plane/policy.md) or [Notification systems](../utility-plane/notification/index.md).
+The *Registry Service* is the ODM Platform main module that allows to create, edit, retrieve and delete Data Products and Data Product Versions within the mesh. This service provides functionalities to create data products using the [Data Product descriptor](../../concepts/data-product-descriptor.md) and to manage them via specific APIs.
 
-As the main module, it's the service that allows to create, edit, retrieve and delete Data Product 
-and Data Product Version objects through [Data Product descriptors](../../concepts/data-product-descriptor.md).
+In addition to the basic features to store and manage Data Product and Data Product Version objects, it offers syntactic and semantic validation to ensure the correctness of every data product object.
 
-In addition to the basic features to store and manage Data Product and Data Product Version objects, 
-it offers syntactic and semantic validation to ensure the correctness of every object.
+Optionally, it is configurable to enable the interaction with other ODM Platform services, such as those for policy computation or events notification. 
 
-The optional interaction with other ODM services, configurable through properties, makes also possible to:
+## Concepts
 
-* ensure that each object is compliant with a set of policies, potentially blocking the creation and/or update of a not compliant object ([Policy](../product-plane/policy.md))
-* notify _Event_ such as _creation_, _update_ or _deletion_ to a list of active observers ([Notification](../utility-plane/notification/index.md))
+### Data Product
 
-A basic description and a how-to guide for execution is available on the module [README.md](https://github.com/opendatamesh-initiative/odm-platform/blob/main/README.md) on GitHub.
+At this point, it should be clear what a data product is. If it's not, you can deep dive on the <a href="https://dpds.opendatamesh.org/concepts/data-product/" target="_blank">DPDS site:octicons-link-external-24:</a>.
 
-## References
+### Data Product Version
 
-* GitHub repository: [odm-platform](https://github.com/opendatamesh-initiative/odm-platform)
-* GitHub readme: [README.md](https://github.com/opendatamesh-initiative/odm-platform/blob/main/README.md)
-* API Doc: [ODM Api Documentation](https://opendatamesh-initiative.github.io/odm-api-doc/index.html), section _Doc_, subitem _registry-server-redoc-static.html_ after selecting a version
+A data product version refers to a specific release of a data product within an organization's data platform. Just like softwares have versions, data products also undergo under iterations and updates over time. Data product versions help in managing changes, tracking improvements, and ensuring compatibility with downstream systems and consumers. Each version of a data product may introduce new features, enhancements, bug fixes, or modifications to the underlying data schema or structure.
 
-## Technologies
+## How it works
 
-* Java 11
-* Maven 3.8.6
-* Spring 5.3.28
-* Spring Boot 2.7.13
+### Architecture
 
-Other than the default Java, Maven and Spring technologies, the Registry module does not make use of any particular technology.
+As the majority of the ODM services, the Registry Service is composed by two modules:
 
-## Architecture
-As the majority of the ODM services, the Registry Service is composed by:
-
-* Registry API module: a module containing abstract controller, resource definition and a client to interact with the controller
-* Registry Server module: a module implementing the abstract controller, any other component to interact with the DB, and any service needed for the Registry operations
+* **Registry API**: a module containing abstract controllers, Java resource definitions, and a client to interact with the controller.
+* **Registry Server**: a module implementing the abstract controllers, any component useful to interact with the DB (entities, mappers, repositories, ...), and services needed for the Registry operations.
 
 ![Registry-diagram](../../images/architecture/product-plane/registry/registry_architecture.png)
 
-## Relationships
-Registry service, as described in the introduction, could act as a standalone project, but also interacts with other 
-ODM services, such as Policy service and Notification services. 
-Each interaction is enabled or disabled through properties file, as shown by the following snippet:
+### Relations
+
+Registry is the ODM Platform Product Plane main module, and it can act both as a standalone service or interact with different ODM features, such as [Policy](../product-plane/policy.md) or [Notification](../utility-plane/notification/index.md) services.
+
+The optional interaction with other ODM services, configurable through a properties file, enables to:
+
+* ensure that each object is compliant with a set of policies, potentially blocking the creation and/or update of a non-compliant object;
+* notify a list of registered observers on many _events_ occured on data product objects, such as _creation_, _update_ or _deletion_.
+
+#### Policy
+
+!!! warning 
+
+    This section describes code that is still evolving.
+
+The Registry service is able interact with the [Policy](../product-plane/policy.md) Service to check the compliance of a Data Product or of a Data Product Version both at creation and update time.
+
+As shown in the dedicated section, the Policy Service stores policies that have a special tag to specify the phase in which the policy must be evaluated and whether the evaluation result is blocking or not for the phase. A blocking policy with a negative evaluation will lead to the failure of the relative data product phase.
+
+As an example, consider the existence of a few policies that check if before the creation of a Data Product Version all the names of the components are compliant with a specific naming convention. If the interaction with the Policy service is active, the creation of a Data Product Version with one or more components' name not compliant with the naming convention will fail returning an error from the Policy Service.
+
+#### Notification
+
+The Registry service has a [Notification](../utility-plane/notification/index.md) system based on the Observer Design Pattern. On the application startup, every notification _listener_ listed in the configurations is registered 
+and, when an event occurs, a dispatcher sends the notification to every active listener.
+
+The following are the events handled by the Registry Service:
+
+* DATA_PRODUCT_CREATED 
+* DATA_PRODUCT_UPDATED 
+* DATA_PRODUCT_DELETED
+* DATA_PRODUCT_VERSION_CREATED 
+* DATA_PRODUCT_VERSION_DELETED
+
+## Examples
+
+Each interaction between the Registry service and other ODM services is enabled or disabled through properties file inside the Java application, as shown by the following snippet:
 
 ```yaml
 odm:
@@ -55,43 +76,10 @@ odm:
   utilityPlane:
     notificationServices:
       blindata:
-        active: false
+        active: true
         address: http://localhost:9002
 ```
-In this example, the interactions with the Policy service are disabled, through the attribute `active: false`, 
-but there is an active notification system, only one, named `blindata`, reachable at `http://localhost:9002`.
-
-Additional information about service configuration or configuration and execution through Docker is available on the module
-[README.md](https://github.com/opendatamesh-initiative/odm-platform/blob/main/product-plane-services/registry-server/README.md) 
-on GitHub.
-
-### Policy
-<span style="color:red">[WIP - this section describe code that is still evolving]</span>
-
-The Registry could interact with the [Policy Service](../product-plane/policy.md) to check compliance of Data Product 
-and Data Product Version objects both on creation and update of them.
-
-As shown in the dedicated section, the Policy Service stores policies that have a special tag to specify the phase 
-in which the policy must be evaluated and whether the evaluation result is blocking or not for the phase.
-Blocking policy with a negative evaluation will lead to the failure of the relative phase.
-
-As an example, consider the existence of a few policies that check if before the creation of a Data Product Version
-all the names of the components are compliant with a specific naming convention.
-If the interaction with the Policy service is active, the creation of a Data Product Version with one or more components'
-name not compliant with the naming convention will fail returning an error from the Policy Service.
-
-### Notification
-The Registry service has a [notification system](../utility-plane/notification/index.md) based on the Observer Design Pattern.
-On the application startup, every notification _listener_ listed in the property file is registered, 
-and when an event occurs, a dispatcher sends the notification to every active listener.
-
-Events for the Registry Service are: 
-
-* DATA_PRODUCT_CREATED 
-* DATA_PRODUCT_UPDATED 
-* DATA_PRODUCT_DELETED
-* DATA_PRODUCT_VERSION_CREATED 
-* DATA_PRODUCT_VERSION_DELETED
+In this example, the interaction with the Policy service is disabled using the attribute `active: false`, while there is only one active notification system named `blindata` reachable at `http://localhost:9002`.
 
 To register a new notification _listener_, edit the active Spring profile property file as follows: 
 
@@ -119,3 +107,19 @@ odm:
         active: true
         address: http://localhost:9003
 ```
+
+Additional information about service configuration and execution via Docker are available on <a href="https://github.com/opendatamesh-initiative/odm-platform/blob/main/README.md" target="_blank">Github:octicons-link-external-24:</a>.
+
+## Technologies
+
+* Java 11
+* Maven 3.8.6
+* Spring 5.3.28
+* Spring Boot 2.7.13
+
+Other than the default Java, Maven and Spring technologies, the Registry module does not make use of any particular technology.
+
+## References
+
+* GitHub repository: <a href="https://github.com/opendatamesh-initiative/odm-platform" target="_blank">odm-platform:octicons-link-external-24:</a>
+* API Documentation: <a href="https://opendatamesh-initiative.github.io/odm-api-doc/doc.html" target="_blank">ODM Api Documentation:octicons-link-external-24:</a>, subitem _registry-server-redoc-static.html_ after selecting a specific version
