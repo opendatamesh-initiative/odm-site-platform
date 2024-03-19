@@ -57,6 +57,7 @@ nav:
     - 'Quantyca': './community/quantyca.md'
   - Resources:
     - './resources/index.md'
+    - 'External Tools': './resources/tools.md'
     - 'How to': 
       - 'build this site': './resources/howto/build-site-doc.md'
 
