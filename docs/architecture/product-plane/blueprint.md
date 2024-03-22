@@ -2,7 +2,7 @@
 
 ## Overview
 
-The *Blueprint Service* is a module of the Product Plane in the ODM Platform which allows to initialize a data product starting from a template. This module works independently from the others.
+The *Blueprint Microservice* is a module of the Product Plane in the ODM Platform which allows to initialize a data product starting from a template. This module works independently from the others.
 
 Essentially, given a template repository on a Git provider with some of the file contents parameterized, the module is able to clone it, map the user's input data to parameters, and push the content to a brand new repository (i.e. creating a new data quantum).
 
@@ -17,14 +17,14 @@ At the state of the art, Blueprint supports two main Git Providers:
 
 In ODM terminology, a **blueprint** is a Git repository containing the template composition of a data product. Each blueprint must contain two elements:
 
-- A **data product template**: a set of folders and files, properly configured and parameterized, to allow the Blueprint Service to perform the appropriate parameter substitutions and value assignments.
+- A **data product template**: a set of folders and files, properly configured and parameterized, to allow the Blueprint Microservice to perform the appropriate parameter substitutions and value assignments.
 - A **parameters configuration**: a configuration file specifying all the parameters to be substituted in the blueprint.
 
 ## How it works
 
 ### Architecture
 
-As the majority of the ODM services, the Blueprint Service is composed by two modules:
+As the majority of the ODM services, the Blueprint Microservice is composed by two modules:
 
 * **Blueprint API**: a module containing abstract controllers, Java resource definitions, and a client to interact with the controller.
 * **Blueprint Server**: a module implementing the abstract controllers, any component useful to interact with the DB (entities, mappers, repositories, ...), and services needed for the templating operations.
@@ -33,7 +33,7 @@ As the majority of the ODM services, the Blueprint Service is composed by two mo
 
 ### Relations
 
-Blueprint service, as described in the introduction, doesn't require any other ODM module to work, and it doesn't directly interact with any of them. It's a stand-alone module that exposes features to register, manage and initialize templates.
+Blueprint Microservice, as described in the introduction, doesn't require any other ODM module to work, and it doesn't directly interact with any of them. It's a stand-alone module that exposes features to register, manage and initialize templates.
 
 Nonetheless, even if its scope could be much wider, it's meant to be used in the ODM platform to initialize data product descriptors and data product components.
 
@@ -143,10 +143,8 @@ In addition to variables expressed as `${var}`, the module supports any other na
 
 ## Technologies
 
-* Java 11
-* Maven 3.8.6
-* Spring 5.3.28
-* Spring Boot 2.7.13
+In addition to the technologies already mentioned on the main architecture page, this module makes use of the following:
+
 * Git
 * <a href="https://oauth.net/2/" target="_blank">OAuth 2.0:octicons-link-external-24:</a>
 * <a href="https://velocity.apache.org/" target="_blank">Apache Velocity 2.2:octicons-link-external-24:</a>

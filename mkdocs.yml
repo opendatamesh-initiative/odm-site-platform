@@ -24,12 +24,6 @@ nav:
     - 'Federated Computational Governance': './concepts/federated-computational-governance.md'
   - Architecture: 
     - './architecture/index.md'
-    - 'Platform Core':
-        - './architecture/platform-core/index.md'
-        - 'Commons':
-            - './architecture/platform-core/commons/index.md'
-        - 'DPDS Parser':
-            - './architecture/platform-core/dpds-parser/index.md'
     - 'Product Plane':
         - './architecture/product-plane/index.md'
         - 'Registry': './architecture/product-plane/registry.md'
@@ -51,6 +45,12 @@ nav:
             - './architecture/utility-plane/policy/index.md'
             - 'Adapters':
                 - 'OPA': './architecture/utility-plane/policy/adapters/opa.md'
+    - 'Platform Core':
+        - './architecture/platform-core/index.md'
+        - 'Commons':
+            - './architecture/platform-core/commons/index.md'
+        - 'DPDS Parser':
+            - './architecture/platform-core/dpds-parser/index.md'
     - 'ODM CLI': './architecture/odm-cli/odm-cli.md'
   - Community:
     - './community/index.md'
@@ -74,6 +74,7 @@ theme:
     - navigation.tracking
     - navigation.expand
     - navigation.indexes
+    - navigation.footer
   favicon: favicon.ico
   palette:
     # Palette toggle for light mode
