@@ -76,8 +76,8 @@ Possible _suite_ values are:
 * DATA_PRODUCT_CREATION (Registry)
 * DATA_PRODUCT_UPDATE (Registry)
 * ACTIVITY_STAGE_TRANSITION (DevOps)
-* TASK_EXECUTOR_INITIAL_CALL (DevOps)
-* TASK_EXECUTOR_FINAL_CALL (DevOps)
+* TASK_EXECUTION_RESULT (DevOps)
+* ACTIVITY_EXECUTION_RESULT (DevOps)
 
 Each value represents a specific phase of ODM processes. 
 

@@ -2,27 +2,38 @@
 
 ## Overview
 
-The *Registry Microervice* is the ODM Platform main module that allows to create, edit, retrieve and delete Data Products and Data Product Versions within the mesh. This microservice provides functionalities to create data products using the [Data Product descriptor](../../concepts/data-product-descriptor.md) and to manage them via specific APIs.
+The *Registry Microservice* is the ODM Platform main module that allows to create, edit, 
+retrieve and delete Data Products and Data Product Versions within the mesh. 
+This microservice provides functionalities to create data products using the 
+[Data Product descriptor](../../concepts/data-product-descriptor.md) and to manage them via specific APIs.
 
-In addition to the basic features to store and manage Data Product and Data Product Version objects, it offers syntactic and semantic validation to ensure the correctness of every data product object.
+In addition to the basic features to store and manage Data Product and Data Product Version objects, 
+it offers syntactic and semantic validation to ensure the correctness of every data product object.
 
-Optionally, it is configurable to enable the interaction with other ODM Platform microservices, such as those for policy computation or events notification. 
+Optionally, it is configurable to enable the interaction with other ODM Platform microservices, 
+such as those for policy computation or events notification. 
 
 ## Concepts
 
 ### Data Product
 
-At this point, it should be clear what a data product is. If it's not, you can deep dive on the <a href="https://dpds.opendatamesh.org/concepts/data-product/" target="_blank">DPDS site:octicons-link-external-24:</a>.
+At this point, it should be clear what a data product is. If it's not, you can deep dive on the 
+<a href="https://dpds.opendatamesh.org/concepts/data-product/" target="_blank">DPDS site:octicons-link-external-24:</a>.
 
 ### Data Product Version
 
-A data product version refers to a specific release of a data product within an organization's data platform. Just like softwares have versions, data products also undergo under iterations and updates over time. Data product versions help in managing changes, tracking improvements, and ensuring compatibility with downstream systems and consumers. Each version of a data product may introduce new features, enhancements, bug fixes, or modifications to the underlying data schema or structure.
+A data product version refers to a specific release of a data product within an organization's data platform. 
+Just like softwares have versions, data products also undergo iterations and updates over time. 
+Data product versions help in managing changes, tracking improvements, 
+and ensuring compatibility with downstream systems and consumers. 
+Each version of a data product may introduce new features, enhancements, bug fixes, 
+or modifications to the underlying data schema or structure.
 
 ## How it works
 
 ### Architecture
 
-As the majority of the ODM services, the Registry Microservice is composed by two modules:
+As the majority of the ODM services, the Registry Microservice is composed of two modules:
 
 * **Registry API**: a module containing abstract controllers, Java resource definitions, and a client to interact with the controller.
 * **Registry Server**: a module implementing the abstract controllers, any component useful to interact with the DB (entities, mappers, repositories, ...), and services needed for the Registry operations.
@@ -31,7 +42,9 @@ As the majority of the ODM services, the Registry Microservice is composed by tw
 
 ### Relations
 
-Registry is the ODM Platform Product Plane main module, and it can act both as a standalone microservice or interact with different ODM features, such as [Policy](../product-plane/policy.md) or [Notification](../utility-plane/notification/index.md) microservices.
+Registry is the ODM Platform Product Plane main module, 
+and it can act both as a standalone microservice or interact with different ODM features, 
+such as [Policy](../product-plane/policy.md) or [Notification](../utility-plane/notification/index.md) microservices.
 
 The optional interaction with other ODM microservices, configurable through a properties file, enables to:
 
@@ -44,15 +57,23 @@ The optional interaction with other ODM microservices, configurable through a pr
 
     This section describes code that is still evolving.
 
-The Registry Microservice is able to interact with the [Policy](../product-plane/policy.md) Microservice to check the compliance of a Data Product or of a Data Product Version both at creation and update time.
+The Registry Microservice is able to interact with the [Policy](../product-plane/policy.md) Microservice 
+to check the compliance of a Data Product or of a Data Product Version both at creation and update time.
 
-As shown in the dedicated section, the Policy Microservice stores policies that have a special tag to specify the phase in which the policy must be evaluated and whether the evaluation result is blocking or not for the phase. A blocking policy with a negative evaluation will lead to the failure of the relative data product phase.
+As shown in the dedicated section, the Policy Microservice stores policies that have a special tag to specify the phase 
+in which the policy must be evaluated and whether the evaluation result is blocking or not for the phase. 
+A blocking policy with a negative evaluation will lead to the failure of the relative data product phase.
 
-As an example, consider the existence of a few policies that check if before the creation of a Data Product Version all the names of the components are compliant with a specific naming convention. If the interaction with the Policy Microservice is active, the creation of a Data Product Version with one or more components' name not compliant with the naming convention will fail returning an error from the Policy Microservice.
+As an example, consider the existence of a few policies that check if before the creation of a Data Product Version 
+all the names of the components are compliant with a specific naming convention. 
+If the interaction with the Policy Microservice is active, 
+the creation of a Data Product Version with one or more components' name not compliant with the naming convention 
+will fail returning an error from the Policy Microservice.
 
 #### Notification
 
-The Registry Microservice has a [Notification](../utility-plane/notification/index.md) system based on the Observer Design Pattern. On the application startup, every notification _listener_ listed in the configurations is registered 
+The Registry Microservice has a [Notification](../utility-plane/notification/index.md) system based on the Observer Design Pattern. 
+On the application startup, every notification _listener_ listed in the configurations is registered 
 and, when an event occurs, a dispatcher sends the notification to every active listener.
 
 The following are the events handled by the Registry:
@@ -65,7 +86,8 @@ The following are the events handled by the Registry:
 
 ## Examples
 
-Each interaction between the Registry Microservice and other ODM services is enabled or disabled through properties file inside the Java application, as shown by the following snippet:
+Each interaction between the Registry Microservice and other ODM services is enabled or disabled through properties file
+inside the Java application, as shown by the following snippet:
 
 ```yaml
 odm:
@@ -79,7 +101,8 @@ odm:
         active: true
         address: http://localhost:9002
 ```
-In this example, the interaction with the Policy Microservice is disabled using the attribute `active: false`, while there is only one active notification system named `blindata` reachable at `http://localhost:9002`.
+In this example, the interaction with the Policy Microservice is disabled using the attribute `active: false`, 
+while there is only one active notification system named `blindata` reachable at `http://localhost:9002`.
 
 To register a new notification _listener_, edit the active Spring profile property file as follows: 
 
@@ -108,7 +131,8 @@ odm:
         address: http://localhost:9003
 ```
 
-Additional information about service configuration and execution via Docker are available on <a href="https://github.com/opendatamesh-initiative/odm-platform/blob/main/README.md" target="_blank">Github:octicons-link-external-24:</a>.
+Additional information about service configuration and execution via Docker are available on 
+<a href="https://github.com/opendatamesh-initiative/odm-platform/blob/main/README.md" target="_blank">Github:octicons-link-external-24:</a>.
 
 ## Technologies
 

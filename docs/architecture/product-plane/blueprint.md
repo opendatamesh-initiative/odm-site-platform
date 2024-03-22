@@ -17,7 +17,8 @@ At the state of the art, Blueprint supports two main Git Providers:
 
 ### Blueprint
 
-In ODM terminology, a **blueprint** is a Git repository containing the template composition of a data product. Each blueprint must contain two elements:
+In ODM terminology, a **blueprint** is a Git repository containing the template composition of a data product. 
+Each blueprint must contain two elements:
 
 - A **data product template**: a set of folders and files, properly configured and parameterized, to allow the Blueprint Microservice to perform the appropriate parameter substitutions and value assignments.
 - A **parameters configuration**: a configuration file specifying all the parameters to be substituted in the blueprint.
@@ -35,15 +36,20 @@ As the majority of the ODM services, the Blueprint Microservice is composed by t
 
 ### Relations
 
-Blueprint Microservice, as described in the introduction, doesn't require any other ODM module to work, and it doesn't directly interact with any of them. It's a stand-alone module that exposes features to register, manage and initialize templates.
+Blueprint Microservice, as described in the introduction, doesn't require any other ODM module to work, 
+and it doesn't directly interact with any of them. 
+It's a stand-alone module that exposes features to register, manage and initialize templates.
 
-Nonetheless, even if its scope could be much wider, it's meant to be used in the ODM platform to initialize data product descriptors and data product components.
+Nonetheless, even if its scope could be much wider, 
+it's meant to be used in the ODM platform to initialize data product descriptors and data product components.
 
 ### Tools
 
 #### Git
 
-Input templates and output projects are both meant to be remote Git repositories.  Git integration is used to fetch information from the source remote repository and to push the resulting project on a new (or already existing) remote Git repository.
+Input templates and output projects are both meant to be remote Git repositories. 
+Git integration is used to fetch information from the source remote repository 
+and to push the resulting project on a new (or already existing) remote Git repository.
 
 Git authorization could be handled in two different ways:
 
@@ -69,9 +75,12 @@ OAuth 2.0 is the _authorization_ protocol we chose to interact with Git provider
 
 Apache Velocity is a Java-based template engine that permits anyone to use a simple yet powerful template language to reference objects.
 
-Even if it is mainly used for web development, Velocity's capabilities reach well beyond the realm of the web; for example, it can be used to generate SQL, PostScript, XML, JSON, from templates.
+Even if it is mainly used for web development, Velocity's capabilities reach well beyond the realm of the web; 
+for example, it can be used to generate SQL, PostScript, XML, JSON, from templates.
 
-Apache Velocity is the template engine we chose to resolve any user template on starting from the data product blueprint. Our project doesn't override any native feature, so check out Apache Velocity documentation for any specific information about its syntax and its templating capabilities.
+Apache Velocity is the template engine we chose to resolve any user template on starting from the data product blueprint. 
+Our project doesn't override any native feature, so check out Apache Velocity documentation 
+for any specific information about its syntax and its templating capabilities.
 
 ## Examples
 
@@ -106,7 +115,8 @@ where:
 ]
 ```
 
-File contents, file names, and directory names can all be templated. Each parameter of the blueprint must have the following naming convention: `${parameterName}`. 
+File contents, file names, and directory names can all be templated. 
+Each parameter of the blueprint must have the following naming convention: `${parameterName}`. 
 
 !!! info
     
@@ -141,7 +151,8 @@ where `renamedFile.json` content will be:
 }
 ```
 
-In addition to variables expressed as `${var}`, the module supports any other native <a href="https://velocity.apache.org/engine/devel/user-guide.html#velocity-template-language-vtl-an-introduction" target="_blank">Velocity Template Language:octicons-link-external-24:</a> syntax.
+In addition to variables expressed as `${var}`, the module supports any other native 
+<a href="https://velocity.apache.org/engine/devel/user-guide.html#velocity-template-language-vtl-an-introduction" target="_blank">Velocity Template Language:octicons-link-external-24:</a> syntax.
 
 ## Technologies
 
