@@ -4,7 +4,9 @@
 
 The *Blueprint Microservice* is a module of the Product Plane in the ODM Platform which allows to initialize a data product starting from a template. This module works independently from the others.
 
-Essentially, given a template repository on a Git provider with some of the file contents parameterized, the module is able to clone it, map the user's input data to parameters, and push the content to a brand new repository (i.e. creating a new data quantum).
+Essentially, given a template repository on a Git provider with some of the file contents parameterized,
+the module is able to clone it, map the user's input data to parameters,
+and push the content to a brand-new repository (i.e., creating a new data quantum).
 
 At the state of the art, Blueprint supports two main Git Providers:
 
@@ -52,7 +54,7 @@ Git authorization could be handled in two different ways:
 
 OAuth 2.0 is the _authorization_ protocol we chose to interact with Git providers. During the start-up phase, Blueprint Server must be configured through the _property files_ to specify the typical OAuth parameters:
 
-* Token URI (i.e. the identity provider URI to get the authorization token)
+* Token URI (i.e., the identity provider URI to get the authorization token)
 * Client ID
 * Client Secret
 * Scope
@@ -110,7 +112,7 @@ File contents, file names, and directory names can all be templated. Each parame
     
     Variable names can't contain any special character, such as `",",".","-","_", ...`.
 
-Let's have a look to an example.
+Let's have a look at an example.
 
 Given the parameters `dirName=renamedDirectory`, `fileName=renamedFile` and `fileContent=test`, and the following blueprint:
 ```txt
