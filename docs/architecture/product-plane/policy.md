@@ -149,6 +149,8 @@ Events representing operations from the Registry Server, that are:
 * DATA_PRODUCT_CREATION
 * DATA_PRODUCT_UPDATE
 
+---
+
 ##### DATA_PRODUCT_CREATION
 
 This event represents the creation of a Data Product Version object for a Data Product without any existing version.
@@ -208,6 +210,8 @@ The composed input object that will be forwarded to the right Policy Engine Adap
   }
 }
 ```
+
+---
 
 ##### DATA_PRODUCT_UPDATE
 
@@ -303,6 +307,8 @@ Events representing operations from the DevOps Server, that are:
 * ACTIVITY_STAGE_TRANSITION
 * TASK_EXECUTION_RESULT
 * ACTIVITY_EXECUTION_RESULT
+
+---
 
 ##### ACTIVITY_STAGE_TRANSITION
 
@@ -500,6 +506,8 @@ In the scenario of a Data Product Version with at least one previous Activity ex
 }
 ```
 
+---
+
 ##### TASK_EXECUTION_RESULT
 
 This event represents the reception of a callback from the execution of a single Task of an Activity for a specific Data Product Version.
@@ -612,6 +620,8 @@ The composed input object that will be forwarded to the right Policy Engine Adap
   }
 }
 ```
+
+---
 
 ##### ACTIVITY_EXECUTION_RESULT
 
