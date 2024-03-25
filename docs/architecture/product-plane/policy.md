@@ -29,7 +29,7 @@ in pre-defined phases of the Platform processes.
 
 As an example, a set of policies, blocking and/or not blocking, could be evaluated
 during the creation of a Data Product Version. If at least one blocking policy returns a negative evaluation, 
-the creation process is blocked and and error is returned to the user.
+the creation process is blocked and error is returned to the user.
 
 A basic description and a how-to guide for execution is available on the module [README.md](https://github.com/opendatamesh-initiative/odm-platform/blob/main/product-plane-services/devops-server/README.md) on GitHub.
 
@@ -65,7 +65,7 @@ A Policy in the Policy Service is the representation of the implementation of a 
 The representation includes a unique name, useful metadata and, most important, 
 the reference of the _Engine_ needed for the evaluation.
 
-When the evaluation of one or more policy is requested, the right  Engine will be used.
+When the evaluation of one or more policy is requested, the right Engine will be used.
 
 Another important part of a Policy is the _suite_ attribute. 
 When the Policy Service is used by Registry and DevOps services, 
