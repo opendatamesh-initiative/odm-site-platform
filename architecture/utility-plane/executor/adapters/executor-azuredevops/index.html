@@ -2263,7 +2263,7 @@ to retrieve information about Task executions.</p>
 * Azure DevOps, to request pipeline executions or information about a specific run of a pipeline</p>
 <h3 id="tools">Tools<a class="headerlink" href="#tools" title="Permanent link">⚓︎</a></h3>
 <h4 id="oauth-20">OAuth 2.0<a class="headerlink" href="#oauth-20" title="Permanent link">⚓︎</a></h4>
-<p>OAuth 2.0 is the <em>authorization</em> protocol used for interactions with Azure DevOps. It adds all the necessary authorization information to any request forwarded to the DevOps provider through an <em>Access Token</em>.</p>
+<p>OAuth 2.0 is the <em>authorization</em> protocol used for interactions with Azure DevOps. It adds all the necessary authorization information to any request forwarded to the DevOps provider through an <em>Access Token</em>. It uses a client credential flow to interact with the Microsoft Entra identity provider to get the <em>Access Token</em>. </p>
 <p>Upon start-up, the Executor DevOps must be configured through the <em>property files</em> with OAuth parameters like:</p>
 <ul>
 <li>Token URI (i.e., the identity provider URI to get the authorization token)</li>
