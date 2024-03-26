@@ -44,7 +44,7 @@ Its default usage always includes interactions with:
 
 #### OAuth 2.0
 
-OAuth 2.0 is the _authorization_ protocol used for interactions with Azure DevOps. It adds all the necessary authorization information to any request forwarded to the DevOps provider through an _Access Token_.
+OAuth 2.0 is the _authorization_ protocol used for interactions with Azure DevOps. It adds all the necessary authorization information to any request forwarded to the DevOps provider through an _Access Token_. It uses a client credential flow to interact with the Microsoft Entra identity provider to get the _Access Token_. 
 
 Upon start-up, the Executor DevOps must be configured through the _property files_ with OAuth parameters like:
 
