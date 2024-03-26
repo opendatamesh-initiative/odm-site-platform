@@ -1473,11 +1473,44 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      References
+      Overview
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How it works
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How it works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1491,18 +1524,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#architecture" class="md-nav__link">
+  <a href="#references" class="md-nav__link">
     <span class="md-ellipsis">
-      Architecture
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#relationships" class="md-nav__link">
-    <span class="md-ellipsis">
-      Relationships
+      References
     </span>
   </a>
   
@@ -2029,11 +2053,44 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      References
+      Overview
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How it works
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How it works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2047,18 +2104,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#architecture" class="md-nav__link">
+  <a href="#references" class="md-nav__link">
     <span class="md-ellipsis">
-      Architecture
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#relationships" class="md-nav__link">
-    <span class="md-ellipsis">
-      Relationships
+      References
     </span>
   </a>
   
@@ -2083,40 +2131,43 @@
 
 
 <h1 id="policy-engine-opa">Policy Engine OPA<a class="headerlink" href="#policy-engine-opa" title="Permanent link">⚓︎</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">⚓︎</a></h2>
 <p>Policy Engine OPA is a <a href="../../"><em>Policy Engine Adapter</em></a> that acts as a <em>proxy</em>
-between the <a href="../../../../product-plane/policy/"><em>Policy Server</em></a> and an instance of an OPA server 
-(i.e., <a href="https://www.openpolicyagent.org/">Open Policy Agent</a> server).</p>
+between the <a href="../../../../product-plane/policy/"><em>Policy Server</em></a> and an instance of an OPA (<a href="https://www.openpolicyagent.org/" target="_blank">Open Policy Agent<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 2.25a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 .75.75v5.5a.75.75 0 0 1-1.5 0V4.06l-6.22 6.22a.75.75 0 1 1-1.06-1.06L19.94 3h-3.69a.75.75 0 0 1-.75-.75Z"/><path d="M2.5 4.25c0-.966.784-1.75 1.75-1.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.25.25 0 0 0-.25.25v15.5c0 .138.112.25.25.25h15.5a.25.25 0 0 0 .25-.25v-8.5a.75.75 0 0 1 1.5 0v8.5a1.75 1.75 0 0 1-1.75 1.75H4.25a1.75 1.75 0 0 1-1.75-1.75V4.25Z"/></svg></span></a>) server.</p>
 <p>The main task of the adapter is to receive requests for policy evaluations on a given input, 
 forward them to the OPA server, process and send back the results to the calling Policy Service.
 It also handles the process of policy deployment on the OPA server and synchronization with the policies 
-stored in the Policy Server (only for policy that have <em>Policy Engine OPA</em> as Policy Engine).</p>
+stored in the Policy Server (only for policies that have <em>Policy Engine OPA</em> as Policy Engine).</p>
+<h2 id="how-it-works">How it works<a class="headerlink" href="#how-it-works" title="Permanent link">⚓︎</a></h2>
+<h3 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">⚓︎</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Work In Progress!</strong></p>
+<p>This section is currently undergoing improvements. We apologize for any inconvenience and appreciate your patience.</p>
+</div>
+<h3 id="relations">Relations<a class="headerlink" href="#relations" title="Permanent link">⚓︎</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Work In Progress!</strong></p>
+<p>This section is currently undergoing improvements. We apologize for any inconvenience and appreciate your patience.</p>
+</div>
+<h2 id="technologies">Technologies<a class="headerlink" href="#technologies" title="Permanent link">⚓︎</a></h2>
+<p>In addition to the classic Java, Maven and Spring technologies, the OPA Policy Engine requires an instance of a dockerized rootless OPA Server.</p>
+<ul>
+<li><a href="https://hub.docker.com/layers/openpolicyagent/opa/latest-rootless/images/sha256-b8d2ca87f0241531433d106473bbe3661b7c9be735c447daefa164f2c3942b8d?context=explore" target="_blank">OPA - rootless<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 2.25a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 .75.75v5.5a.75.75 0 0 1-1.5 0V4.06l-6.22 6.22a.75.75 0 1 1-1.06-1.06L19.94 3h-3.69a.75.75 0 0 1-.75-.75Z"/><path d="M2.5 4.25c0-.966.784-1.75 1.75-1.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.25.25 0 0 0-.25.25v15.5c0 .138.112.25.25.25h15.5a.25.25 0 0 0 .25-.25v-8.5a.75.75 0 0 1 1.5 0v8.5a1.75 1.75 0 0 1-1.75 1.75H4.25a1.75 1.75 0 0 1-1.75-1.75V4.25Z"/></svg></span></a></li>
+</ul>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">⚓︎</a></h2>
 <ul>
-<li>GitHub repository: <a href="https://github.com/opendatamesh-initiative/odm-platform-up-services-policy-opa">odm-platform</a></li>
-<li>GitHub readme: <a href="https://github.com/opendatamesh-initiative/odm-platform-up-services-policy-opa/README.md">README.md</a></li>
-<li>API Doc: <a href="https://opendatamesh-initiative.github.io/odm-api-doc/index.html">ODM Api Documentation</a>, section <em>Doc</em>, subitem <em>opa-policy-server-redoc-static.html</em> after selecting a version</li>
+<li>GitHub repository: <a href="https://github.com/opendatamesh-initiative/odm-platform-up-services-policy-opa" target="_blank">odm-platform-up-services-policy-opa<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 2.25a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 .75.75v5.5a.75.75 0 0 1-1.5 0V4.06l-6.22 6.22a.75.75 0 1 1-1.06-1.06L19.94 3h-3.69a.75.75 0 0 1-.75-.75Z"/><path d="M2.5 4.25c0-.966.784-1.75 1.75-1.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.25.25 0 0 0-.25.25v15.5c0 .138.112.25.25.25h15.5a.25.25 0 0 0 .25-.25v-8.5a.75.75 0 0 1 1.5 0v8.5a1.75 1.75 0 0 1-1.75 1.75H4.25a1.75 1.75 0 0 1-1.75-1.75V4.25Z"/></svg></span></a></li>
+<li>API Documentation: <a href="https://opendatamesh-initiative.github.io/odm-api-doc/doc.html" target="_blank">ODM Api Documentation<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 2.25a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 .75.75v5.5a.75.75 0 0 1-1.5 0V4.06l-6.22 6.22a.75.75 0 1 1-1.06-1.06L19.94 3h-3.69a.75.75 0 0 1-.75-.75Z"/><path d="M2.5 4.25c0-.966.784-1.75 1.75-1.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.25.25 0 0 0-.25.25v15.5c0 .138.112.25.25.25h15.5a.25.25 0 0 0 .25-.25v-8.5a.75.75 0 0 1 1.5 0v8.5a1.75 1.75 0 0 1-1.75 1.75H4.25a1.75 1.75 0 0 1-1.75-1.75V4.25Z"/></svg></span></a>, subitem <em>opa-policy-server-redoc-static.html</em> after selecting a specific version</li>
 </ul>
-<h2 id="technologies">Technologies<a class="headerlink" href="#technologies" title="Permanent link">⚓︎</a></h2>
-<ul>
-<li>Java 11</li>
-<li>Maven 3.8.6</li>
-<li>Spring 5.3.28</li>
-<li>Spring Boot 2.7.13</li>
-<li><a href="https://hub.docker.com/layers/openpolicyagent/opa/latest-rootless/images/sha256-b8d2ca87f0241531433d106473bbe3661b7c9be735c447daefa164f2c3942b8d?context=explore">OPA - rootless</a></li>
-</ul>
-<p>In addition to the classic Java, Maven and Spring technologies, 
-the OPA Policy Service requires an instance of a dockerized rootless OPA Server. </p>
-<h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">⚓︎</a></h2>
-<p>Coming soon!</p>
-<h2 id="relationships">Relationships<a class="headerlink" href="#relationships" title="Permanent link">⚓︎</a></h2>
-<p>Coming soon!</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 14, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 26, 2024</span>
       
         <br>
         Created:

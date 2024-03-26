@@ -1336,20 +1336,44 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#description" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Description
+      Overview
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
+  <a href="#how-it-works" class="md-nav__link">
     <span class="md-ellipsis">
-      References
+      How it works
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="How it works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1363,18 +1387,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#architecture" class="md-nav__link">
+  <a href="#references" class="md-nav__link">
     <span class="md-ellipsis">
-      Architecture
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#relationships" class="md-nav__link">
-    <span class="md-ellipsis">
-      Relationships
+      References
     </span>
   </a>
   
@@ -2038,20 +2053,44 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#description" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Description
+      Overview
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
+  <a href="#how-it-works" class="md-nav__link">
     <span class="md-ellipsis">
-      References
+      How it works
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="How it works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2065,18 +2104,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#architecture" class="md-nav__link">
+  <a href="#references" class="md-nav__link">
     <span class="md-ellipsis">
-      Architecture
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#relationships" class="md-nav__link">
-    <span class="md-ellipsis">
-      Relationships
+      References
     </span>
   </a>
   
@@ -2101,36 +2131,13 @@
 
 
 <h1 id="blindata-notification">Blindata Notification<a class="headerlink" href="#blindata-notification" title="Permanent link">⚓︎</a></h1>
-<h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">⚓︎</a></h2>
-<p>Blindata Notification Service is a <a href="../../"><em>Notification Adapter</em></a>, 
-so an implementation of Notification of the Utility Plane, 
-that acts as a Notification handler for <a href="https://blindata.io/">Blindata</a>.</p>
-<p>Blindata is a SAAS platform that leverages Data Governance and Compliance to empower Data Management projects.</p>
-<p>The main task of the adapter is receiving and handling <em>notifications</em> from other ODM services, such as the 
-<a href="../../../../product-plane/registry/"><em>Registry Server</em></a> and the <a href="../../../../product-plane/devops/"><em>DevOps Server</em></a>.
-After the reception of a notification, it extracts the <em>event</em> and, depending on the nature of the event, interacts with
-Blindata to create, update or remove objects.</p>
-<p>As an example, consider the event DATA_PRODUCT_CREATION. 
-Once the <em>Registry Server</em> send a notification encapsulating 
-an occurrence of such <em>event</em> to any active listener, Blindata Notification Adapter receives it. 
-It then processes the event and forwards the request for the creation of the Data Product Object on the Blindata system.</p>
-<p>A basic description and a how-to guide for execution is available on the module <a href="https://github.com/opendatamesh-initiative/odm-platform-up-services-meta-blindata/README.md">README.md</a> on GitHub.</p>
-<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">⚓︎</a></h2>
-<ul>
-<li>GitHub repository: <a href="https://github.com/opendatamesh-initiative/odm-platform-up-services-meta-blindata">odm-platform-up-services-meta-blindata</a></li>
-<li>GitHub readme: <a href="https://github.com/opendatamesh-initiative/odm-platform-up-services-meta-blindata/README.md">README.md</a></li>
-<li>API Doc: <a href="https://opendatamesh-initiative.github.io/odm-api-doc/index.html">ODM Api Documentation</a>, section <em>Doc</em>, subitem <em>notification-service-blindata-redoc-static.html</em> after selecting a version</li>
-</ul>
-<h2 id="technologies">Technologies<a class="headerlink" href="#technologies" title="Permanent link">⚓︎</a></h2>
-<ul>
-<li>Java 11</li>
-<li>Maven 3.8.6</li>
-<li>Spring 5.3.28</li>
-<li>Spring Boot 2.7.13</li>
-</ul>
-<p>Other than the default Java, Maven and Spring technologies, 
-the Blindata Notification Adapter module does not make use of any particular technology.</p>
-<h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">⚓︎</a></h2>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">⚓︎</a></h2>
+<p>The <em>Blindata Notification Microservice</em> is a <a href="../../"><em>Notification Adapter</em></a>, i.e. an implementation of a Notification service of the Utility Plane, that acts as a Notification handler for <a href="https://blindata.io/" target="_blank">Blindata<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 2.25a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 .75.75v5.5a.75.75 0 0 1-1.5 0V4.06l-6.22 6.22a.75.75 0 1 1-1.06-1.06L19.94 3h-3.69a.75.75 0 0 1-.75-.75Z"/><path d="M2.5 4.25c0-.966.784-1.75 1.75-1.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.25.25 0 0 0-.25.25v15.5c0 .138.112.25.25.25h15.5a.25.25 0 0 0 .25-.25v-8.5a.75.75 0 0 1 1.5 0v8.5a1.75 1.75 0 0 1-1.75 1.75H4.25a1.75 1.75 0 0 1-1.75-1.75V4.25Z"/></svg></span></a>. Blindata is a SAAS platform that leverages Data Governance and Compliance to empower Data Management projects.</p>
+<p>The main task of the adapter is receiving and handling <em>notifications</em> from other ODM services, such as the <a href="../../../../product-plane/registry/"><em>Registry Server</em></a> and the <a href="../../../../product-plane/devops/"><em>DevOps Server</em></a>.
+After the reception of a notification, it extracts the <em>event</em> and, depending on the nature of the event, the microservice interacts with Blindata to create, update or remove objects.</p>
+<p>As an example, consider the DATA_PRODUCT_CREATION event. Once the <em>Registry Server</em> has sent a notification encapsulating such <em>event</em> to any active listener, the Blindata Notification Adapter is able to receive it. Then, it processes the event forwarding the request for the creation of the Data Product Object on the Blindata system in order to be mapped in the governance tool.</p>
+<h2 id="how-it-works">How it works<a class="headerlink" href="#how-it-works" title="Permanent link">⚓︎</a></h2>
+<h3 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">⚓︎</a></h3>
 <p>The adapter has a single module, called <code>meta-service-blindata</code>, that:</p>
 <ul>
 <li>implement and/or extend the base features of a Notification adapter from the <a href="../../"><em>Notification Server module of the Utility Plane</em></a></li>
@@ -2139,7 +2146,7 @@ the Blindata Notification Adapter module does not make use of any particular tec
 <li>services to interact with objects on Blindata </li>
 </ul>
 <p><img alt="Blindata-Notification-diagram" src="../../../../../images/architecture/utility-plane/notification/adapters/blindata_notification_architecture.png" /></p>
-<h2 id="relationships">Relationships<a class="headerlink" href="#relationships" title="Permanent link">⚓︎</a></h2>
+<h3 id="relations">Relations<a class="headerlink" href="#relations" title="Permanent link">⚓︎</a></h3>
 <p>Blindata Executor Adapter it's not meant to be a standalone service,
 even if it has the ability to be used as an independent module. 
 It contains all the required logic to interact with Blindata, but reacting on Notification reception makes it useless 
@@ -2148,13 +2155,20 @@ without other ODM services.</p>
 * Registry Service, to receive notification about registry operation on Data Product, such as creation, update, deletion, ...
 * DevOps Service, to receive notification about the lifecycle of Data Product objects
 * Blindata, to create, update or delete the objects representing Data Product and Data Product Version</p>
+<h2 id="technologies">Technologies<a class="headerlink" href="#technologies" title="Permanent link">⚓︎</a></h2>
+<p>Other than the default Java, Maven and Spring technologies, the the Blindata Notification Adapter does not make use of any particular technology.</p>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">⚓︎</a></h2>
+<ul>
+<li>GitHub repository: <a href="https://github.com/opendatamesh-initiative/odm-platform-up-services-meta-blindata" target="_blank">odm-platform-up-services-meta-blindata<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 2.25a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 .75.75v5.5a.75.75 0 0 1-1.5 0V4.06l-6.22 6.22a.75.75 0 1 1-1.06-1.06L19.94 3h-3.69a.75.75 0 0 1-.75-.75Z"/><path d="M2.5 4.25c0-.966.784-1.75 1.75-1.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.25.25 0 0 0-.25.25v15.5c0 .138.112.25.25.25h15.5a.25.25 0 0 0 .25-.25v-8.5a.75.75 0 0 1 1.5 0v8.5a1.75 1.75 0 0 1-1.75 1.75H4.25a1.75 1.75 0 0 1-1.75-1.75V4.25Z"/></svg></span></a></li>
+<li>API Documentation: <a href="https://opendatamesh-initiative.github.io/odm-api-doc/doc.html" target="_blank">ODM Api Documentation<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 2.25a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 .75.75v5.5a.75.75 0 0 1-1.5 0V4.06l-6.22 6.22a.75.75 0 1 1-1.06-1.06L19.94 3h-3.69a.75.75 0 0 1-.75-.75Z"/><path d="M2.5 4.25c0-.966.784-1.75 1.75-1.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.25.25 0 0 0-.25.25v15.5c0 .138.112.25.25.25h15.5a.25.25 0 0 0 .25-.25v-8.5a.75.75 0 0 1 1.5 0v8.5a1.75 1.75 0 0 1-1.75 1.75H4.25a1.75 1.75 0 0 1-1.75-1.75V4.25Z"/></svg></span></a>, subitem <em>notification-service-blindata-redoc-static.html</em> after selecting a specific version</li>
+</ul>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 14, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 26, 2024</span>
       
         <br>
         Created:
