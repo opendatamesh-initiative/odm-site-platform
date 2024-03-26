@@ -41,7 +41,7 @@ nav:
           - './architecture/utility-plane/notification/index.md'
           - 'Adapters':
               - 'Blindata': './architecture/utility-plane/notification/adapters/blindata.md'
-        - 'Policy':
+        - 'Policy Engine':
             - './architecture/utility-plane/policy/index.md'
             - 'Adapters':
                 - 'OPA': './architecture/utility-plane/policy/adapters/opa.md'
