@@ -4,7 +4,7 @@
 
 The *Notification* is a microservice that receives notifications and reacts to the event contained in the notification.
 
-In the Utility Plane of the ODM Platform, there is a Notification module that, 
+On the Utility Plane of the ODM Platform, there is a Notification module that, 
 like any module in the Utility Plane, exposes an Interface to implement a specific notification service. Any implementation of it is called _Notification Adapter_.
 
 
@@ -14,10 +14,12 @@ like any module in the Utility Plane, exposes an Interface to implement a specif
 
 As the majority of the ODM services, the Notification Microservice is composed by two modules:
 
-* **Blueprint API**: a module containing abstract controllers, Java resource definitions, and a client to interact with the controller.
-* **Blueprint Server**: a basic server eventually implementing common parts between each possible Notification Adapter.
+* **Notification API**: a module containing abstract controllers, Java resource definitions, and a client to interact with the controller.
+* **Notification Server**: a basic server eventually implementing common parts between each possible Notification Adapter.
 
-The difference between the other modules is that it doesn't have a main class: it isn't directly executable the task of overriding specific behaviours and defining a runnable application is leaved to the implemented Adapter.
+The difference between the other modules is that it doesn't have a main class:
+it isn't directly executable the task of overriding specific behaviors
+and defining a runnable application is left to the implemented Adapter.
 
 ![Notification-diagram](../../../images/architecture/utility-plane/notification/notification_architecture.png)
 

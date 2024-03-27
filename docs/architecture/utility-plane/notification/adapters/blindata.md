@@ -2,7 +2,11 @@
 
 ## Overview
 
-The _Blindata Notification Microservice_ is a [_Notification Adapter_](../index.md), i.e. an implementation of a Notification service of the Utility Plane, that acts as a Notification handler for <a href="https://blindata.io/" target="_blank">Blindata:octicons-link-external-24:</a>. Blindata is a SAAS platform that leverages Data Governance and Compliance to empower Data Management projects.
+The _Blindata Notification Microservice_ is a [_Notification Adapter_](../index.md),
+(i.e. an implementation of the Notification service of the Utility Plane),
+that acts as a Notification handler for <a href="https://blindata.io/"
+target="_blank">Blindata:octicons-link-external-24:</a>.
+Blindata is a SaaS platform that leverages Data Governance and Compliance to empower Data Management projects.
 
 The main task of the adapter is receiving and handling _notifications_ from other ODM services, such as the [_Registry Server_](../../../product-plane/registry.md) and the [_DevOps Server_](../../../product-plane/devops.md).
 After the reception of a notification, it extracts the _event_ and, depending on the nature of the event, the microservice interacts with Blindata to create, update or remove objects.
@@ -26,7 +30,7 @@ The adapter has a single module, called `meta-service-blindata`, that:
 
 Blindata Executor Adapter it's not meant to be a standalone service,
 even if it has the ability to be used as an independent module. 
-It contains all the required logic to interact with Blindata, but reacting on Notification reception makes it useless 
+It contains all the required logic to interact with Blindata, but reacting to Notification reception makes it useless 
 without other ODM services.
 
 Its default usage always includes interactions with:
@@ -37,7 +41,8 @@ Its default usage always includes interactions with:
 
 ## Technologies
 
-Other than the default Java, Maven and Spring technologies, the the Blindata Notification Adapter does not make use of any particular technology.
+Other than the default Java, Maven and Spring technologies,
+the Blindata Notification Adapter does not make use of any particular technology.
 
 ## References
 

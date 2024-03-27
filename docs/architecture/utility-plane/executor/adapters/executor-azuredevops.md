@@ -20,7 +20,7 @@ As the majority of the ODM services, the Executor AzureDevOps Service is compose
 
 * Azure DevOps API module: a module containing resource definition and a client to interact with Azure DevOps
     * differently from the _Product Plane_ services, it does not expose any abstract controller
-* Blueprint Server module: a module implementing the abstract controller, any other component to interact with the DB, and any service needed for the logic
+* Azure DevOps Server module: a module implementing the abstract controller, any other component to interact with the DB, and any service needed for the logic
     * the abstract controller and commons part are not retrieved from the API module, but from the [_Executor_](../index.md) module of the Utility Plane
 
 The _Executor AzureDevOps_ is an adapter, an implementation of Executor,
