@@ -51,7 +51,11 @@ nav:
             - './architecture/platform-core/commons/index.md'
         - 'DPDS Parser':
             - './architecture/platform-core/dpds-parser/index.md'
-    - 'ODM CLI': './architecture/odm-cli/odm-cli.md'
+    - 'ODM CLI': 
+        - './architecture/odm-cli/index.md'
+        - 'Local Commands': './architecture/odm-cli/local.md'
+        - 'Registry Commands': './architecture/odm-cli/registry.md'
+        - 'Blueprint Commands': './architecture/odm-cli/blueprint.md'
   - Community:
     - './community/index.md'
     - 'Quantyca': './community/quantyca.md'
