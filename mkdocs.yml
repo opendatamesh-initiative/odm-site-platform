@@ -37,10 +37,10 @@ nav:
           - './architecture/utility-plane/executor/index.md'
           - 'Adapters':
               - 'Executor Azure DevOps': './architecture/utility-plane/executor/adapters/executor-azuredevops.md'
-        - 'Notification':
-          - './architecture/utility-plane/notification/index.md'
+        - 'Observer':
+          - './architecture/utility-plane/observer/index.md'
           - 'Adapters':
-              - 'Blindata': './architecture/utility-plane/notification/adapters/blindata.md'
+              - 'Blindata': './architecture/utility-plane/observer/adapters/blindata.md'
         - 'Policy Engine':
             - './architecture/utility-plane/policy/index.md'
             - 'Adapters':

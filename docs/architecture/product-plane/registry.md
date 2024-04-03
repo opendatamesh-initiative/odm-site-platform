@@ -44,7 +44,7 @@ As the majority of the ODM services, the Registry Microservice is composed of tw
 
 Registry is the ODM Platform Product Plane main module, 
 and it can act both as a standalone microservice or interact with different ODM features, 
-such as [Policy](../product-plane/policy.md) or [Notification](../utility-plane/notification/index.md) microservices.
+such as [Policy](../product-plane/policy.md) or [Observer](../utility-plane/observer/index.md) microservices.
 
 The optional interaction with other ODM microservices, configurable through a properties file, enables to:
 
@@ -70,9 +70,9 @@ If the interaction with the Policy Microservice is active,
 the creation of a Data Product Version with one or more components' name not compliant with the naming convention 
 will fail returning an error from the Policy Microservice.
 
-#### Notification
+#### Observer
 
-The Registry Microservice has a [Notification](../utility-plane/notification/index.md) system based on the Observer Design Pattern. 
+The Registry Microservice has an [Observer](../utility-plane/observer/index.md) system based on the Observer Design Pattern. 
 On the application startup, every notification _listener_ listed in the configurations is registered 
 and, when an event occurs, a dispatcher sends the notification to every active listener.
 

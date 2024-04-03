@@ -88,7 +88,7 @@ In order to properly operate as an orchestrator for DevOps operations, it requir
 In addition, it could also have optional interactions with:
 
 * [Policy Service](../product-plane/policy.md): to optionally validate stage transitions and _Tasks_ and _Activity_ results
-* [Notification services](../utility-plane/notification/index.md): to optionally send policy evaluation events and/or stage transition events
+* [Observer APIs](../utility-plane/observer/index.md): to optionally send policy evaluation events and/or stage transition events
 
 #### Registry
 
@@ -99,13 +99,13 @@ The DevOps server will start even without a reachable Registry Server, but every
 
 The execution of an _Activity_ requires an active instance of the chosen _Executor Adapter_.  Each _Activity_ could be potentially executed on a different DevOps provider, adding multiple adapters to the requirements.  So, the number of _Executor Adapters_ that the DevOps microservice needs to know depends on the desired user behaviour.
 
-#### Notification
+#### Observer
 
 !!! warning 
 
     This section describes code that is still evolving.
 
-The DevOps Microservice has a [Notification](../utility-plane/notification/index.md) system based on the Observer Design Pattern. On the application startup, every notification _listener_ listed in the property file is registered and, when an event occurs, a dispatcher sends the notification to every active listener.
+The DevOps Microservice has an [Observer](../utility-plane/observer/index.md) system based on the Observer Design Pattern. On the application startup, every notification _listener_ listed in the property file is registered and, when an event occurs, a dispatcher sends the notification to every active listener.
 
 The following are the events handled by the DevOps microservice:
 
