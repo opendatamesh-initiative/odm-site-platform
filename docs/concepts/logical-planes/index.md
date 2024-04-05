@@ -1,6 +1,7 @@
 # Logical Planes
 
-The *DataMeshOps Platform*, or just the *platform*, as it is referred to in this documentation, is tipically divided into three *logical planes*. In the conceptualization of the DataMeshOps functionalities, a *plane* embodies a logical assembly of capabilities with complementary goals and significant functional unity. Each plane holds a clear responsibility, collaboratively working towards a shared overarching goal: establishing a **self-service data platform** under the guidance of a **federated computational governance**.
+The *DataMeshOps Platform*, or just the *platform*, as it is referred to in this documentation, is divided into three *logical planes*. 
+In the conceptualization of the DataMeshOps functionalities, a *plane* embodies a logical assembly of capabilities with complementary goals and significant functional unity. Each plane holds a clear responsibility, collaboratively working towards a shared overarching goal: establishing a **self-service data platform** under the guidance of a **federated computational governance**.
 
 The aim of a plane is to overcome the intricacies of the underlying infrastructure providing a set of interfaces (such as a set of APIs) for the functionalities it encompasses. These interfaces serve as gateways to access the capabilities within the plane. Data product developers and data platform users have the possibility to interact directly with various planes of the platform.  
 

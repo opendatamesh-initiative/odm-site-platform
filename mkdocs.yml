@@ -55,6 +55,18 @@ nav:
         - 'Local Commands': './architecture/odm-cli/local.md'
         - 'Registry Commands': './architecture/odm-cli/registry.md'
         - 'Blueprint Commands': './architecture/odm-cli/blueprint.md'
+  - API Doc:
+    - './api-doc/index.md'
+    - Product Plane:
+      - Registry: './api-doc/product-plane/registry.md'
+      - DevOps: './api-doc/product-plane/devops.md'
+      - Policy: './api-doc/product-plane/policy.md'
+      - Blueprint: './api-doc/product-plane/blueprint.md'
+    - Utility Plane:
+        - Adapters:
+          - Executor Azure DevOps: './api-doc/utility-plane/adapters/executorazuredevops.md'
+          - Policy Engine OPA: './api-doc/utility-plane/adapters/policyengineopa.md'
+          - Notification Blindata: './api-doc/utility-plane/adapters/notificationblindata.md'
   - Community:
     - './community/index.md'
     - 'Quantyca': './community/quantyca.md'
