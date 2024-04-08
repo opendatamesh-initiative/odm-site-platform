@@ -6,4 +6,4 @@
     display: none !important;
   }
 </style>
-<iframe src="../../../../html/redoc/observer-blindata-server-redoc-static.html" style="width: 100%; height: 100vh; border: none;"></iframe>
+<iframe src="../../../../html/redoc/observer-blindata-server.html" style="width: 100%; height: 100vh; border: none;"></iframe>
