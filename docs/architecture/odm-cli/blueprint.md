@@ -6,7 +6,7 @@ Common parameters:
 
 * `-f / --properties-file`: file path of the configuration file describing how to communicate with ODM modules 
     * it's an optional YAML file that, if present, list all the modules and their URL in the following format: `module-server: http://<hostname>:<port>` (e.g., `blueprint-server: http://localhost:8003`) 
-    * the default file in the project list the modules as if they were exposed locally with their default ports
+    * the default file in the project lists the modules as if they were exposed locally with their default ports
 * `-s / --server`: server address (port included) of the ODM *Blueprint Server*; If explicit, override the property in the `properties-file`
 * `-h / --help`: command helper
 * `-V / --version`: command version
@@ -52,7 +52,7 @@ odm-cli blueprint init
 * **description**: Init a target Git from the Blueprint source repo. It requires the Blueprint ID and the following parameters that they'll be interactively asked the user:: 
     * URL of the target Git repository 
     * Whether to create or not (i.e., already exists) the target repository 
-    * each parameter required by the Blueprint (i.e., the parameters explicitly described in the Blueprint `params.json` file). if a parameter is skipped by the user, the default value will be used.
+    * each parameter required by the Blueprint (i.e., the parameters explicitly described in the Blueprint `params.json` file). if the user skips a parameter, the default value will be used.
 * **parameters**: 
     * `--id`: Blueprint identifier
 * **examples**:  

@@ -19,7 +19,7 @@ odm-cli registry list dp
 ```
 
 * **name**: List Data Product
-* **description**: List all registered Data Product
+* **description**: List all registered Data Products
 * **examples**: 
     * `odm-cli registry list dp` [with default `properties.yml` in module `root`]
     * `odm-cli registry -f properties.yml list dp`
@@ -99,7 +99,7 @@ odm-cli registry publish dpv
 ```
 
 * **name**: Publish Data Product Version
-* **description**: Publish a Data Product Version givne the file path of its JSON descriptor and the ID of the parent Data Product
+* **description**: Publish a Data Product Version given the file path of its JSON descriptor and the ID of the parent Data Product
 * **parameters**: 
     * `--id`: Data Product identifier 
     * `--dpv-file`: local file path of the Data Product Version JSON descriptor
@@ -116,7 +116,7 @@ odm-cli registry upload dpv
 ```
 
 * **name**: Upload Data Product Version
-* **description**: Publish a Data Product Version given the Git repository that store its description objects. The command will interactively ask the user the following information:  
+* **description**: Publish a Data Product Version given the Git repository that stores its description objects. The command will interactively ask the user the following information:  
     * SSH URI of the Git repo 
     * Designated branch of the Git repo (default: `main`) 
     * Relative path inside the Git repo of the root JSON descriptor of the Data Product Version object

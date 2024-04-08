@@ -13,10 +13,10 @@ The following image depicts a diagram of the architecture.
 
 As you can see, the architecture is composed of two planes reflecting those proposed by Data Mesh theory:
 
-* **Product Plane**: the ODM implementation of the [Data Product Experience Plane](../concepts/logical-planes/data-product-experience-plane.md), which helps in building and consume data products, as well as managing their entire lifecycle. 
+* **Product Plane**: the ODM implementation of the [Data Product Experience Plane](../concepts/logical-planes/data-product-experience-plane.md), which helps to build and consume data products, as well as managing their entire lifecycle. 
 * **Utility Plane**: the ODM implementation of the [Data Infrastructure (Utility) Plane](../concepts/logical-planes/utility-plane.md), which aims to decouple the data product management from the underlying physical infrastructure.
 
-It turns out that the ODM Platform main modules are technology-independent: data products are created and managed via the Product Plane independently from the underlying physical layer, which is decoupled by the Utility Plane and the Adapters.
+It turns out that the ODM Platform main modules are technology-independent: data products are created and managed via the Product Plane independently of the underlying physical layer, which is decoupled by the Utility Plane and the Adapters.
 
 
 ## Product Plane
@@ -40,7 +40,7 @@ Each microservice is ready to use and represents an available feature of the pla
 The *Utility Plane* exposes a set of services useful for the mesh functionality and infrastructure decoupling, like:
 
 * [Executors](./utility-plane/executor/index.md): they act as a proxy between the mesh platform and specific DevOps tools.
-* [Observers](./utility-plane/observer/index.md): they collect and react to events occured in the mesh platform.
+* [Observers](./utility-plane/observer/index.md): they collect and react to events occurred in the mesh platform.
 * [Validators](./utility-plane/policy/index.md): they are services dedicated to the evaluation of computational policies.
 
 Each microservice exposes an interface requiring a real implementation of it. The aim here is to give a starting point and a blueprint structure for the realization of the specific services. Any implementation of the Utility Plane services is called *Adapter*.

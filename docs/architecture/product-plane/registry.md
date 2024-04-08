@@ -49,7 +49,7 @@ such as [Policy](../product-plane/policy.md) or [Observer](../utility-plane/obse
 The optional interaction with other ODM microservices, configurable through a properties file, enables to:
 
 * ensure that each object is compliant with a set of policies, potentially blocking the creation and/or update of a non-compliant object;
-* notify a list of registered observers on many _events_ occured on data product objects, such as _creation_, _update_ or _deletion_.
+* notify a list of registered observers on many _events_ occurred on data product objects, such as _creation_, _update_ or _deletion_.
 
 #### Policy
 
@@ -68,7 +68,7 @@ As an example, consider the existence of a few policies that check if before the
 all the names of the components are compliant with a specific naming convention. 
 If the interaction with the Policy Microservice is active, 
 the creation of a Data Product Version with one or more components' name not compliant with the naming convention 
-will fail returning an error from the Policy Microservice.
+will fail, returning an error from the Policy Microservice.
 
 #### Observer
 
@@ -132,7 +132,7 @@ odm:
 ```
 
 Additional information about service configuration and execution via Docker are available on 
-<a href="https://github.com/opendatamesh-initiative/odm-platform/blob/main/README.md" target="_blank">Github:octicons-link-external-24:</a>.
+<a href="https://github.com/opendatamesh-initiative/odm-platform/blob/main/README.md" target="_blank">GitHub:octicons-link-external-24:</a>.
 
 ## Technologies
 
