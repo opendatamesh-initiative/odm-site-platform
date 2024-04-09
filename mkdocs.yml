@@ -96,24 +96,24 @@ theme:
   custom_dir: docs/overrides
 
 extra:
-  # analytics:
-  #   provider: google
-  #   property: G-N7ZP6EW9XH
-  #   feedback:
-  #     title: Was this page helpful?
-  #     ratings:
-  #       - icon: material/emoticon-happy-outline
-  #         name: This page was helpful
-  #         data: 1
-  #         note: >-
-  #           Thanks for your feedback!
-  #           <br><a href="https://github.com/opendatamesh-initiative/odm-specification-dpdescriptor" target="_blank">⭐Star the project on GitHub⭐</a>
-  #       - icon: material/emoticon-sad-outline
-  #         name: This page could be improved
-  #         data: 0
-  #         note: >-
-  #           Thanks for your feedback! 
-  #           <br><a href="https://github.com/opendatamesh-initiative/odm-specification-dpdescriptor/issues" target="_blank">Consider opening an issue on GitHub</a>
+  analytics:
+    provider: google
+    property: G-21LGK3XPSG
+    feedback:
+      title: Was this page helpful?
+      ratings:
+        - icon: material/emoticon-happy-outline
+          name: This page was helpful
+          data: 1
+          note: >-
+            Thanks for your feedback!
+            <br><a href="https://github.com/opendatamesh-initiative/odm-specification-dpdescriptor" target="_blank">⭐Star the project on GitHub⭐</a>
+        - icon: material/emoticon-sad-outline
+          name: This page could be improved
+          data: 0
+          note: >-
+            Thanks for your feedback! 
+            <br><a href="https://github.com/opendatamesh-initiative/odm-specification-dpdescriptor/issues" target="_blank">Consider opening an issue on GitHub</a>
   consent:
     title: Cookie consent
     description: >- 
