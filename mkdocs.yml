@@ -107,13 +107,13 @@ extra:
           data: 1
           note: >-
             Thanks for your feedback!
-            <br><a href="https://github.com/opendatamesh-initiative/odm-specification-dpdescriptor" target="_blank">⭐Star the project on GitHub⭐</a>
+            <br><a href="https://github.com/opendatamesh-initiative/odm-platform" target="_blank">⭐Star the project on GitHub⭐</a>
         - icon: material/emoticon-sad-outline
           name: This page could be improved
           data: 0
           note: >-
             Thanks for your feedback! 
-            <br><a href="https://github.com/opendatamesh-initiative/odm-specification-dpdescriptor/issues" target="_blank">Consider opening an issue on GitHub</a>
+            <br><a href="https://github.com/opendatamesh-initiative/odm-platform/issues" target="_blank">Consider opening an issue on GitHub</a>
   consent:
     title: Cookie consent
     description: >- 
