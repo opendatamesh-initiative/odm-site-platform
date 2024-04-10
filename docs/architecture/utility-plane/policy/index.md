@@ -1,33 +1,46 @@
 # Policy Engine
 
-A Policy Engine is a service that answers to _policy evaluation requests_ 
+## Overview 
+
+A Policy Engine is a microservice that answers to _policy evaluation requests_ 
 received from the [_Policy Service_](../../product-plane/policy.md).
 
-It can act as a _proxy_ between the Policy Service and a server for policy evaluation, 
-like OPA (i.e. Open Policy Agent), or it can directly evaluate the policy with custom code.
+In ODM context, Engine refers to any tool capable of receiving queries requesting the evaluation of specific policies,
+assessing them, and responding accordingly. 
+This encompasses microservice acting as proxy to existing policy engines,
+like OPA (Open Policy Agent), as well as Lambda Functions, custom solutions, ...
 
-As any other service in the Utility Plane, Policy Engine doesn't represent a directly executable project: it exposes an interface to implement an _Adapter_ (a specific implementation of the evaluation engine).
-
+An example of a Policy Engine is the [Policy Engine OPA](adapters/opa.md).
 
 ## How it works
 
 ### Architecture
 
-!!! warning
+Similar to other services within the Utility Plane,
+the Policy Engine module isn't designed as a directly executable project.
+Instead, it provides an interface for implementing an Adapter,
+which serves as a specialized implementation of the evaluation engine.
 
-    **Work In Progress!**
+The Policy Engine module consists of the single following submodule:
+* Policy Engine API: a module containing abstract controllers, Java resource definitions, and a client to interact with the controller.
 
-    This section is currently undergoing improvements. We apologize for any inconvenience and appreciate your patience.
+A default implementation of the *Policy Engine Server* submodule does not exist.
+
+<!--![Policy-Engine-diagram](../../../images/architecture/utility-plane/executor/executor_architecture.png)-->
 
 ### Relations
 
-!!! warning
+### Policy Service
 
-    **Work In Progress!**
+A Policy Engine is a microservice designed to complement the [Policy Service](../../product-plane/policy.md).
+Even if it could act as a standalone service to evaluate policies, 
+it's meant to act as the executor of the evaluation requests received by the Policy Service.
 
-    This section is currently undergoing improvements. We apologize for any inconvenience and appreciate your patience.
-
+Whenever a Policy Engine is ready to be included in the ODM ecosystem, 
+it will simply need to be registered with the Policy Service. 
+This will enable the addition of policies intended for it and their evaluation in standard ODM processes.
 
 ## Technologies
 
-Other than the default Java, Maven and Spring technologies, the Notification module does not make use of any particular technology.
+Other than the default Java, Maven and Spring technologies,
+the Policy Engine module does not make use of any particular technology.
