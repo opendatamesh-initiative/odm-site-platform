@@ -29,7 +29,7 @@ The Product Plane provides the following set of microservices:
 * [Registry Microservice](./product-plane/registry.md): it registers a new data product with a unique identifier and a data product version within the mesh, making it visible to the mesh governance processes.
 * [Policy Microservice](./product-plane/policy.md): it handles services to apply and run embedded computational policies on every data product of the mesh.
 * [DevOps Microservice](./product-plane/devops.md): it manages the entire data product lifecycle (i.e., development, test, deploy, decommissioning).
-* [Notification Microservice](./product-plane/notification.md): it manages listeners and dispatches notifications upon events reception.
+* [Event Notifier Microservice](./product-plane/eventnotifier.md): it manages listeners and dispatches notifications upon events reception.
 * [Params Microservice](./product-plane/params.md): it is a custom ODM microservice to handle common parameters and variables within the entire platform.
 
 Each microservice is ready to use and represents an available feature of the platform.
