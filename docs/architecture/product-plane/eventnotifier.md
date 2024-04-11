@@ -36,7 +36,7 @@ As the majority of the ODM services, the Event Notifier Microservice is composed
 * **Event Notifier API**: a module containing abstract controllers, Java resource definitions, and a client to interact with the controller.
 * **Event Notifier Server**: a module implementing the abstract controllers, any component useful to interact with the DB (entities, mappers, repositories, ...), and services needed for the Registry operations.
 
-<!--![Event-Notifier-diagram](../../images/architecture/product-plane/registry/event_notifier_architecture.png)-->
+![Event-Notifier-diagram](../../images/architecture/product-plane/notification/event_notifier_architecture.png)
 
 ### Relations
 
