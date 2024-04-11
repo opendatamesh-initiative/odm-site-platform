@@ -30,10 +30,10 @@ In traditional uses of OPA, three distinct objects are contemplated: *input*, *p
 Input refers to the information or context against which policies are evaluated,
 Policy defines the rules or logic governing decision-making,
 while Data encompasses the information to be evaluated or manipulated by policies.
-However, in the context of ODM, we simplify the focus on *policy* and *input* only.
+However, in the context of ODM, the focus is simplified to *policy* and *input* only.
 Each policy will be evaluated only on the given JSON input.
 
-Let's explain what an OPA Policy in ODM context is through an example.
+Let's explain what an OPA Policy in the ODM context with an example.
 Consider the following JSON Object representing a Data Product:
 ```json
 {
@@ -50,9 +50,9 @@ Consider the following JSON Object representing a Data Product:
 }
 ```
 
-Let's say that a policy to check the `fullyQualifiedName` has to be executed 
+Suppose that a policy that checks the `fullyQualifiedName` has to be executed 
 each time a Data Product object creation is request to ensure that it starts with `urn`.
-In order to do it, it's possible to define the following Rego rule:
+The corresponding Rego rule could be:
 ```rego
 package dataproduct
 
@@ -68,8 +68,7 @@ warning := true {
 }
 ```
 
-When forwarding the object to the Policy Engine OPA,
-the requirement is to encapsulate it inside a `input` object, like this:
+When forwarding the object to the Policy Engine OPA, it should be encapsulated inside an `input` object, like this:
 
 ```json
 {
@@ -88,7 +87,7 @@ the requirement is to encapsulate it inside a `input` object, like this:
 }
 ```
 
-The OPA server will answer with the following object: 
+The OPA server will respond with the following object: 
 ```json
 {
   "decision_id": "9bc38b6d-49ad-4955-8ad0-c46c59e6234b",
@@ -99,18 +98,34 @@ The OPA server will answer with the following object:
 }
 ```
 
-
 ## How it works
 
 ### Architecture
 
-!!! warning
+The Policy Engine OPA consists of a single module, called *policy-engine-opa-server*.
+It contains Java classes that implement the REST controllers of the [Policy Engine module](../index.md), 
+Java services to handle the requests, and a client to interact with a reachable OPA Server.
 
-    **Work In Progress!**
+<!--![Policy-Engine-OPA-diagram](../../../images/architecture/utility-plane/policy/adapters/policy_engine_opa_architecture.png)-->
 
-    This section is currently undergoing improvements. We apologize for any inconvenience and appreciate your patience.
 
 ### Relations
+
+#### OPA Server
+In order to work properly, the Policy Engine OPA microservice strictly requires the presence of a reachable OPA Server.
+
+In the default scenario, a dockerized version of the OPA Server is used 
+(<a href="https://hub.docker.com/layers/openpolicyagent/opa/latest-rootless/images/sha256-b8d2ca87f0241531433d106473bbe3661b7c9be735c447daefa164f2c3942b8d?context=explore" target="_blank">OPA - rootless:octicons-link-external-24:</a>).
+
+Such interaction is configured through property file as follows:
+```yaml
+opa:
+  url:
+    policies: http://localhost:8181/v1/policies
+    data: http://localhost:8181/v1/data
+```
+
+#### Policy Service and Product Plane services
 
 The Policy Engine OPA is a standalone microservices capable of receiving evaluation requests of a policy given an input,
 forward them to a reachable OPA Server, process the results and return the evaluation response.
