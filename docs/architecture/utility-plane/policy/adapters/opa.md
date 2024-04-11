@@ -102,9 +102,9 @@ The OPA server will respond with the following object:
 
 ### Architecture
 
-The Policy Engine OPA consists of a single module, called *policy-engine-opa-server*.
-It contains Java classes that implement the REST controllers of the [Policy Engine module](../index.md), 
-Java services to handle the requests, and a client to interact with a reachable OPA Server.
+The Policy Engine OPA comprises a single module, named *policy-engine-opa-server*, 
+which houses Java classes that implement the REST controllers of the [Policy Engine module](../index.md), 
+Java services to manage requests, and a client for interacting with a reachable OPA Server.
 
 <!--![Policy-Engine-OPA-diagram](../../../images/architecture/utility-plane/policy/adapters/policy_engine_opa_architecture.png)-->
 
@@ -112,18 +112,21 @@ Java services to handle the requests, and a client to interact with a reachable 
 ### Relations
 
 #### OPA Server
-In order to work properly, the Policy Engine OPA microservice strictly requires the presence of a reachable OPA Server.
+For proper functionality, the Policy Engine OPA microservice strictly requires the presence of a reachable OPA Server.
 
-In the default scenario, a dockerized version of the OPA Server is used 
+In the default setup, a dockerized version of the OPA Server is employed
 (<a href="https://hub.docker.com/layers/openpolicyagent/opa/latest-rootless/images/sha256-b8d2ca87f0241531433d106473bbe3661b7c9be735c447daefa164f2c3942b8d?context=explore" target="_blank">OPA - rootless:octicons-link-external-24:</a>).
 
-Such interaction is configured through property file as follows:
+This interaction is configured via property files, as shown below:
 ```yaml
 opa:
   url:
     policies: http://localhost:8181/v1/policies
     data: http://localhost:8181/v1/data
 ```
+
+Additional information about service configuration and execution via Docker are available on 
+<a href="https://github.com/opendatamesh-initiative/odm-platform-up-services-policy-engine-opa/blob/main/README.md" target="_blank">GitHub:octicons-link-external-24:</a>.
 
 #### Policy Service and Product Plane services
 
