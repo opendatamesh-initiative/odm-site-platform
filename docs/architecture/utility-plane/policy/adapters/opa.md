@@ -7,7 +7,7 @@ between the [_Policy Server_](../../../product-plane/policy.md) and an instance 
 
 The main responsibility of the Policy Engine OPA is
 to manage requests for policy evaluations based on designated inputs.
-It accomplishes this process by receiving requests, forwarding them to the OPA server,
+It accomplishes this process by receiving requests, pre-processing them, forwarding them to the OPA server,
 processing the results, and subsequently returning them.
 
 <!--
@@ -106,6 +106,12 @@ The Policy Engine OPA comprises a single module, named **Policy Engine OPA Serve
 which houses Java classes that implement the REST controllers of the [Policy Engine module](../index.md), 
 Java services to manage requests, and a client for interacting with a reachable OPA Server.
 
+Differently from the majority of ODM microservices, Policy Engine is a stateless component.
+It doesn't rely on a Database, and it doesn't have any kind of state, storage or cache. 
+Every time the Policy Engine receives an evaluation request, it acts as *fire and forget*, 
+including both the policy and the subject of the policy evaluation in the request for the OPA Server.
+Once the evaluation is done, it does not save any result, but simply returns the results to the caller.
+
 ![Policy-Engine-OPA-diagram](../../../../images/architecture/utility-plane/policy/adapters/policy_engine_opa_architecture.png)
 
 ### Relations
@@ -139,7 +145,7 @@ lifecycle to assess whether a specific operation is allowed or not given the ava
 
 When operating withing the ODM ecosystem, input objects are determined by Product Plane services
 (i.e., Registry and DevOps) and forwarded to the Policy Service.
-The Policy Service collaborates with the Policy Engine OPA, and any other available Policy Engine), 
+The Policy Service collaborates with the Policy Engine OPA, and any other available Policy Engine, 
 to evaluate the request and return the answer to the Product Plane services.
 
 Back to the example shown before,
