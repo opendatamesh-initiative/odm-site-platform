@@ -102,12 +102,11 @@ The OPA server will respond with the following object:
 
 ### Architecture
 
-The Policy Engine OPA comprises a single module, named *policy-engine-opa-server*, 
+The Policy Engine OPA comprises a single module, named **Policy Engine OPA Server**, 
 which houses Java classes that implement the REST controllers of the [Policy Engine module](../index.md), 
 Java services to manage requests, and a client for interacting with a reachable OPA Server.
 
-![Policy-Engine-OPA-diagram](../../../images/architecture/utility-plane/policy/adapters/policy_engine_opa_architecture.png)
-
+![Policy-Engine-OPA-diagram](../../../../images/architecture/utility-plane/policy/adapters/policy_engine_opa_architecture.png)
 
 ### Relations
 
@@ -153,6 +152,31 @@ global policy that has DATA_PRODUCT_CREATION as trigger.
 For the request, they compose and send the following JSON object:
 ```json
 {
+  "currentState": {
+    "dataProductVersion": {}
+  }, 
+  "afterState": {
+    "dataProductVersion": {
+      "dataProductDescriptor": "1.0.0", 
+      "info": {
+        "fullyQualifiedName": "urn:org.opendatamesh:dataproducts:tripExecution", 
+        "domain": "logistic", 
+        "name": "tripExecution", 
+        "version": "1.0.0", 
+        "displayName": "Trip Execution", 
+        "description": "Logistic trip scheduler", 
+        ...
+      }, 
+      ...
+    }
+  }
+}
+```
+
+When the Policy Engine OPA receives it, it wraps it into an _input_ object as required from the OPA server, 
+obtaining the following object:
+```json
+{
   "input": {
     "currentState": {
       "dataProductVersion": {}
@@ -175,6 +199,7 @@ For the request, they compose and send the following JSON object:
   }
 }
 ```
+
 The Policy must be registered in the Policy Server before the creation request for a Data Product in order to be evaluated, 
 and the Policy raw content itself will be slightly different, as shown below:
 ```rego
