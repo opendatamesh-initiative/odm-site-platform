@@ -26,7 +26,7 @@ The Policy Engine module consists of the single following submodule:
 
 A default implementation of the *Policy Engine Server* submodule does not exist.
 
-<!--![Policy-Engine-diagram](../../../images/architecture/utility-plane/executor/executor_architecture.png)-->
+![Policy-Engine-diagram](../../../images/architecture/utility-plane/policy/policy_engine_architecture.png)
 
 ### Relations
 

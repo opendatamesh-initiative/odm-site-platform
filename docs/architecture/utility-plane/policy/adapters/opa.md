@@ -106,7 +106,7 @@ The Policy Engine OPA comprises a single module, named *policy-engine-opa-server
 which houses Java classes that implement the REST controllers of the [Policy Engine module](../index.md), 
 Java services to manage requests, and a client for interacting with a reachable OPA Server.
 
-<!--![Policy-Engine-OPA-diagram](../../../images/architecture/utility-plane/policy/adapters/policy_engine_opa_architecture.png)-->
+![Policy-Engine-OPA-diagram](../../../images/architecture/utility-plane/policy/adapters/policy_engine_opa_architecture.png)
 
 
 ### Relations
