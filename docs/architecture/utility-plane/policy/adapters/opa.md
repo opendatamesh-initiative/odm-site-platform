@@ -5,12 +5,7 @@
 Policy Engine OPA is a [_Policy Engine Adapter_](../index.md) that acts as a _proxy_
 between the [_Policy Server_](../../../product-plane/policy.md) and an instance of an OPA (<a href="https://www.openpolicyagent.org/" target="_blank">Open Policy Agent:octicons-link-external-24:</a>) server.
 
-The main task of the Policy Engine OPA is to receive requests for policy evaluations on a given input, 
-forward them to the OPA server, process and send back the results to the calling Policy Service.
-It also handles the process of policy deployment on the OPA server and synchronization with the policies 
-stored in the Policy Server (only for policies that have _Policy Engine OPA_ as Policy Engine).
-
-The primary responsibility of the Policy Engine OPA is
+The main responsibility of the Policy Engine OPA is
 to manage requests for policy evaluations based on designated inputs.
 It accomplishes this process by receiving requests, forwarding them to the OPA server,
 processing the results, and subsequently returning them.
@@ -205,7 +200,7 @@ The Policy service will collect the evaluation results of several policies and g
 to the Registry.
 The Registry will then determine whether to proceed or not with the Data Product creation depending on that result.
 
-It's important to observ that the Policy Engine OPA try to extract the `allow` attribute from the OPA server response
+It's important to observe that the Policy Engine OPA try to extract the `allow` attribute from the OPA server response
 in order to summarize the evaluation with a single Boolean value.
 Should such an attribute be missing in the Policy raw content,
 the result extraction will fail and an error will be returned.
