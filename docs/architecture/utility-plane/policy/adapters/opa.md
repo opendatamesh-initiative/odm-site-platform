@@ -130,24 +130,24 @@ opa:
 The Policy Engine OPA is a standalone microservices capable of receiving evaluation requests of a policy given an input,
 forward them to a reachable OPA Server, process the results and return the evaluation response.
 
-Within the ODM ecosystem, it's designed to work together the [Policy Service](../../../product-plane/policy.md), 
-as it was a direct extension of it.
-Its main task is to receive requests from the Policy Service and give back the evaluation to be used in a Data Product 
-lifecycle to assess whether a specific operation is allowed or not given the information actually known.
+Within the ODM ecosystem, it's designed to work together with the [Policy Service](../../../product-plane/policy.md), 
+acting as a direct extension of it.
+Its main task is to receive requests from the Policy Service and return the evaluation to be used in a Data Product 
+lifecycle to assess whether a specific operation is allowed or not given the available information.
 
 When operating withing the ODM ecosystem, input objects are determined by Product Plane services
 (i.e., Registry and DevOps) and forwarded to the Policy Service.
-The Policy Service cooperates with the Policy Engine to evaluate the request
-and give back the answer to the Product Plane services.
+The Policy Service collaborates with the Policy Engine OPA, and any other available Policy Engine), 
+to evaluate the request and return the answer to the Product Plane services.
 
 Back to the example shown before,
 the same object assessed through the same Policy will have a slightly different format as shown as follows.
 
 Let's consider the event of a DATA_PRODUCT_CREATION 
 (check the [Policy](../../../product-plane/policy.md) section for further detail about events).
-When the creation request is received, the Registry microservice asks the Policy Service to evaluate any
+When the creation request is received, the Registry microservice requests the Policy Service to evaluate any
 global policy that has DATA_PRODUCT_CREATION as trigger.
-For the request, they will compose and send the following JSON object:
+For the request, they compose and send the following JSON object:
 ```json
 {
   "input": {
@@ -189,11 +189,12 @@ warning := true {
 }
 ```
 
-Once the assessment request reaches the Policy Engine OPA, it will be processed
-and the evaluation result will be returned to the Policy Service that will send it back to the Registry service.
-The Policy Engine OPA operates in a *fire and forget* way.
+Once the assessment request reaches the Policy Engine OPA, it is processed
+and the evaluation result is returned to the Policy Service, which then sends it back to the Registry service.
+
+The Policy Engine OPA operates in a *fire and forget* manner.
 It temporarily saves the Policy raw content on the OPA Server, requests the evaluation on the given input object, 
-collects the results, process and returns them to the Policy Service.
+collects the results, process them and returns them to the Policy Service.
 Once the evaluation is done, it will remove the policy from the OPA server.
 
 The object returned to the Policy Service will be similar to:
@@ -211,14 +212,13 @@ The object returned to the Policy Service will be similar to:
   }
 }
 ```
-The Policy service will collect the evaluation results of several policies and give back a Boolean as an answer
-to the Registry.
-The Registry will then determine whether to proceed or not with the Data Product creation depending on that result.
 
-It's important to observe that the Policy Engine OPA try to extract the `allow` attribute from the OPA server response
-in order to summarize the evaluation with a single Boolean value.
-Should such an attribute be missing in the Policy raw content,
-the result extraction will fail and an error will be returned.
+The Policy service collects the evaluation results of several policies and returns a Boolean as an answer to the Registry.
+The Registry then decides whether to proceed or not with the Data Product creation depending on that result.
+
+!!! info
+
+    It's important to observe that the Policy Engine OPA try to extract the `allow` attribute from the OPA server response in order to summarize the evaluation with a single Boolean value. Should such an attribute be missing in the Policy raw content, the result extraction will fail and an error will be returned.
 
 ## Technologies
 
@@ -230,4 +230,4 @@ In addition to the classic Java, Maven and Spring technologies, the OPA Policy E
 ## References
 
 * GitHub repository: <a href="https://github.com/opendatamesh-initiative/odm-platform-up-services-policy-engine-opa" target="_blank">odm-platform-up-services-policy-engine-opa:octicons-link-external-24:</a>
-* API Documentation: [Event Notifier Server API Documentation](../../../../api-doc/utility-plane/adapters/policyengineopa.md)
+* API Documentation: [Policy Engine OPA Server API Documentation](../../../../api-doc/utility-plane/adapters/policyengineopa.md)
