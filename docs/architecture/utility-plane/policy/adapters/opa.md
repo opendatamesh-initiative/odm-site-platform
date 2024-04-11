@@ -5,10 +5,104 @@
 Policy Engine OPA is a [_Policy Engine Adapter_](../index.md) that acts as a _proxy_
 between the [_Policy Server_](../../../product-plane/policy.md) and an instance of an OPA (<a href="https://www.openpolicyagent.org/" target="_blank">Open Policy Agent:octicons-link-external-24:</a>) server.
 
-The main task of the adapter is to receive requests for policy evaluations on a given input, 
+The main task of the Policy Engine OPA is to receive requests for policy evaluations on a given input, 
 forward them to the OPA server, process and send back the results to the calling Policy Service.
 It also handles the process of policy deployment on the OPA server and synchronization with the policies 
 stored in the Policy Server (only for policies that have _Policy Engine OPA_ as Policy Engine).
+
+The primary responsibility of the Policy Engine OPA is
+to manage requests for policy evaluations based on designated inputs.
+It accomplishes this process by receiving requests, forwarding them to the OPA server,
+processing the results, and subsequently returning them.
+
+<!--
+--non più vera come parte
+Moreover,
+the Policy Engine OPA oversees the deployment of policies onto the OPA server
+and ensures synchronization with policies stored in the Policy Server,
+particularly those earmarked for handling by the Policy Engine OPA.
+-->
+
+## Concepts
+
+### OPA Policy & Rego
+An OPA Policy is a rule, or a set of rules, written in the Rego, a declarative policy language.
+These rules define conditions or constraints on input data to make decisions or enforce policies.
+OPA policies typically operate on structured data, such as JSON objects, 
+and are evaluated against input data to determine whether certain actions are allowed or denied.
+
+In traditional uses of OPA, three distinct objects are contemplated: *input*, *policy*, and *data*
+Input refers to the information or context against which policies are evaluated,
+Policy defines the rules or logic governing decision-making,
+while Data encompasses the information to be evaluated or manipulated by policies.
+However, in the context of ODM, we simplify the focus on *policy* and *input* only.
+Each policy will be evaluated only on the given JSON input.
+
+Let's explain what an OPA Policy in ODM context is through an example.
+Consider the following JSON Object representing a Data Product:
+```json
+{
+  "dataProductDescriptor": "1.0.0", 
+  "info": {
+    "fullyQualifiedName": "urn:org.opendatamesh:dataproducts:tripExecution", 
+    "domain": "logistic", 
+    "name": "tripExecution", 
+    "version": "1.0.0", 
+    "displayName": "Trip Execution", 
+    "description": "Logistic trip scheduler",
+    ...
+  }
+}
+```
+
+Let's say that a policy to check the `fullyQualifiedName` has to be executed 
+each time a Data Product object creation is request to ensure that it starts with `urn`.
+In order to do it, it's possible to define the following Rego rule:
+```rego
+package dataproduct
+
+default allow := false
+default warning := false
+
+allow := true {
+    startswith(input.info.fullyQualifiedName, "urn")
+}
+
+warning := true {
+    startswith(input.info.fullyQualifiedName, "URN")
+}
+```
+
+When forwarding the object to the Policy Engine OPA,
+the requirement is to encapsulate it inside a `input` object, like this:
+
+```json
+{
+  "input": {
+    "dataProductDescriptor": "1.0.0", 
+    "info": {
+      "fullyQualifiedName": "urn:org.opendatamesh:dataproducts:tripExecution", 
+      "domain": "logistic", 
+      "name": "tripExecution", 
+      "version": "1.0.0", 
+      "displayName": "Trip Execution", 
+      "description": "Logistic trip scheduler",
+      ...
+    }
+  }
+}
+```
+
+The OPA server will answer with the following object: 
+```json
+{
+  "decision_id": "9bc38b6d-49ad-4955-8ad0-c46c59e6234b",
+  "result": {
+    "allow": true,
+    "warning": false
+  }
+}
+```
 
 
 ## How it works
@@ -23,21 +117,107 @@ stored in the Policy Server (only for policies that have _Policy Engine OPA_ as 
 
 ### Relations
 
-!!! warning
+The Policy Engine OPA is a standalone microservices capable of receiving evaluation requests of a policy given an input,
+forward them to a reachable OPA Server, process the results and return the evaluation response.
 
-    **Work In Progress!**
+Within the ODM ecosystem, it's designed to work together the [Policy Service](../../../product-plane/policy.md), 
+as it was a direct extension of it.
+Its main task is to receive requests from the Policy Service and give back the evaluation to be used in a Data Product 
+lifecycle to assess whether a specific operation is allowed or not given the information actually known.
 
-    This section is currently undergoing improvements. We apologize for any inconvenience and appreciate your patience.
+When operating withing the ODM ecosystem, input objects are determined by Product Plane services
+(i.e., Registry and DevOps) and forwarded to the Policy Service.
+The Policy Service cooperates with the Policy Engine to evaluate the request
+and give back the answer to the Product Plane services.
 
+Back to the example shown before,
+the same object assessed through the same Policy will have a slightly different format as shown as follows.
+
+Let's consider the event of a DATA_PRODUCT_CREATION 
+(check the [Policy](../../../product-plane/policy.md) section for further detail about events).
+When the creation request is received, the Registry microservice asks the Policy Service to evaluate any
+global policy that has DATA_PRODUCT_CREATION as trigger.
+For the request, they will compose and send the following JSON object:
+```json
+{
+  "input": {
+    "currentState": {
+      "dataProductVersion": {}
+    }, 
+    "afterState": {
+      "dataProductVersion": {
+        "dataProductDescriptor": "1.0.0", 
+        "info": {
+          "fullyQualifiedName": "urn:org.opendatamesh:dataproducts:tripExecution", 
+          "domain": "logistic", 
+          "name": "tripExecution", 
+          "version": "1.0.0", 
+          "displayName": "Trip Execution", 
+          "description": "Logistic trip scheduler", 
+          ...
+        }, 
+        ...
+      }
+    }
+  }
+}
+```
+The Policy must be registered in the Policy Server before the creation request for a Data Product in order to be evaluated, 
+and the Policy raw content itself will be slightly different, as shown below:
+```rego
+package dataproduct
+
+default allow := false
+default warning := false
+
+allow := true {
+    startswith(input.afterState.dataProductVersion.info.fullyQualifiedName, "urn")
+}
+
+warning := true {
+    startswith(input.afterState.dataProductVersion.info.fullyQualifiedName, "URN")
+}
+```
+
+Once the assessment request reaches the Policy Engine OPA, it will be processed
+and the evaluation result will be returned to the Policy Service that will send it back to the Registry service.
+The Policy Engine OPA operates in a *fire and forget* way.
+It temporarily saves the Policy raw content on the OPA Server, requests the evaluation on the given input object, 
+collects the results, process and returns them to the Policy Service.
+Once the evaluation is done, it will remove the policy from the OPA server.
+
+The object returned to the Policy Service will be similar to:
+```json
+{
+  "policyEvaluationId": 1, 
+  "evaluationResult": true, 
+  "outputObject": {
+    "allow": true, 
+    "decision_id": "9bc38b6d-49ad-4955-8ad0-c46c59e6234b",
+    "result": {
+      "allow": true,
+      "warning": false
+    }
+  }
+}
+```
+The Policy service will collect the evaluation results of several policies and give back a Boolean as an answer
+to the Registry.
+The Registry will then determine whether to proceed or not with the Data Product creation depending on that result.
+
+It's important to observ that the Policy Engine OPA try to extract the `allow` attribute from the OPA server response
+in order to summarize the evaluation with a single Boolean value.
+Should such an attribute be missing in the Policy raw content,
+the result extraction will fail and an error will be returned.
 
 ## Technologies
 
-In addition to the classic Java, Maven and Spring technologies, the OPA Policy Engine requires an instance of a dockerized rootless OPA Server.
+In addition to the classic Java, Maven and Spring technologies, the OPA Policy Engine requires an instance of a dockerized rootless OPA Server:
 
 * <a href="https://hub.docker.com/layers/openpolicyagent/opa/latest-rootless/images/sha256-b8d2ca87f0241531433d106473bbe3661b7c9be735c447daefa164f2c3942b8d?context=explore" target="_blank">OPA - rootless:octicons-link-external-24:</a>
 
 
 ## References
 
-* GitHub repository: <a href="https://github.com/opendatamesh-initiative/odm-platform-up-services-policy-opa" target="_blank">odm-platform-up-services-policy-opa:octicons-link-external-24:</a>
-* API Documentation: <a href="https://opendatamesh-initiative.github.io/odm-api-doc/doc.html" target="_blank">ODM Api Documentation:octicons-link-external-24:</a>, subitem _opa-policy-server-redoc-static.html_ after selecting a specific version
+* GitHub repository: <a href="https://github.com/opendatamesh-initiative/odm-platform-up-services-policy-engine-opa" target="_blank">odm-platform-up-services-policy-engine-opa:octicons-link-external-24:</a>
+* API Documentation: [Event Notifier Server API Documentation](../../../../api-doc/utility-plane/adapters/policyengineopa.md)
