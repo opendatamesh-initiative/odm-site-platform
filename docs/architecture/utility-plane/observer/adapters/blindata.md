@@ -24,7 +24,7 @@ The adapter has a single module, called `meta-service-blindata`, that:
   * authentication and authorization
   * services to interact with objects on Blindata 
 
-![Blindata-Observer-diagram](../../../../images/architecture/utility-plane/observer/adapters/blindata_observer_architecture.png)
+![Blindata-Observer-diagram](../../../../images/architecture/utility-plane/observer/adapters/observer_blindata_architecture.png)
 
 ### Relations
 

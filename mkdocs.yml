@@ -62,6 +62,7 @@ nav:
       - DevOps: './api-doc/product-plane/devops.md'
       - Policy: './api-doc/product-plane/policy.md'
       - Blueprint: './api-doc/product-plane/blueprint.md'
+      - Event Notifier: './api-doc/product-plane/eventnotifier.md'
     - Utility Plane:
         - Adapters:
           - Executor Azure DevOps: './api-doc/utility-plane/adapters/executorazuredevops.md'
