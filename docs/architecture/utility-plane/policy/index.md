@@ -19,12 +19,12 @@ An example of a Policy Engine is the [Policy Engine OPA](adapters/opa.md).
 Similar to other services within the Utility Plane,
 the Policy Engine module isn't designed as a directly executable project.
 Instead, it provides an interface for implementing an Adapter,
-which serves as a specialized implementation of the evaluation engine.
+which serves as a specialized implementation of the Policy Engine.
 
-The Policy Engine module consists of the single following submodule:
-* Policy Engine API: a module containing abstract controllers, Java resource definitions, and a client to interact with the controller.
+The Policy Engine consists of a single module, named **Policy Engine API**,
+containing abstract controllers, Java resource definitions, and a client to interact with the controller.
 
-A default implementation of the *Policy Engine Server* submodule does not exist.
+A default implementation of the *Policy Engine Server* module does not exist and any adapter must implement it.
 
 ![Policy-Engine-diagram](../../../images/architecture/utility-plane/policy/policy_engine_architecture.png)
 
@@ -34,11 +34,20 @@ A default implementation of the *Policy Engine Server* submodule does not exist.
 
 A Policy Engine is a microservice designed to complement the [Policy Service](../../product-plane/policy.md).
 Even if it could act as a standalone service to evaluate policies, 
-it's meant to act as the executor of the evaluation requests received by the Policy Service.
+it's meant to act as the executor of the evaluation requests received by the Policy microservice.
 
 Whenever a Policy Engine is ready to be included in the ODM ecosystem, 
-it will simply need to be registered with the Policy Service. 
+it will simply need to be registered with the Policy microservice. 
 This will enable the addition of policies intended for it and their evaluation in standard ODM processes.
+
+Any registered Policy in the Policy server must contain the reference to a registered Policy Engine
+in order to be evaluated.
+
+### Product Plane services
+
+Excluding the Policy microservice, a Policy Engine doesn't directly interact with any other ODM service.
+Nonetheless, whenever a policy evaluation is requested to the Policy microservice,
+the latter will use one or more Policy Engine Adapters to fulfill the request.
 
 ## Technologies
 
