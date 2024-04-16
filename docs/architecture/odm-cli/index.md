@@ -28,6 +28,7 @@ This section lists all the available commands, grouped by used modules.
 * [Local](./local.md): local commands that don't need interaction with any ODM modules
 * [Registry](./registry.md): commands that interact with the _Registry Server_ of ODM
 * [Blueprint](./blueprint.md): commands that interact with the _Blueprint Server_ of ODM
+* [Policy](./policy.md): commands that interact with the _Policy Server_ of ODM
 
 
 ## Technologies

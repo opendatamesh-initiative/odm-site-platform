@@ -54,8 +54,8 @@ odm-cli registry get dp
     * `--id` : Data Product identifier
 * **examples**:
     * `odm-cli registry get dp --id abc123` [with default `properties.yml` in module `root`]
-    * `odm-cli registry -f properties.yml get dpv --id abc123`
-    * `odm-cli registry --server http://localhost:8001 get dpv --id abc123`
+    * `odm-cli registry -f properties.yml get dp --id abc123`
+    * `odm-cli registry --server http://localhost:8001 get dp --id abc123`
 
 ---
 #### get dpv
