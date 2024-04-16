@@ -55,6 +55,7 @@ nav:
         - 'Local Commands': './architecture/odm-cli/local.md'
         - 'Registry Commands': './architecture/odm-cli/registry.md'
         - 'Blueprint Commands': './architecture/odm-cli/blueprint.md'
+        - 'Policy Commands': './architecture/odm-cli/policy.md'
   - API Doc:
     - './api-doc/index.md'
     - Product Plane:
