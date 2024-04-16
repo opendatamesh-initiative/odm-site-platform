@@ -19,10 +19,12 @@ A Policy Engine is an object able to directly execute policies or to interact wi
 
 In the Policy Microservice, a Policy Engine is represented through a unique name and a URL to reach it. If the Engine is a [_Policy Engine Adapter_](../utility-plane/policy/index.md), the URL is internal to ODM, so the adapter will know how to properly interact with the underlying policy service in order to answer the request. If the Engine is an external service able to execute a policy, it will be reached directly through the stored URL.
 
-### Policy Suite
-When the Policy Microservice is used by Registry and DevOps microservices, specific steps of the data product management process may require the evaluation of pre-defined set of policies. Such sets are called _Policy Suites_ and they are defined through the `suite` attribute.
+### Policy Evaluation Event
+When the Policy Microservice is used by Registry and DevOps microservices,
+specific steps of the data product management process may require the evaluation of pre-defined set of policies.
+Such sets are called _Policy Evaluation Event_, and they are defined through the `evaluationEvent` attribute.
 
-Possible `suite` values are:
+Possible `evaluationEvent` values are:
 
 * DATA_PRODUCT_CREATION (Registry)
 * DATA_PRODUCT_UPDATE (Registry)
@@ -39,7 +41,7 @@ The _Policy Microservice_ implements the logic to create:
 
 * specific _Engines_, that are services with the ability to execute a policy, defined through:
     * unique name
-    * URL to reach the Engine or the Adapater for the Engine
+    * URL to reach the Engine or the Adapter for the Engine
 
 * _Policy Implementations_, that represent a Policy including:
     * the _Engine_ for the execution
@@ -69,7 +71,10 @@ not compliant with global policies.
     - the accuracy of the application status at the end of an _Activity_ to reflect the status defined in the contract
 
 As explained in the [Concepts](#concepts), interactions are orchestrated by ODM processes 
-and strictly dependent on events. Some phases of the processes require policy evaluations and which policy must be evaluated in which phase is regulated by the _suite_ attribute of the stored policies.
+and strictly dependent on events.
+Some phases of the processes require policy evaluations
+and which policy must be evaluated
+in which phase is regulated by the _evaluationEvent_ attribute of the stored policies.
 
 
 ## Examples
@@ -87,7 +92,8 @@ Such kind of events is encapsulated in the body of an evaluation request through
 `PolicyEvaluationRequestResource`.
 
 When an evaluation request occurs, the Policy Microservice selects all the registered policies with the
-`suite` attribute matching the event type and forwards them to the right Policy Engine Adapter for the evaluation.
+`evaluationEvent` attribute matching the event type
+and forwards them to the right Policy Engine Adapter for the evaluation.
 It then collects the results, aggregates them, and forwards a response to the original requester.
 
 Each event has a default input object, which will be the subject of the policy evaluations request.
@@ -689,4 +695,4 @@ Other than the default Java, Maven and Spring technologies, the Policy module do
 ## References
 
 * GitHub repository: <a href="https://github.com/opendatamesh-initiative/odm-platform" target="_blank">odm-platform:octicons-link-external-24:</a>
-* API Documentation: <a href="https://opendatamesh-initiative.github.io/odm-api-doc/doc.html" target="_blank">ODM Api Documentation:octicons-link-external-24:</a>, subitem _policy-server.html_ after selecting a specific version
+* API Documentation: [Policy Server API Documentation](../../api-doc/product-plane/policy.md)
