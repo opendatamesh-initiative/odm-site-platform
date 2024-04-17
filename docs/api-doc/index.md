@@ -6,6 +6,14 @@ Such documentation is automatically generated through Maven, OpenAPI and <a href
 
 The documentation is available for any existing version.
 
+??? doc-block "1.0.1"
+
+	* <a href="../../../assets/redoc/doc/1.0.1/blueprint-server.html" target="_blank">Blueprint Server:octicons-link-external-24:</a>
+	* <a href="../../../assets/redoc/doc/1.0.1/devops-server.html" target="_blank">Devops Server:octicons-link-external-24:</a>
+	* <a href="../../../assets/redoc/doc/1.0.1/event-notifier-server.html" target="_blank">Event Server:octicons-link-external-24:</a>
+	* <a href="../../../assets/redoc/doc/1.0.1/policy-server.html" target="_blank">Policy Server:octicons-link-external-24:</a>
+	* <a href="../../../assets/redoc/doc/1.0.1/registry-server.html" target="_blank">Registry Server:octicons-link-external-24:</a>
+
 ??? doc-block "0.9.0"
 
 	* <a href="../../../assets/redoc/doc/0.9.0/blueprint-server.html" target="_blank">Blueprint Server:octicons-link-external-24:</a>
