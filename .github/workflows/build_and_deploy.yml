@@ -1,0 +1,21 @@
+name: odm-platform CI
+on:
+  push:
+    branches: # Execute only for pre-deploy branch
+      - 'pre-deploy'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3.5.2
+        with:
+          ssh-key: ${{secrets.SSH_KEY}}
+      - name: Install Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      - name: Execute mkdocs build
+        run: python3 -m mkdocs build
+      - name: Execute mkdocs gh-deploy
+        run: python3 -m mkdocs gh-deploy --force
