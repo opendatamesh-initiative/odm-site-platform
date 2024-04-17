@@ -34,4 +34,3 @@ for version_dir in ${subdirs}; do
   echo >> "${DOC_DIRECTORY}/index.md"
 
 done
-
