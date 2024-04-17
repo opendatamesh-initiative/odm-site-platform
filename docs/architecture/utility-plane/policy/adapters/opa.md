@@ -7,8 +7,7 @@ between the [_Policy Server_](../../../product-plane/policy.md) and an instance 
 
 The main responsibility of the Policy Engine OPA is
 to manage requests for policy evaluations based on designated inputs.
-It accomplishes this process by receiving requests, pre-processing them, forwarding them to the OPA server,
-processing the results, and subsequently returning them.
+It accomplishes this process by receiving requests, pre-processing them, forwarding them to the OPA server, processing the results obtained from OPA, and returning them to the caller.
 
 <!--
 --non più vera come parte
@@ -21,15 +20,18 @@ particularly those earmarked for handling by the Policy Engine OPA.
 ## Concepts
 
 ### OPA Policy & Rego
-An OPA Policy is a rule, or a set of rules, written in the Rego, a declarative policy language.
+
+An OPA Policy is a rule, or a set of rules, written in <a href="https://www.openpolicyagent.org/docs/latest/policy-language/" target="_blank">Rego:octicons-link-external-24:</a>, a declarative policy language.
 These rules define conditions or constraints on input data to make decisions or enforce policies.
 OPA policies typically operate on structured data, such as JSON objects, 
 and are evaluated against input data to determine whether certain actions are allowed or denied.
 
-In traditional uses of OPA, three distinct objects are contemplated: *input*, *policy*, and *data*
-Input refers to the information or context against which policies are evaluated,
-Policy defines the rules or logic governing decision-making,
-while Data encompasses the information to be evaluated or manipulated by policies.
+In traditional uses of OPA, three distinct objects are contemplated: *input*, *policy*, and *data*.
+
+- *Input* refers to the information or context against which policies are evaluated;
+- *Policy* defines the rules or logic governing decision-making;
+- *Data* encompasses the information to be evaluated or manipulated by policies.
+
 However, in the context of ODM, the focus is simplified to *policy* and *input* only.
 Each policy will be evaluated only on the given JSON input.
 
@@ -108,9 +110,9 @@ Java services to manage requests, and a client for interacting with a reachable 
 
 Differently from the majority of ODM microservices, Policy Engine is a stateless component.
 It doesn't rely on a Database, and it doesn't have any kind of state, storage or cache. 
-Every time the Policy Engine receives an evaluation request, it acts as *fire and forget*, 
+Every time the Policy Engine receives an evaluation request, it acts with a *fire and forget* mechanism, 
 including both the policy and the subject of the policy evaluation in the request for the OPA Server.
-Once the evaluation is done, it does not save any result, but simply returns the results to the caller.
+Once the evaluation is done, it does not save any result, but simply returns it to the caller.
 
 ![Policy-Engine-OPA-diagram](../../../../images/architecture/utility-plane/policy/adapters/policy_engine_opa_architecture.png)
 
@@ -135,15 +137,12 @@ Additional information about service configuration and execution via Docker are 
 
 #### Policy Service and Product Plane services
 
-The Policy Engine OPA is a standalone microservices capable of receiving evaluation requests of a policy given an input,
-forward them to a reachable OPA Server, process the results and return the evaluation response.
-
-Within the ODM ecosystem, it's designed to work together with the [Policy Service](../../../product-plane/policy.md), 
+Within the ODM ecosystem, the Policy Engine OPA it's designed to work together with the [Policy Service](../../../product-plane/policy.md), 
 acting as a direct extension of it.
 Its main task is to receive requests from the Policy Service and return the evaluation to be used in a Data Product 
 lifecycle to assess whether a specific operation is allowed or not given the available information.
 
-When operating withing the ODM ecosystem, input objects are determined by Product Plane services
+When operating withing the ecosystem, input objects are determined by Product Plane services
 (i.e., Registry and DevOps) and forwarded to the Policy Service.
 The Policy Service collaborates with the Policy Engine OPA, and any other available Policy Engine, 
 to evaluate the request and return the answer to the Product Plane services.
@@ -252,7 +251,7 @@ The Registry then decides whether to proceed or not with the Data Product creati
 
 !!! info
 
-    It's important to observe that the Policy Engine OPA try to extract the `allow` attribute from the OPA server response in order to summarize the evaluation with a single Boolean value. Should such an attribute be missing in the Policy raw content, the result extraction will fail and an error will be returned.
+    It's important to observe that the Policy Engine OPA tries to extract the `allow` attribute from the OPA server response in order to summarize the evaluation with a single Boolean value. Should such an attribute be missing in the Policy raw content, the result extraction will fail and an error will be returned.
 
 ## Technologies
 

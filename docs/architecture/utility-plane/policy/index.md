@@ -8,7 +8,7 @@ received from the [_Policy Service_](../../product-plane/policy.md).
 In ODM context, Engine refers to any tool capable of receiving queries requesting the evaluation of specific policies,
 assessing them, and responding accordingly. 
 This encompasses microservice acting as proxy to existing policy engines,
-like OPA (Open Policy Agent), as well as Lambda Functions, custom solutions, ...
+like OPA (Open Policy Agent), as well as Lambda Functions, or custom solutions.
 
 An example of a Policy Engine is the [Policy Engine OPA](adapters/opa.md).
 
@@ -30,7 +30,7 @@ A default implementation of the *Policy Engine Server* module does not exist and
 
 ### Relations
 
-### Policy Service
+#### Policy Service
 
 A Policy Engine is a microservice designed to complement the [Policy Service](../../product-plane/policy.md).
 Even if it could act as a standalone service to evaluate policies, 
@@ -43,10 +43,10 @@ This will enable the addition of policies intended for it and their evaluation i
 Any registered Policy in the Policy server must contain the reference to a registered Policy Engine
 in order to be evaluated.
 
-### Product Plane services
+#### Product Plane services
 
 Excluding the Policy microservice, a Policy Engine doesn't directly interact with any other ODM service.
-Nonetheless, whenever a policy evaluation is requested to the Policy microservice,
+Nonetheless, whenever a Product Plane microservice makes a policy evaluation request to the Policy microservice,
 the latter will use one or more Policy Engine Adapters to fulfill the request.
 
 ## Technologies
