@@ -13,12 +13,13 @@ jobs:
           ssh-key: ${{secrets.SSH_KEY}}
       - name: Install dependencies
         run: |
-          apt-get install -y libcairo2-dev 
-          apt-get install -y libfreetype6-dev 
-          apt-get install -y libffi-dev 
-          apt-get install -y libjpeg-dev 
-          apt-get install -y libpng-dev 
-          apt-get install -y libz-dev
+          sudo apt-get update
+          sudo apt-get install -y libcairo2-dev 
+          sudo apt-get install -y libfreetype6-dev 
+          sudo apt-get install -y libffi-dev 
+          sudo apt-get install -y libjpeg-dev 
+          sudo apt-get install -y libpng-dev 
+          sudo apt-get install -y libz-dev
           python -m pip install mkdocs-material
           python -m pip install mkdocs-git-revision-date-localized-plugin 
           python -m pip install pillow 
