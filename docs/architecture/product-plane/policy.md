@@ -695,4 +695,4 @@ Other than the default Java, Maven and Spring technologies, the Policy module do
 ## References
 
 * GitHub repository: <a href="https://github.com/opendatamesh-initiative/odm-platform" target="_blank">odm-platform:octicons-link-external-24:</a>
-* API Documentation: [Policy Server API Documentation](../../api-doc/product-plane/policy.md)
+* API Documentation: [Policy Server API Documentation](../../api-doc/index.md)

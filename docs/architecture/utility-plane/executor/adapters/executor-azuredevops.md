@@ -83,4 +83,4 @@ In addition to the technologies already mentioned on the main architecture page,
 ## References
 
 * GitHub repository: <a href="https://github.com/opendatamesh-initiative/odm-platform-up-services-executor-azuredevops" target="_blank">odm-platform-up-services-executor-azuredevops:octicons-link-external-24:</a>
-* API Documentation: [Executor Azure DevOps Server API Documentation](../../../../api-doc/utility-plane/adapters/executorazuredevops.md)
+* API Documentation: [Executor Azure DevOps Server API Documentation](../../../../api-doc/index.md)

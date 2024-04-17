@@ -60,4 +60,4 @@ the Event Notifier module does not make use of any particular technology.
 ## References
 
 * GitHub repository: <a href="https://github.com/opendatamesh-initiative/odm-platform" target="_blank">odm-platform:octicons-link-external-24:</a>
-* API Documentation: [Event Notifier Server API Documentation](../../api-doc/product-plane/event-notifier.md)
+* API Documentation: [Event Notifier Server API Documentation](../../api-doc/index.md)

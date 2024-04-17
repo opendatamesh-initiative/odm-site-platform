@@ -587,4 +587,4 @@ Other than the default Java, Maven and Spring technologies, the DevOps module do
 ## References
 
 * GitHub repository: <a href="https://github.com/opendatamesh-initiative/odm-platform" target="_blank">odm-platform:octicons-link-external-24:</a>
-* API Documentation: [DevOps Server API Documentation](../../api-doc/product-plane/devops.md)
+* API Documentation: [DevOps Server API Documentation](../../api-doc/index.md)

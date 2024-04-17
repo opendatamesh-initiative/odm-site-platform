@@ -165,4 +165,4 @@ In addition to the technologies already mentioned on the main architecture page,
 ## References
 
 * GitHub repository: <a href="https://github.com/opendatamesh-initiative/odm-platform" target="_blank">odm-platform:octicons-link-external-24:</a>
-* API Documentation: [Blueprint Server API Documentation](../../api-doc/product-plane/blueprint.md)
+* API Documentation: [Blueprint Server API Documentation](../../api-doc/index.md)

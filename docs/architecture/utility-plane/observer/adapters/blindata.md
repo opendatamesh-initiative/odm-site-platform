@@ -48,4 +48,4 @@ the Blindata Observer Adapter does not make use of any particular technology.
 ## References
 
 * GitHub repository: <a href="https://github.com/opendatamesh-initiative/odm-platform-up-services-meta-blindata" target="_blank">odm-platform-up-services-meta-blindata:octicons-link-external-24:</a>
-* API Documentation: [Observer Blindata Server API Documentation](../../../../api-doc/utility-plane/adapters/blindataobserver.md)
+* API Documentation: [Observer Blindata Server API Documentation](../../../../api-doc/index.md)

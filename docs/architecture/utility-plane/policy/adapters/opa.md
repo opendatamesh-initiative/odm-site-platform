@@ -264,4 +264,4 @@ In addition to the classic Java, Maven and Spring technologies, the OPA Policy E
 ## References
 
 * GitHub repository: <a href="https://github.com/opendatamesh-initiative/odm-platform-up-services-policy-engine-opa" target="_blank">odm-platform-up-services-policy-engine-opa:octicons-link-external-24:</a>
-* API Documentation: [Policy Engine OPA Server API Documentation](../../../../api-doc/utility-plane/adapters/policyengineopa.md)
+* API Documentation: [Policy Engine OPA Server API Documentation](../../../../api-doc/index.md)
