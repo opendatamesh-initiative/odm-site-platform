@@ -28,3 +28,4 @@ The documentation is available for any existing version.
 	* <a href="../../../assets/redoc/doc/0.7.0/blueprint-server.html" target="_blank">Blueprint Server:octicons-link-external-24:</a>
 	* <a href="../../../assets/redoc/doc/0.7.0/devops-server.html" target="_blank">Devops Server:octicons-link-external-24:</a>
 	* <a href="../../../assets/redoc/doc/0.7.0/registry-server.html" target="_blank">Registry Server:octicons-link-external-24:</a>
+
