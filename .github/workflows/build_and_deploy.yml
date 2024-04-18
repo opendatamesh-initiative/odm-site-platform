@@ -1,0 +1,26 @@
+name: odm-platform CI
+on:
+  push:
+    branches: # Execute only for pre-deploy branch
+      - 'pre-deploy'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3.5.2
+        with:
+          ssh-key: ${{secrets.SSH_KEY}}
+      - name: Install Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libcairo2-dev libfreetype6-dev libffi-dev libjpeg-dev libpng-dev libz-dev
+          python -m pip install mkdocs-material mkdocs-git-revision-date-localized-plugin pillow cairosvg
+      - name: Build the site
+        run: python3 -m mkdocs build
+      - name: Force the deploy of the site
+        run: python3 -m mkdocs gh-deploy --force
