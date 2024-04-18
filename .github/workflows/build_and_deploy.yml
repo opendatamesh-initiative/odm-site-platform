@@ -1,4 +1,4 @@
-name: odm-site-platform BUILD and DEPLOY
+name: build-and-invoke-deployer
 on:
   push:
     branches: # Execute only for pre-deploy branch
@@ -7,20 +7,25 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      # Checkout on the repo
       - name: Check out repository code
         uses: actions/checkout@v3.5.2
         with:
           ssh-key: ${{secrets.SSH_KEY}}
+      # Install Python 3.x
       - name: Install Python
         uses: actions/setup-python@v2
         with:
           python-version: '3.x'
+      # Install system dependencies and python packages for MkDocs
       - name: Install dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y libcairo2-dev libfreetype6-dev libffi-dev libjpeg-dev libpng-dev libz-dev
           python -m pip install mkdocs-material mkdocs-git-revision-date-localized-plugin pillow cairosvg
+      # Use MkDocs to build the site (check build status after invoking deployer)
       - name: Build the site
         run: python3 -m mkdocs build
+      # Use MkDocs to invoke the default deploy pipeline (gh-pages branch)
       - name: Force the deploy of the site
         run: python3 -m mkdocs gh-deploy --force
