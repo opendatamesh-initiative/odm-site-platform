@@ -1,4 +1,4 @@
-name: odm-platform CI
+name: odm-site-platform BUILD and DEPLOY
 on:
   push:
     branches: # Execute only for pre-deploy branch
