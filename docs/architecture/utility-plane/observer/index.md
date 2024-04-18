@@ -12,7 +12,7 @@ like any module in the Utility Plane, exposes an interface to implement a specif
 
 ### Architecture
 
-As the majority of the ODM services, the Observer Microservice is composed by two modules:
+As the majority of the ODM services, the Observer Microservice is composed of two modules:
 
 * **Observer API**: a module containing abstract controllers, Java resource definitions, and a client to interact with the controller.
 * **Observer Server**: a basic server eventually implementing common parts between each possible Observer Adapter.

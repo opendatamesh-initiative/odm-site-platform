@@ -4,7 +4,7 @@
 
 The *Event Notifier Microservice* is the ODM Platform service to allow other ODM modules to dispatch notifications.
 Each notification involves a specific *Event* and is forwarded to a list of registered adapters 
-of the [Observer](../utility-plane/observer/index.md)  of the Utility Plane.
+of the [Observer](../utility-plane/observer/index.md) of the Utility Plane.
 
 The Event Notifier main task is simply to store any configured Observer, 
 receive a dispatch request for the occurrence of a specific event, retrieve the registered Observers and 

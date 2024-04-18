@@ -1,4 +1,4 @@
-# Registry Commands
+# Policy Commands
 
 These are commands that require an active and reachable instance of the ODM *Policy Server*.
 
