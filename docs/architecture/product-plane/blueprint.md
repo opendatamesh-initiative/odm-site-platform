@@ -2,7 +2,9 @@
 
 ## Overview
 
-The *Blueprint Microservice* is a module of the Product Plane in the ODM Platform which allows to initialize a data product starting from a template. This module works independently from the others.
+The *Blueprint Microservice* is a module of the Product Plane in the ODM Platform
+which allows to initialize a data product starting from a template.
+This module works independently of the others.
 
 Essentially, given a template repository on a Git provider with some of the file contents parameterized,
 the module is able to clone it, map the user's input data to parameters,
@@ -27,7 +29,7 @@ Each blueprint must contain two elements:
 
 ### Architecture
 
-As the majority of the ODM services, the Blueprint Microservice is composed by two modules:
+As the majority of the ODM services, the Blueprint Microservice is composed of two modules:
 
 * **Blueprint API**: a module containing abstract controllers, Java resource definitions, and a client to interact with the controller.
 * **Blueprint Server**: a module implementing the abstract controllers, any component useful to interact with the DB (entities, mappers, repositories, ...), and services needed for the templating operations.
