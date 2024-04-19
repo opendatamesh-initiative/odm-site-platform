@@ -141,7 +141,7 @@ The homepage is written directly in HTML since we wanted it to be different from
 It can be found in `docs>override` and has its own customized style embedded.
 
 
-# How to deploy the site automatically
+# How to deploy this site automatically
 
 This repository makes use of 3 branches:
 
