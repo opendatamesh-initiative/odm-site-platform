@@ -64,8 +64,6 @@ nav:
   - Resources:
     - './resources/index.md'
     - 'External Tools': './resources/tools.md'
-    - 'How to': 
-      - 'build this site': './resources/howto/build-site-doc.md'
 
 ##theme: readthedocs
 theme:

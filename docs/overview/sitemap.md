@@ -8,4 +8,3 @@ This site contains all the available documentation related to the Open Data Mesh
 - [Architecture](../architecture/index.md): This page provides a deep dive into the architectural components of the platform.
 - [Community](../community/index.md): This page explains the possible ways to contribute to the platform evolution.
 - [Resources](../resources/index.md): These pages point to external resources related to the Open Data Mesh Platform.
-    - [HowTo(s)](../resources/index.md) These pages contain guides that describe how to perform specific activities related to the Open Data Mesh Platform documentation or lifecycle management.
