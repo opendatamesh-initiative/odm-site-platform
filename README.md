@@ -4,7 +4,8 @@ This site is made with <a href="https://www.mkdocs.org/" target="_blank">MkDocs<
 
 Both are great tools that build a static site starting from simple markdown documentation.
 
-They provide many amazing features, perfectly documented in their websites, with step-by-step tutorials to create a new site from scratch.
+They provide many amazing features,
+perfectly documented on their websites, with step-by-step tutorials to create a new site from scratch.
 
 However, we would like to explain here all the prerequisites needed to build this very site and an overview of the principal customizations implemented.
 
@@ -85,19 +86,21 @@ In order to build the site, the following command must be launched in the root d
 mkdocs build
 ```
 
-It is not necessary to explicitly build the site before serving or publishing but it can be useful to inspect the `site` folder it creates to verify resource paths.
+It is not necessary to explicitly build the site before serving or publishing,
+but it can be useful to inspect the `site` folder that MkDocs creates to verify resource paths.
 
 It is also useful for sites published without the aid of <a href="https://pages.github.com/" target="_blank">GitHub Pages</a> since the `site` folder is the deployment unit.
 
 ## Serving
 
-In order to locally test the site it is possible to launch the following command in the root directory:
+In order to locally test the site, it is possible to launch the following command in the root directory:
 
 ```shell
 mkdocs serve
 ```
 
-The site will be hosted at the address configured in `mkdcos.yml` and almost any change in the `docs` folder will trigger an automatic republish.
+The site will be hosted at the address configured in `mkdocs.yml`
+and almost any change in the `docs` folder will trigger an automatic republishing.
 
 ## Publishing
 
@@ -120,7 +123,7 @@ Most of the configurations reside in the `mkdcos.yml` file, located in the root 
 
 The `site_*` and `repo` properties configure website and repository locations and meta tags for the website.
 
-The `nav` section defines the structure of the site and the location of each markdown document published.
+The `nav` section defines the structure of the site and the location of each Markdown document published.
 
 The `theme`, `markdown_extensions` and `plugins` sections contain all the Material for MkDocs configurations currently used and the extensions required to make them work.
 
