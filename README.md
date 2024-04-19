@@ -140,3 +140,21 @@ The homepage is written directly in HTML since we wanted it to be different from
 
 It can be found in `docs>override` and has its own customized style embedded.
 
+
+# How to deploy the site automatically
+
+This repository makes use of 3 branches:
+
+* `main`
+* `pre-deploy`
+* `gh-pages`
+
+During the development process, you can write your site pages pushing them on the `main` branch or any other feature branch of your choice.
+
+Then, in order to take advantage of the automatic deploy mechanism via github actions, these steps must be followed:
+
+* push your code on the `main` branch
+* merge your code into the `pre-deploy` branch
+* push all the changes on the `pre-deploy` branch
+
+The last action will trigger a pipeline execution that performs all the steps required to build and deploy the mkdocs documentation to the final website.
