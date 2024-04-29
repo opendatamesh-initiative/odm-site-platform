@@ -12,6 +12,7 @@ The documentation is available for any existing version.
 	* <a href="../../../assets/redoc/doc/0.9.0/devops-server.html" target="_blank">Devops Server:octicons-link-external-24:</a>
 	* <a href="../../../assets/redoc/doc/0.9.0/event-notifier-server.html" target="_blank">Event Server:octicons-link-external-24:</a>
 	* <a href="../../../assets/redoc/doc/0.9.0/executor-azuredevops-server.html" target="_blank">Executor Server:octicons-link-external-24:</a>
+	* <a href="../../../assets/redoc/doc/0.9.0/notification-server.html" target="_blank">Notification Server:octicons-link-external-24:</a>
 	* <a href="../../../assets/redoc/doc/0.9.0/observer-blindata-server.html" target="_blank">Observer Server:octicons-link-external-24:</a>
 	* <a href="../../../assets/redoc/doc/0.9.0/policy-engine-opa-server.html" target="_blank">Policy Server:octicons-link-external-24:</a>
 	* <a href="../../../assets/redoc/doc/0.9.0/policy-server.html" target="_blank">Policy Server:octicons-link-external-24:</a>
