@@ -27,9 +27,9 @@ for version_dir in ${subdirs}; do
 
   # Iterate over files in the version directory
   for file_name in $(ls ${version_dir}/*.html 2>/dev/null | sort); do
-    # Extract name from filename, capitalize first letters and add URL to resource
-    name=$(basename "${file_name}" | cut -d'-' -f1 | sed 's/[^[:space:]]*/\u&/g')
-    echo -e "\t* <a href=\"../../../assets/redoc/doc/${version}/$(basename "${file_name}")\" target=\"_blank\">${name} Server:octicons-link-external-24:</a>" >> "${DOC_DIRECTORY}/index.md"
+    # Extract name from filename, capitalize each word, and add URL to resource
+    name=$(basename "${file_name}" | cut -d'-' -f1 | sed -r 's/(^|[-_])\S/\U&/g; s/[-_]/ /g')
+    echo -e "\t* <a href=\"../../../assets/redoc/doc/${version}/$(basename "${file_name}")\" target=\"_blank\">${name}:octicons-link-external-24:</a>" >> "${DOC_DIRECTORY}/index.md"
   done
   echo >> "${DOC_DIRECTORY}/index.md"
 
