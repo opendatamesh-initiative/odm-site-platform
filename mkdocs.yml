@@ -29,7 +29,7 @@ nav:
         - 'Registry': './architecture/product-plane/registry.md'
         - 'Policy': './architecture/product-plane/policy.md'
         - 'DevOps': './architecture/product-plane/devops.md'
-        - 'Event Notifier': './architecture/product-plane/eventnotifier.md'
+        - 'Notification': './architecture/product-plane/notification.md'
         - 'Params': './architecture/product-plane/params.md'
     - 'Utility Plane':
         - 'Executor':
