@@ -29,7 +29,7 @@ for version_dir in ${subdirs}; do
   for file_name in $(ls ${version_dir}/*.html 2>/dev/null | sort); do
     # Extract name from filename, capitalize each word, and remove extension
     name=$(basename "${file_name}" | sed -E 's/[^-]+/\u&/g; s/[-.][^.]*$//g' | tr '-' ' ')
-    echo -e "\t* <a href=\"../../../assets/redoc/doc/${version}/$(basename "${file_name}")\" target=\"_blank\">${name}:octicons-link-external-24:</a>" >> "${DOC_DIRECTORY}/index.md"
+    echo "\t* <a href=\"../../../assets/redoc/doc/${version}/$(basename "${file_name}")\" target=\"_blank\">${name}:octicons-link-external-24:</a>" >> "${DOC_DIRECTORY}/index.md"
   done
   echo >> "${DOC_DIRECTORY}/index.md"
 
