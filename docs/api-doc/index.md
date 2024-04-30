@@ -10,7 +10,6 @@ The documentation is available for any existing version.
 
 	* <a href="../../../assets/redoc/doc/0.9.0/blueprint-server.html" target="_blank">Blueprint Server:octicons-link-external-24:</a>
 	* <a href="../../../assets/redoc/doc/0.9.0/devops-server.html" target="_blank">Devops Server:octicons-link-external-24:</a>
-	* <a href="../../../assets/redoc/doc/0.9.0/event-notifier-server.html" target="_blank">Event Notifier Server:octicons-link-external-24:</a>
 	* <a href="../../../assets/redoc/doc/0.9.0/executor-azure-devops-server.html" target="_blank">Executor Azure Devops Server:octicons-link-external-24:</a>
 	* <a href="../../../assets/redoc/doc/0.9.0/notification-server.html" target="_blank">Notification Server:octicons-link-external-24:</a>
 	* <a href="../../../assets/redoc/doc/0.9.0/observer-blindata-server.html" target="_blank">Observer Blindata Server:octicons-link-external-24:</a>
