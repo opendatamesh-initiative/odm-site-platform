@@ -16,6 +16,7 @@ The documentation is available for any existing version.
 \t* <a href="../../../assets/redoc/doc/0.9.0/policy-engine-opa-server.html" target="_blank">Policy Engine Opa Server:octicons-link-external-24:</a>
 \t* <a href="../../../assets/redoc/doc/0.9.0/policy-server.html" target="_blank">Policy Server:octicons-link-external-24:</a>
 \t* <a href="../../../assets/redoc/doc/0.9.0/registry-server.html" target="_blank">Registry Server:octicons-link-external-24:</a>
+\t* <a href="../../../assets/redoc/doc/0.9.0/validator-opa-server.html" target="_blank">Validator Opa Server:octicons-link-external-24:</a>
 
 ??? doc-block "0.8.0"
 
