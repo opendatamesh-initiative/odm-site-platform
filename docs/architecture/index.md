@@ -41,7 +41,7 @@ The *Utility Plane* exposes a set of services useful for the mesh functionality 
 
 * [Executors](./utility-plane/executor/index.md): they act as a proxy between the mesh platform and specific DevOps tools.
 * [Observers](./utility-plane/observer/index.md): they collect and react to events occurred in the mesh platform.
-* [Validators](./utility-plane/policy/index.md): they are services dedicated to the evaluation of computational policies.
+* [Validators](utility-plane/validator/index.md): they are services dedicated to the evaluation of computational policies.
 
 Each microservice exposes an interface requiring a real implementation of it. The aim here is to give a starting point and a blueprint structure for the realization of the specific services. Any implementation of the Utility Plane services is called *Adapter*.
 
@@ -56,7 +56,7 @@ ODM Platform offers an implementation of the following Adapters:
 * [Azure DevOps Executor](./utility-plane/executor/adapters/executor-azuredevops.md): an executor able to work with <a href="https://azure.microsoft.com/en-us/products/devops/" target="_blank">Azure DevOps:octicons-link-external-24:</a> APIs to build, test, deploy data products.
 * [Blindata Observer](./utility-plane/observer/adapters/blindata.md): an observer that forwards notifications to <a href="https://blindata.io/"
 target="_blank">Blindata:octicons-link-external-24:</a> in response to events. 
-* [OPA Validator](./utility-plane/policy/adapters/opa.md): a specific implementation of a validator that uses <a href="https://www.openpolicyagent.org/" target="_blank">Open Policy Agent:octicons-link-external-24:</a> as the engine to validate computational policies.
+* [OPA Validator](utility-plane/validator/adapters/opa.md): a specific implementation of a validator that uses <a href="https://www.openpolicyagent.org/" target="_blank">Open Policy Agent:octicons-link-external-24:</a> as the engine to validate computational policies.
 
 ## Technologies
 

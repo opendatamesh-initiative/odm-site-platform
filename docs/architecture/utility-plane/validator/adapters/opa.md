@@ -1,20 +1,20 @@
-# Policy Engine OPA
+# Validator OPA
 
 ## Overview
 
-Policy Engine OPA is a [_Policy Engine Adapter_](../index.md) that acts as a _proxy_
+Validator OPA is a [_Validator Adapter_](../index.md) that acts as a _proxy_
 between the [_Policy Server_](../../../product-plane/policy.md) and an instance of an OPA (<a href="https://www.openpolicyagent.org/" target="_blank">Open Policy Agent:octicons-link-external-24:</a>) server.
 
-The main responsibility of the Policy Engine OPA is
+The main responsibility of the Validator OPA is
 to manage requests for policy evaluations based on designated inputs.
 It accomplishes this process by receiving requests, pre-processing them, forwarding them to the OPA server, processing the results obtained from OPA, and returning them to the caller.
 
 <!--
 --non più vera come parte
 Moreover,
-the Policy Engine OPA oversees the deployment of policies onto the OPA server
+the Validator OPA oversees the deployment of policies onto the OPA server
 and ensures synchronization with policies stored in the Policy Server,
-particularly those earmarked for handling by the Policy Engine OPA.
+particularly those earmarked for handling by the Validator OPA.
 -->
 
 ## Concepts
@@ -70,7 +70,7 @@ warning := true {
 }
 ```
 
-When forwarding the object to the Policy Engine OPA, it should be encapsulated inside an `input` object, like this:
+When forwarding the object to the Validator OPA, it should be encapsulated inside an `input` object, like this:
 
 ```json
 {
@@ -104,22 +104,22 @@ The OPA server will respond with the following object:
 
 ### Architecture
 
-The Policy Engine OPA comprises a single module, named **Policy Engine OPA Server**, 
-which houses Java classes that implement the REST controllers of the [Policy Engine module](../index.md), 
+The Validator OPA comprises a single module, named **Validator OPA Server**, 
+which houses Java classes that implement the REST controllers of the [Validator module](../index.md), 
 Java services to manage requests, and a client for interacting with a reachable OPA Server.
 
-Differently from the majority of ODM microservices, Policy Engine is a stateless component.
+Differently from other ODM microservices, Validator OPA is a stateless component.
 It doesn't rely on a Database, and it doesn't have any kind of state, storage or cache. 
-Every time the Policy Engine receives an evaluation request, it acts with a *fire and forget* mechanism, 
+Every time the Validator OPA receives an evaluation request, it acts with a *fire and forget* mechanism, 
 including both the policy and the subject of the policy evaluation in the request for the OPA Server.
 Once the evaluation is done, it does not save any result, but simply returns it to the caller.
 
-![Policy-Engine-OPA-diagram](../../../../images/architecture/utility-plane/policy/adapters/policy_engine_opa_architecture.png)
+![Validator-OPA-diagram](../../../../images/architecture/utility-plane/validator/adapters/validator_opa_architecture.png)
 
 ### Relations
 
 #### OPA Server
-For proper functionality, the Policy Engine OPA microservice strictly requires the presence of a reachable OPA Server.
+For proper functionality, the Validator OPA microservice strictly requires the presence of a reachable OPA Server.
 
 In the default setup, a dockerized version of the OPA Server is employed
 (<a href="https://hub.docker.com/layers/openpolicyagent/opa/latest-rootless/images/sha256-b8d2ca87f0241531433d106473bbe3661b7c9be735c447daefa164f2c3942b8d?context=explore" target="_blank">OPA - rootless:octicons-link-external-24:</a>).
@@ -133,19 +133,20 @@ opa:
 ```
 
 Additional information about service configuration and execution via Docker are available on 
-<a href="https://github.com/opendatamesh-initiative/odm-platform-up-services-policy-engine-opa/blob/main/README.md" target="_blank">GitHub:octicons-link-external-24:</a>.
+<a href="https://github.com/opendatamesh-initiative/odm-platform-adapter-validator-opa/blob/main/README.md" target="_blank">GitHub:octicons-link-external-24:</a>.
 
 #### Policy Service and Product Plane services
 
-Within the ODM ecosystem, the Policy Engine OPA it's designed to work together with the [Policy Service](../../../product-plane/policy.md), 
+Within the ODM ecosystem, the Validator OPA it's designed to work together with the [Policy Service](../../../product-plane/policy.md), 
 acting as a direct extension of it.
 Its main task is to receive requests from the Policy Service and return the evaluation to be used in a Data Product 
 lifecycle to assess whether a specific operation is allowed or not given the available information.
 
 When operating withing the ecosystem, input objects are determined by Product Plane services
 (i.e., Registry and DevOps) and forwarded to the Policy Service.
-The Policy Service collaborates with the Policy Engine OPA, and any other available Policy Engine, 
+The Policy Service collaborates with the Validator OPA, and any other available Validator Adapter, 
 to evaluate the request and return the answer to the Product Plane services.
+Any available Validator Adapter must be stored on the Policy Server as a specific _Policy Engine_ in order to be used.
 
 Back to the example shown before,
 the same object assessed through the same Policy will have a slightly different format as shown as follows.
@@ -178,7 +179,7 @@ For the request, they compose and send the following JSON object:
 }
 ```
 
-When the Policy Engine OPA receives it, it wraps it into an _input_ object as required from the OPA server, 
+When the Validator OPA receives it, it wraps it into an _input_ object as required from the OPA server, 
 obtaining the following object:
 ```json
 {
@@ -222,10 +223,10 @@ warning := true {
 }
 ```
 
-Once the assessment request reaches the Policy Engine OPA, it is processed
+Once the assessment request reaches the Validator OPA, it is processed
 and the evaluation result is returned to the Policy Service, which then sends it back to the Registry service.
 
-The Policy Engine OPA operates in a *fire and forget* manner.
+The Validator OPA operates in a *fire and forget* manner.
 It temporarily saves the Policy raw content on the OPA Server, requests the evaluation on the given input object, 
 collects the results, process them and returns them to the Policy Service.
 Once the evaluation is done, it will remove the policy from the OPA server.
@@ -251,16 +252,16 @@ The Registry then decides whether to proceed or not with the Data Product creati
 
 !!! info
 
-    It's important to observe that the Policy Engine OPA tries to extract the `allow` attribute from the OPA server response in order to summarize the evaluation with a single Boolean value. Should such an attribute be missing in the Policy raw content, the result extraction will fail and an error will be returned.
+    It's important to observe that the Validator OPA tries to extract the `allow` attribute from the OPA server response in order to summarize the evaluation with a single Boolean value. Should such an attribute be missing in the Policy raw content, the result extraction will fail and an error will be returned.
 
 ## Technologies
 
-In addition to the classic Java, Maven and Spring technologies, the OPA Policy Engine requires an instance of a dockerized rootless OPA Server:
+In addition to the classic Java, Maven and Spring technologies, the Validator OPA requires an instance of a dockerized rootless OPA Server:
 
 * <a href="https://hub.docker.com/layers/openpolicyagent/opa/latest-rootless/images/sha256-b8d2ca87f0241531433d106473bbe3661b7c9be735c447daefa164f2c3942b8d?context=explore" target="_blank">OPA - rootless:octicons-link-external-24:</a>
 
 
 ## References
 
-* GitHub repository: <a href="https://github.com/opendatamesh-initiative/odm-platform-up-services-policy-engine-opa" target="_blank">odm-platform-up-services-policy-engine-opa:octicons-link-external-24:</a>
-* API Documentation: [Policy Engine OPA Server API Documentation](../../../../api-doc/index.md)
+* GitHub repository: <a href="https://github.com/opendatamesh-initiative/odm-platform-adapter-validator-opa" target="_blank">odm-platform-adapter-validator-opa:octicons-link-external-24:</a>
+* API Documentation: [Validator OPA Server API Documentation](../../../../api-doc/index.md)

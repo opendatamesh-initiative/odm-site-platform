@@ -42,13 +42,13 @@ As the majority of the ODM services, the Notification Microservice is composed o
 * **Notification API**: a module containing abstract controllers, Java resource definitions, and a client to interact with the controller.
 * **Notification Server**: a module implementing the abstract controllers, any component useful to interact with the DB (entities, mappers, repositories, ...), and services needed for the Registry operations.
 
-![Event-Notifier-diagram](../../images/architecture/product-plane/notification/event_notifier_architecture.png)
+![Notification-diagram](../../images/architecture/product-plane/notification/event_notifier_architecture.png)
 
 ### Relations
 
 Even if it's theoretically an independent application, the Notification is not meant to work as a standalone microservice.
 It is designed as a proxy between Product Plane microservices,
-like Registry and DevOps, and many possible Observers of the Utility Plane.
+like Registry and DevOps, and many possible Observer Adapters of the Utility Plane.
 
 Notification operates transparently to the ODM processes; 
 each interaction is orchestrated by the Product Plane services, 

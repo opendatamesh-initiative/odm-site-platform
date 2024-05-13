@@ -6,7 +6,7 @@ The *Policy Microservice* is a module of the Product Plane in the ODM Platform t
 or _DevOps events_ (e.g. transition from a `dev` stage to a `prod` stage).
 
 Even if it's potentially an independent module, it strictly requires at least one active 
-[_Policy Engine Adapter_](../utility-plane/policy/index.md) in order to evaluate a policy.
+[_Validator Adapter_](../utility-plane/validator/index.md) in order to evaluate a policy.
 
 
 ## Concepts
@@ -17,7 +17,11 @@ A _Policy_ is the representation of a computational policy. The representation i
 ### Policy Engine
 A Policy Engine is an object able to directly execute policies or to interact with specific existing policy services like <a href="https://www.openpolicyagent.org/" target="_blank">OPA:octicons-link-external-24:</a> (i.e. Open Policy Agent).
 
-In the Policy Microservice, a Policy Engine is represented through a unique name and a URL to reach it. If the Engine is a [_Policy Engine Adapter_](../utility-plane/policy/index.md), the URL is internal to ODM, so the adapter will know how to properly interact with the underlying policy service in order to answer the request. If the Engine is an external service able to execute a policy, it will be reached directly through the stored URL.
+In the Policy Microservice, a Policy Engine is represented through a unique name and a URL to reach it.
+If the Engine is a [_Validator Adapter_](../utility-plane/validator/index.md), the URL is internal to ODM,
+so the adapter will know how to properly interact with the underlying policy service in order to answer the request.
+If the Engine is an external service, able to execute a policy, it will be reached directly through the stored URL.
+In this latter scenario, the external service must implement the interface exposed by the [_Validator API_](../utility-plane/validator/index.md) of the Utility Plane.
 
 ### Policy Evaluation Event
 When the Policy Microservice is used by Registry and DevOps microservices,
@@ -48,7 +52,7 @@ The _Policy Microservice_ implements the logic to create:
     * metadata
     * eventually, the raw content of the Policy
 
-It stores Policy objects and orchestrates their execution through the choice and the usage of the right Engine (i.e., Engine that will be served through a _Policy Engine Adapter_).
+It stores Policy objects and orchestrates their execution through the choice and the usage of the right Engine (i.e., Engine that will be served through a _Validator Adapter_).
 
 ### Architecture
 
@@ -93,7 +97,7 @@ Such kind of events is encapsulated in the body of an evaluation request through
 
 When an evaluation request occurs, the Policy Microservice selects all the registered policies with the
 `evaluationEvent` attribute matching the event type
-and forwards them to the right Policy Engine Adapter for the evaluation.
+and forwards them to the right Validator Adapter for the evaluation.
 It then collects the results, aggregates them, and forwards a response to the original requester.
 
 Each event has a default input object, which will be the subject of the policy evaluations request.
@@ -153,7 +157,7 @@ that is the state after the creation of the Data Product Version.
 ```
 
 ###### Input Object
-The composed input object that will be forwarded to the right Policy Engine Adapter.
+The composed input object that will be forwarded to the right Validator Adapter.
 ```json
 {
   "currentState": {
@@ -231,7 +235,7 @@ that include a `DataProductVersionDPDS`.
 ```
 
 ###### Input Object
-The composed input object that will be forwarded to the right Policy Engine Adapter.
+The composed input object that will be forwarded to the right Validator Adapter.
 ```json
 {
   "currentState": {
@@ -365,7 +369,7 @@ and the JSON representation of the list of `TaskResource` included in the Activi
 ```
 
 ###### Input Object
-The composed input object that will be forwarded to the right Policy Engine Adapter.
+The composed input object that will be forwarded to the right Validator Adapter.
 
 In the scenario of a first Activity for a specific Data Product Version:
 ```json
@@ -547,7 +551,7 @@ An empty `TaskExecutionResultEventTypeResource` object, given that there isn't a
 ```
 
 ###### Input Object
-The composed input object that will be forwarded to the right Policy Engine Adapter.
+The composed input object that will be forwarded to the right Validator Adapter.
 ```json
 {
   "currentState": {
@@ -647,7 +651,7 @@ An empty `ActivityResultEventTypeResource` object, given that there isn't any fu
 ```
 
 ###### Input Object
-The composed input object that will be forwarded to the right Policy Engine Adapter.
+The composed input object that will be forwarded to the right Validator Adapter.
 ```json
 {
   "currentState": {

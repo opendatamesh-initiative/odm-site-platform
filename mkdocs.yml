@@ -27,7 +27,7 @@ nav:
     - 'Product Plane':
         - 'Blueprint': './architecture/product-plane/blueprint.md'
         - 'Registry': './architecture/product-plane/registry.md'
-        - 'Policy': './architecture/product-plane/policy.md'
+        - 'Policy': './architecture/product-plane/validator.md'
         - 'DevOps': './architecture/product-plane/devops.md'
         - 'Notification': './architecture/product-plane/notification.md'
         - 'Params': './architecture/product-plane/params.md'
@@ -41,9 +41,9 @@ nav:
           - 'Adapters':
               - 'Blindata': './architecture/utility-plane/observer/adapters/blindata.md'
         - 'Policy Engine':
-            - './architecture/utility-plane/policy/index.md'
+            - './architecture/utility-plane/validator/index.md'
             - 'Adapters':
-                - 'OPA': './architecture/utility-plane/policy/adapters/opa.md'
+                - 'OPA': './architecture/utility-plane/validator/adapters/opa.md'
     - 'Platform Core':
         - './architecture/platform-core/index.md'
         - 'Commons':
@@ -55,7 +55,7 @@ nav:
         - 'Local Commands': './architecture/odm-cli/local.md'
         - 'Registry Commands': './architecture/odm-cli/registry.md'
         - 'Blueprint Commands': './architecture/odm-cli/blueprint.md'
-        - 'Policy Commands': './architecture/odm-cli/policy.md'
+        - 'Policy Commands': './architecture/odm-cli/validator.md'
   - API Doc:
     - './api-doc/index.md'
   - Community:

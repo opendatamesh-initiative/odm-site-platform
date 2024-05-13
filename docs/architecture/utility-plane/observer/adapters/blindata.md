@@ -17,7 +17,7 @@ As an example, consider the DATA_PRODUCT_CREATION event. Once the _Registry Serv
 ## How it works
 
 ### Architecture
-The adapter has a single module, called `meta-service-blindata`, that:
+The adapter has a single module, called `observer-blindata-server`, that:
 
 * implement and/or extend the base features of an Observer adapter from the [_Observer Server module of the Utility Plane_](../index.md)
 * define specific classes to interact with Blindata
@@ -28,7 +28,7 @@ The adapter has a single module, called `meta-service-blindata`, that:
 
 ### Relations
 
-Blindata Executor Adapter it's not meant to be a standalone service,
+The Blindata Observer Adapter it's not meant to be a standalone service,
 even if it has the ability to be used as an independent module. 
 It contains all the required logic to interact with Blindata, but reacting to notification reception makes it useless 
 without other ODM services.
@@ -47,5 +47,5 @@ the Blindata Observer Adapter does not make use of any particular technology.
 
 ## References
 
-* GitHub repository: <a href="https://github.com/opendatamesh-initiative/odm-platform-up-services-meta-blindata" target="_blank">odm-platform-up-services-meta-blindata:octicons-link-external-24:</a>
+* GitHub repository: <a href="https://github.com/opendatamesh-initiative/odm-platform-adapter-observer-blindata" target="_blank">odm-platform-adapter-observer-blindata:octicons-link-external-24:</a>
 * API Documentation: [Observer Blindata Server API Documentation](../../../../api-doc/index.md)

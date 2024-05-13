@@ -29,11 +29,6 @@ As previously said, the _Observer_ module in the Utility Plane is a generalizati
 
 Then, an Observer Adapter interacts in a passive way (i.e., receives API calls) with ODM services such as [_DevOps Service_](../../product-plane/devops.md) or [_Registry Server_](../../product-plane/registry.md).
 
-<!--
-The ODM services know how to interact with a specific Adapter thanks to the Notification
-`NotificationClient`. The Notification module in the ODM Utility Plane has indeed a client that handles communication with the abstract controller, and each adapter directly implements the abstract controller.
--->
-
 
 ## Technologies
 

@@ -16,7 +16,7 @@ Common parameters:
 #### list engine
 
 ```bash
-odm-cli policy list engine
+odm-cli validator list engine
 ```
 
 * **name**: List Policy Engine
@@ -31,7 +31,7 @@ odm-cli policy list engine
 #### list policy
 
 ```bash
-odm-cli policy list policy
+odm-cli validator list validator
 ```
 
 * **name**: List Policy
@@ -46,7 +46,7 @@ odm-cli policy list policy
 #### list result
 
 ```bash
-odm-cli policy list result
+odm-cli validator list result
 ```
 
 * **name**: List Policy Evaluation Result
@@ -61,7 +61,7 @@ odm-cli policy list result
 #### get engine
 
 ```bash
-odm-cli policy get engine
+odm-cli validator get engine
 ```
 
 * **name**: Get Policy Engine
@@ -78,7 +78,7 @@ odm-cli policy get engine
 #### get policy
 
 ```bash
-odm-cli policy get policy
+odm-cli validator get validator
 ```
 
 * **name**: Get Policy
@@ -97,7 +97,7 @@ odm-cli policy get policy
 #### get result
 
 ```bash
-odm-cli policy get result
+odm-cli validator get result
 ```
 
 * **name**: Get Policy Evaluation Result
@@ -114,7 +114,7 @@ odm-cli policy get result
 #### publish engine
 
 ```bash
-odm-cli policy publish engine
+odm-cli validator publish engine
 ```
 
 * **name**: Publish Policy Engine
@@ -131,7 +131,7 @@ odm-cli policy publish engine
 #### publish policy
 
 ```bash
-odm-cli policy publish policy
+odm-cli validator publish validator
 ```
 
 * **name**: Publish Policy
@@ -148,7 +148,7 @@ odm-cli policy publish policy
 #### publish result
 
 ```bash
-odm-cli policy publish result
+odm-cli validator publish result
 ```
 
 * **name**: Publish Policy Evaluation Result
@@ -165,7 +165,7 @@ odm-cli policy publish result
 #### update engine
 
 ```bash
-odm-cli policy update engine
+odm-cli validator update engine
 ```
 
 * **name**: Update Policy Engine
@@ -183,7 +183,7 @@ odm-cli policy update engine
 #### update policy
 
 ```bash
-odm-cli policy update policy
+odm-cli validator update validator
 ```
 
 * **name**: Update Policy
@@ -201,7 +201,7 @@ odm-cli policy update policy
 #### update result
 
 ```bash
-odm-cli policy update result
+odm-cli validator update result
 ```
 
 * **name**: Update Policy Evaluation Result
@@ -219,7 +219,7 @@ odm-cli policy update result
 #### validate document
 
 ```bash
-odm-cli policy validate document
+odm-cli validator validate document
 ```
 
 * **name**: Validate Document

@@ -26,7 +26,7 @@ containing abstract controllers, Java resource definitions, and a client to inte
 
 A default implementation of the *Policy Engine Server* module does not exist and any adapter must implement it.
 
-![Policy-Engine-diagram](../../../images/architecture/utility-plane/policy/policy_engine_architecture.png)
+![Policy-Engine-diagram](../../../images/architecture/utility-plane/validator/validator_architecture.png)
 
 ### Relations
 
