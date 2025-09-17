@@ -53,10 +53,67 @@ Each Adapter is pluggable to the ODM Platform via configuration properties. ODM 
 
 ODM Platform offers an implementation of the following Adapters:
 
-* [Azure DevOps Executor](./utility-plane/executor/adapters/executor-azuredevops.md): an executor able to work with <a href="https://azure.microsoft.com/en-us/products/devops/" target="_blank">Azure DevOps:octicons-link-external-24:</a> APIs to build, test, deploy data products.
-* [Blindata Observer](./utility-plane/observer/adapters/blindata.md): an observer that forwards notifications to <a href="https://blindata.io/"
-target="_blank">Blindata:octicons-link-external-24:</a> in response to events. 
-* [OPA Validator](utility-plane/validator/adapters/opa.md): a specific implementation of a validator that uses <a href="https://www.openpolicyagent.org/" target="_blank">Open Policy Agent:octicons-link-external-24:</a> as the engine to validate computational policies.
+<style>
+.gallery-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.gallery-box {
+  flex: 1 1 300px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.gallery-box h3 {
+  margin-top: 0;
+  font-size: 1.2em;
+}
+
+.gallery-box a {
+  text-decoration: none;
+  color: #0366d6;
+}
+
+.gallery-box p {
+  margin: 10px 0 0 0;
+  font-size: 0.95em;
+}
+</style>
+
+<div class="gallery-container">
+
+  <div class="gallery-box">
+    <h3><a href="./utility-plane/executor/adapters/executor-azuredevops.md">Azure DevOps Executor</a></h3>
+    <p>An executor able to work with 
+      <a href="https://azure.microsoft.com/en-us/products/devops/" target="_blank">Azure DevOps </a> 
+      APIs to build, test, deploy data products.
+    </p>
+  </div>
+
+  <div class="gallery-box">
+    <h3><a href="./utility-plane/observer/adapters/blindata.md">Blindata Observer</a></h3>
+    <p>An observer that forwards notifications to 
+      <a href="https://blindata.io/" target="_blank">Blindata </a> 
+      in response to events.
+    </p>
+  </div>
+
+  <div class="gallery-box">
+    <h3><a href="utility-plane/validator/adapters/opa.md">OPA Validator</a></h3>
+    <p>A specific implementation of a validator that uses 
+      <a href="https://www.openpolicyagent.org/" target="_blank">Open Policy Agent </a> 
+      as the engine to validate computational policies.
+    </p>
+  </div>
+
+</div>
+
 
 ## Technologies
 
