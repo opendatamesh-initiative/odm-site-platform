@@ -1,6 +1,10 @@
 # Overview
 
 ## What is ODMP
+If you want to deeply understand the main features and the implementation details of the *Open Data Mesh Platform*, this is the right place to start. You can also read the [Site Map](./sitemap.md) where you may find a structured index of all the documentation available on this site to plan your learning journey.
+
+Welcome on board!
+
 *Open Data Mesh Platform (ODMP)* is an open-source implementation of an *XOps Platform* facilitating the end-to-end management of data product lifecycle, from creation and validation, through deployment and access management, to decommissioning. 
 
 ODMP's high versatility allows users to utilize the platform as is or tailor it to suit specific requirements. Embracing a modular architecture, ODMP leverages open specifications and protocols to enhance interoperability with diverse systems. By adhering to established standards, it fosters a supportive ecosystem of mesh tools that seamlessly integrate and adapt to evolving needs. Specifically, the platform is based on the [DPDS specification](https://dpds.opendatamesh.org/) for defining data product metadata.
@@ -11,11 +15,9 @@ The figure below provides a high-level view of the planes that compose the *Open
 
 ![Architecture-diagram](../images/overview/odm-overview.svg)
 
-If you want to deeply understand the [architecture](../architecture/index.md) and the implementation details of the Open Data Mesh Platform, this is the right place to start. You can also read the [Site Map](./sitemap.md) where you may find a structured index of all the documentation available on this site to plan your learning journey.
-
-Welcome on board!
-
 ## Platform Capabilities
+
+Below is a concise overview of the platform's capabilities. More details can be found in the [architecture](../architecture/index.md).
 
 - **Data Product Blueprint Management** — APIs that register blueprints and seamlessly instantiate data products from a centralized repository
 
