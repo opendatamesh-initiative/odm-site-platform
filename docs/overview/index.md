@@ -15,8 +15,24 @@ Welcome on board!
 
 ## Enterprise Edition
 
+> **ODMP + Blindata**: web UI, enterprise security, ontology management, and a powerful data marketplace — all in one platform.
+
+
 ODMP integrates seamlessly with [Blindata](https://blindata.io/product/), bringing a web-based graphical interface, robust security features, enterprise ontology management, and a rich data marketplace experience to enterprises. Blindata’s Experience Plane elevates ODMP’s services, delivering complete data governance and compliance solutions.
 
 The following figure shows at a high level the layers that make up the enterprise setup of ODMP integrated with Blindata Platform.
 
 ![Architecture-diagram](../images/overview/odm-blindata-overview.svg)
+
+## Feature Matrix
+
+Below is a table with the list of features covered by ODMP standalone and the enterprise edition ODMP + Blindata
+
+| Feature                       | ODMP            | ODMP + Blindata |
+|-------------------------------|-----------------|-----------------|
+| Web UI                        | ✗               | ✓               |
+| User authentication           | ✗               | ✓               |
+| RBAC Authorization            | ✗               | ✓               |
+| Enterprise ontology management| ✗               | ✓               |
+| Data marketplace experience   | ✗               | ✓               |
+| Governance & compliance       | ✗               | ✓               |
