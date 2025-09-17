@@ -53,3 +53,10 @@ Thumbs.db
 *.flv
 *.mov
 *.wmv
+
+# Python venv
+**/venv/
+**/.env/
+**/.venv/
+**/env/
+**/*-venv/
