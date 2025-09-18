@@ -65,7 +65,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="MUsf5snJd615fOBc711M" name="Concepts">
-    <mxGraphModel dx="1426" dy="743" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2411" dy="826" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -140,6 +140,209 @@
         </mxCell>
         <mxCell id="02ThY7u9Znp8II0oh3mR-41" value="" style="verticalLabelPosition=bottom;sketch=0;html=1;fillColor=#CC6600;strokeColor=none;verticalAlign=top;pointerEvents=1;align=center;shape=mxgraph.cisco_safe.people_places_things_icons.icon1;fontColor=#CC6600;fontFamily=Poppins;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DPoppins;" vertex="1" parent="1">
           <mxGeometry x="565" y="490" width="46.5" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="02ThY7u9Znp8II0oh3mR-42" value="" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#FFCC99;strokeColor=none;fontFamily=Poppins;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DPoppins;size=85;" vertex="1" parent="1">
+          <mxGeometry x="235" y="920" width="320" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="02ThY7u9Znp8II0oh3mR-43" value="&lt;font data-font-src=&quot;https://fonts.googleapis.com/css?family=Poppins&quot; face=&quot;Poppins&quot; style=&quot;color: rgb(255, 255, 255); font-size: 20px;&quot;&gt;Data&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="322.5" y="1000" width="145" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="02ThY7u9Znp8II0oh3mR-44" value="&lt;font data-font-src=&quot;https://fonts.googleapis.com/css?family=Poppins&quot; face=&quot;Poppins&quot; style=&quot;color: rgb(255, 255, 255); font-size: 20px;&quot;&gt;Metadata&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="322.5" y="950" width="145" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="02ThY7u9Znp8II0oh3mR-45" value="&lt;font data-font-src=&quot;https://fonts.googleapis.com/css?family=Poppins&quot; face=&quot;Poppins&quot; style=&quot;color: rgb(255, 255, 255); font-size: 20px;&quot;&gt;Application&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="322.5" y="1050" width="145" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="02ThY7u9Znp8II0oh3mR-46" value="&lt;font data-font-src=&quot;https://fonts.googleapis.com/css?family=Poppins&quot; face=&quot;Poppins&quot; style=&quot;color: rgb(255, 255, 255); font-size: 20px;&quot;&gt;Infrastructure&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="322.5" y="1100" width="145" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="02ThY7u9Znp8II0oh3mR-47" value="" style="ellipse;whiteSpace=wrap;html=1;strokeColor=none;fillColor=#CC6600;" vertex="1" parent="1">
+          <mxGeometry x="721" y="900" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="02ThY7u9Znp8II0oh3mR-48" value="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;strokeColor=#CC6600;" edge="1" parent="1" source="02ThY7u9Znp8II0oh3mR-42" target="02ThY7u9Znp8II0oh3mR-47">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="550" y="980" as="sourcePoint" />
+            <mxPoint x="600" y="930" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="02ThY7u9Znp8II0oh3mR-49" value="" style="ellipse;whiteSpace=wrap;html=1;strokeColor=none;fillColor=#CC6600;" vertex="1" parent="1">
+          <mxGeometry x="731" y="1140" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="02ThY7u9Znp8II0oh3mR-50" value="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#CC6600;" edge="1" parent="1" source="02ThY7u9Znp8II0oh3mR-42" target="02ThY7u9Znp8II0oh3mR-49">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="630" y="1022" as="sourcePoint" />
+            <mxPoint x="710" y="950" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="02ThY7u9Znp8II0oh3mR-51" value="&lt;font style=&quot;color: rgb(204, 102, 0); font-size: 20px;&quot;&gt;Output Ports&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontFamily=Poppins;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DPoppins;" vertex="1" parent="1">
+          <mxGeometry x="701" y="1040" width="230" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="02ThY7u9Znp8II0oh3mR-52" value="" style="ellipse;whiteSpace=wrap;html=1;strokeColor=none;fillColor=#CC6600;" vertex="1" parent="1">
+          <mxGeometry x="51" y="1138" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="02ThY7u9Znp8II0oh3mR-53" value="" style="ellipse;whiteSpace=wrap;html=1;strokeColor=none;fillColor=#CC6600;" vertex="1" parent="1">
+          <mxGeometry x="216" y="1309" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="02ThY7u9Znp8II0oh3mR-54" value="" style="ellipse;whiteSpace=wrap;html=1;strokeColor=none;fillColor=#CC6600;" vertex="1" parent="1">
+          <mxGeometry x="53" y="895" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="02ThY7u9Znp8II0oh3mR-55" value="" style="endArrow=none;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#CC6600;" edge="1" parent="1" source="02ThY7u9Znp8II0oh3mR-42" target="02ThY7u9Znp8II0oh3mR-54">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="600" y="1002" as="sourcePoint" />
+            <mxPoint x="680" y="930" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="02ThY7u9Znp8II0oh3mR-56" value="" style="endArrow=none;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#CC6600;exitX=0;exitY=0.75;exitDx=0;exitDy=0;" edge="1" parent="1" source="02ThY7u9Znp8II0oh3mR-42" target="02ThY7u9Znp8II0oh3mR-52">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="296" y="978" as="sourcePoint" />
+            <mxPoint x="180" y="910" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="02ThY7u9Znp8II0oh3mR-57" value="&lt;font style=&quot;color: rgb(204, 102, 0); font-size: 20px;&quot;&gt;Output Ports&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontFamily=Poppins;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DPoppins;" vertex="1" parent="1">
+          <mxGeometry x="-72" y="1024" width="230" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="02ThY7u9Znp8II0oh3mR-58" value="" style="ellipse;whiteSpace=wrap;html=1;strokeColor=none;fillColor=#CC6600;" vertex="1" parent="1">
+          <mxGeometry x="375" y="746" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="02ThY7u9Znp8II0oh3mR-59" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;strokeColor=#CC6600;" edge="1" parent="1" source="02ThY7u9Znp8II0oh3mR-42" target="02ThY7u9Znp8II0oh3mR-58">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="306" y="988" as="sourcePoint" />
+            <mxPoint x="190" y="920" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="02ThY7u9Znp8II0oh3mR-60" value="&lt;font style=&quot;color: rgb(204, 102, 0); font-size: 20px;&quot;&gt;Control Ports&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontFamily=Poppins;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DPoppins;" vertex="1" parent="1">
+          <mxGeometry x="300" y="702" width="175" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="02ThY7u9Znp8II0oh3mR-61" value="" style="ellipse;whiteSpace=wrap;html=1;strokeColor=none;fillColor=#CC6600;" vertex="1" parent="1">
+          <mxGeometry x="525" y="1309" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="02ThY7u9Znp8II0oh3mR-62" value="" style="endArrow=none;html=1;rounded=0;entryX=1;entryY=0;entryDx=0;entryDy=0;strokeColor=#CC6600;exitX=0.375;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="02ThY7u9Znp8II0oh3mR-42" target="02ThY7u9Znp8II0oh3mR-53">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="364" y="1096" as="sourcePoint" />
+            <mxPoint x="260" y="1142" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="02ThY7u9Znp8II0oh3mR-63" value="" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0;entryDx=0;entryDy=0;strokeColor=#CC6600;exitX=0.625;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="02ThY7u9Znp8II0oh3mR-42" target="02ThY7u9Znp8II0oh3mR-61">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="337" y="1266" as="sourcePoint" />
+            <mxPoint x="270" y="1369" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="02ThY7u9Znp8II0oh3mR-65" value="&lt;font style=&quot;color: rgb(204, 102, 0); font-size: 20px;&quot;&gt;Discoverability Ports&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontFamily=Poppins;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DPoppins;" vertex="1" parent="1">
+          <mxGeometry x="56" y="1369" width="230" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="02ThY7u9Znp8II0oh3mR-66" value="&lt;font style=&quot;color: rgb(204, 102, 0); font-size: 20px;&quot;&gt;Observability Ports&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontFamily=Poppins;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DPoppins;" vertex="1" parent="1">
+          <mxGeometry x="465" y="1369" width="230" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="02ThY7u9Znp8II0oh3mR-67" value="" style="shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#CC6600;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.veeam.company_owner;" vertex="1" parent="1">
+          <mxGeometry x="500" y="1110" width="55" height="51" as="geometry" />
+        </mxCell>
+        <mxCell id="02ThY7u9Znp8II0oh3mR-68" value="&lt;font style=&quot;color: rgb(204, 102, 0); font-size: 20px;&quot;&gt;Data Product&amp;nbsp;&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;color: rgb(204, 102, 0); font-size: 20px;&quot;&gt;Owner&lt;/font&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontFamily=Poppins;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DPoppins;" vertex="1" parent="1">
+          <mxGeometry x="420" y="1180" width="230" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="02ThY7u9Znp8II0oh3mR-71" value="&lt;font style=&quot;color: rgb(204, 102, 0); font-size: 21px;&quot; face=&quot;Poppins&quot; data-font-src=&quot;https://fonts.googleapis.com/css?family=Poppins&quot;&gt;&lt;b style=&quot;&quot;&gt;Self-serve data platform&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCC99;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="49" y="1870" width="711" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="02ThY7u9Znp8II0oh3mR-75" value="&lt;font style=&quot;color: rgb(204, 102, 0); font-size: 20px;&quot;&gt;/init&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontFamily=Poppins;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DPoppins;" vertex="1" parent="1">
+          <mxGeometry x="48" y="1754" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="02ThY7u9Znp8II0oh3mR-76" value="" style="ellipse;whiteSpace=wrap;html=1;strokeColor=none;fillColor=#CC6600;" vertex="1" parent="1">
+          <mxGeometry x="438" y="1793" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="02ThY7u9Znp8II0oh3mR-77" value="" style="endArrow=none;html=1;rounded=0;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;strokeColor=#CC6600;" edge="1" parent="1" source="02ThY7u9Znp8II0oh3mR-71" target="02ThY7u9Znp8II0oh3mR-76">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="230" y="1880" as="sourcePoint" />
+            <mxPoint x="230" y="1840" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="582" y="1850" />
+              <mxPoint x="458" y="1850" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="02ThY7u9Znp8II0oh3mR-78" value="&lt;font style=&quot;color: rgb(204, 102, 0); font-size: 20px;&quot;&gt;/register&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontFamily=Poppins;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DPoppins;" vertex="1" parent="1">
+          <mxGeometry x="312" y="1754" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="02ThY7u9Znp8II0oh3mR-79" value="" style="ellipse;whiteSpace=wrap;html=1;strokeColor=none;fillColor=#CC6600;" vertex="1" parent="1">
+          <mxGeometry x="562" y="1791" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="02ThY7u9Znp8II0oh3mR-80" value="&lt;font style=&quot;color: rgb(204, 102, 0); font-size: 20px;&quot;&gt;/deploy&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontFamily=Poppins;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DPoppins;" vertex="1" parent="1">
+          <mxGeometry x="473.25" y="1754" width="230" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="02ThY7u9Znp8II0oh3mR-81" value="" style="endArrow=none;html=1;rounded=0;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;strokeColor=#CC6600;" edge="1" parent="1" source="02ThY7u9Znp8II0oh3mR-71" target="02ThY7u9Znp8II0oh3mR-79">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="410" y="1870" as="sourcePoint" />
+            <mxPoint x="411" y="1830" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="02ThY7u9Znp8II0oh3mR-82" value="" style="ellipse;whiteSpace=wrap;html=1;strokeColor=none;fillColor=#CC6600;" vertex="1" parent="1">
+          <mxGeometry x="207" y="1790" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="02ThY7u9Znp8II0oh3mR-83" value="" style="endArrow=none;html=1;rounded=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;strokeColor=#CC6600;" edge="1" parent="1" source="02ThY7u9Znp8II0oh3mR-71" target="02ThY7u9Znp8II0oh3mR-82">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="730" y="1919" as="sourcePoint" />
+            <mxPoint x="730" y="1880" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="227" y="1850" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="02ThY7u9Znp8II0oh3mR-84" value="&lt;font style=&quot;color: rgb(204, 102, 0); font-size: 20px;&quot;&gt;/validate&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontFamily=Poppins;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DPoppins;" vertex="1" parent="1">
+          <mxGeometry x="187" y="1754" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="02ThY7u9Znp8II0oh3mR-85" value="" style="ellipse;whiteSpace=wrap;html=1;strokeColor=none;fillColor=#CC6600;" vertex="1" parent="1">
+          <mxGeometry x="710" y="1793" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="02ThY7u9Znp8II0oh3mR-86" value="" style="endArrow=none;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;strokeColor=#CC6600;" edge="1" parent="1" source="02ThY7u9Znp8II0oh3mR-85" target="02ThY7u9Znp8II0oh3mR-71">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="129" y="1910" as="sourcePoint" />
+            <mxPoint x="70" y="1910" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="730" y="1850" />
+              <mxPoint x="582" y="1850" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="02ThY7u9Znp8II0oh3mR-87" value="&lt;font style=&quot;color: rgb(204, 102, 0); font-size: 20px;&quot;&gt;/decommision&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontFamily=Poppins;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DPoppins;" vertex="1" parent="1">
+          <mxGeometry x="650" y="1754" width="166" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="02ThY7u9Znp8II0oh3mR-91" value="" style="ellipse;whiteSpace=wrap;html=1;strokeColor=none;fillColor=#CC6600;" vertex="1" parent="1">
+          <mxGeometry x="71" y="1793" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="02ThY7u9Znp8II0oh3mR-92" value="" style="endArrow=none;html=1;rounded=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;strokeColor=#CC6600;" edge="1" parent="1" source="02ThY7u9Znp8II0oh3mR-71" target="02ThY7u9Znp8II0oh3mR-91">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="210" y="1910" as="sourcePoint" />
+            <mxPoint x="210" y="1870" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="227" y="1850" />
+              <mxPoint x="91" y="1850" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="02ThY7u9Znp8II0oh3mR-93" value="" style="ellipse;whiteSpace=wrap;html=1;strokeColor=none;fillColor=#CC6600;" vertex="1" parent="1">
+          <mxGeometry x="336" y="1791" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="02ThY7u9Znp8II0oh3mR-94" value="" style="endArrow=none;html=1;rounded=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;strokeColor=#CC6600;" edge="1" parent="1" source="02ThY7u9Znp8II0oh3mR-71" target="02ThY7u9Znp8II0oh3mR-93">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="317" y="1877" as="sourcePoint" />
+            <mxPoint x="160" y="1840" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="227" y="1850" />
+              <mxPoint x="356" y="1850" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="02ThY7u9Znp8II0oh3mR-95" value="&lt;font style=&quot;color: rgb(204, 102, 0); font-size: 20px;&quot;&gt;/search&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontFamily=Poppins;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DPoppins;" vertex="1" parent="1">
+          <mxGeometry x="418" y="1754" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="02ThY7u9Znp8II0oh3mR-99" value="" style="endArrow=none;html=1;rounded=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;strokeColor=#CC6600;" edge="1" parent="1" source="02ThY7u9Znp8II0oh3mR-71" target="02ThY7u9Znp8II0oh3mR-76">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="612" y="1867" as="sourcePoint" />
+            <mxPoint x="470" y="1830" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="227" y="1850" />
+              <mxPoint x="458" y="1850" />
+            </Array>
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
