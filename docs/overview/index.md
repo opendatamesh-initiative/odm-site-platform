@@ -13,7 +13,7 @@ ODMP simplifies data-ops tasks, enabling teams to efficiently create, validate, 
 
 The figure below provides a high-level view of the planes that compose the *Open Data Mesh Platform*.
 
-![Architecture-diagram](../images/overview/odm-overview.svg)
+![Architecture-diagram](../images/overview/odm-overview.svg){style="display:block; margin-left:auto; margin-right:auto;" width=70%}
 
 ## Platform Capabilities
 
@@ -43,7 +43,7 @@ The *Open Data Mesh Platform* seamlessly integrates with [Blindata](https://blin
 
 The following figure shows at a high level the layers that make up the enterprise setup of ODMP integrated with Blindata Platform.
 
-![Architecture-diagram](../images/overview/odm-blindata-overview.svg)
+![Architecture-diagram](../images/overview/odm-blindata-overview.svg){style="display:block; margin-left:auto; margin-right:auto;" width=70%}
 
 ## Feature Matrix
 

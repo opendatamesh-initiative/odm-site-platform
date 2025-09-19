@@ -4,7 +4,7 @@ This section aims to briefly describe the Platform architecture, listing and det
 
 The following image depicts a diagram of the architecture.
 
-![Architecture-diagram](../images/architecture/architecture.png)
+![Architecture-diagram](../images/architecture/architecture.svg){style="display:block; margin-left:auto; margin-right:auto;" width=70%}
 
 
 !!! info
