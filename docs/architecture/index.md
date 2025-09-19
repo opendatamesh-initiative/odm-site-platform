@@ -45,7 +45,7 @@ The *Utility Plane* exposes a set of services useful for the mesh functionality 
 
 Each microservice exposes an interface requiring a real implementation of it. The aim here is to give a starting point and a blueprint structure for the realization of the specific services. Any implementation of the Utility Plane services is called *Adapter*.
 
-### Adapters
+### ODM Adapter Hub
 
 An *Adapter* is a technology-specific implementation of the Utility Plane services: it is the component that decouples the mesh platform from the real infrastructure.
 
@@ -62,12 +62,14 @@ ODM Platform offers an implementation of the following Adapters:
 }
 
 .gallery-box {
-  flex: 1 1 300px;
+  flex: 1 1 calc(33.333% - 20px); /* ogni box prende 1/3 meno lo spazio del gap */
+  max-width: calc(33.333% - 20px);
   border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 15px;
+  border-radius: 12px;
+  padding: 20px;
   background-color: #f9f9f9;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
 }
 
 .gallery-box h3 {
@@ -86,26 +88,27 @@ ODM Platform offers an implementation of the following Adapters:
 }
 </style>
 
+#### Observers
 <div class="gallery-container">
 
   <div class="gallery-box">
-    <h3><a href="./utility-plane/executor/adapters/executor-azuredevops.md">Azure DevOps Executor</a></h3>
-    <p>An executor able to work with 
-      <a href="https://azure.microsoft.com/en-us/products/devops/" target="_blank">Azure DevOps </a> 
-      APIs to build, test, deploy data products.
-    </p>
-  </div>
-
-  <div class="gallery-box">
-    <h3><a href="./utility-plane/observer/adapters/blindata.md">Blindata Observer</a></h3>
+    <h3><a href="https://github.com/opendatamesh-initiative/odm-platform-adapter-observer-blindata">Blindata Observer</a></h3>
+    <img src="../images/logos/blindata.svg" alt="upload icon" width="150" style="vertical-align:middle; margin-right:6px;"/>
     <p>An observer that forwards notifications to 
       <a href="https://blindata.io/" target="_blank">Blindata </a> 
       in response to events.
     </p>
   </div>
 
+</div>
+
+#### Validators
+
+<div class="gallery-container">
+
   <div class="gallery-box">
-    <h3><a href="utility-plane/validator/adapters/opa.md">OPA Validator</a></h3>
+    <h3><a href="https://github.com/opendatamesh-initiative/odm-platform-adapter-validator-opa">OPA Validator</a></h3>
+    <img src="../images/logos/opa.png" alt="upload icon" width="180" style="vertical-align:middle; margin-right:6px;"/>
     <p>A specific implementation of a validator that uses 
       <a href="https://www.openpolicyagent.org/" target="_blank">Open Policy Agent </a> 
       as the engine to validate computational policies.
@@ -114,6 +117,70 @@ ODM Platform offers an implementation of the following Adapters:
 
 </div>
 
+#### Executors
+
+<div class="gallery-container">
+
+  <div class="gallery-box">
+    <h3><a href="https://github.com/opendatamesh-initiative/odm-platform-adapter-marketplace-executor-starter">Marketplace Executor Starter</a></h3>
+    <img src="../images/logos/opendatamesh.png" alt="upload icon" width="60" style="vertical-align:middle; margin-right:6px;"/>
+    <p>A starter project for building executors that integrate with an access management tool
+    </p>
+  </div>
+
+  <div class="gallery-box">
+    <h3><a href="https://github.com/opendatamesh-initiative/odm-platform-adapter-executor-azuredevops">Azure DevOps Executor</a></h3>
+    <img src="../images/logos/azuredevops.png" alt="upload icon" width="80" style="vertical-align:middle; margin-right:6px;"/>
+    <p>An executor able to work with 
+      <a href="https://azure.microsoft.com/en-us/products/devops/" target="_blank">Azure DevOps </a> 
+      APIs to build, test, deploy data products.
+    </p>
+  </div>
+
+  <div class="gallery-box">
+    <h3><a href="https://github.com/opendatamesh-initiative/odm-platform-adapter-executor-gitlab">GitLab Executor</a></h3>
+    <img src="../images/logos/gitlab.png" alt="upload icon" width="80" style="vertical-align:middle; margin-right:6px;"/>
+    <p>An executor able to work with 
+      <a href="https://about.gitlab.com/" target="_blank">GitLab </a> 
+      APIs to build, test, deploy data products.
+    </p>
+  </div>
+
+</div>
+
+### CLI Tools
+
+<div class="gallery-container">
+
+  <div class="gallery-box">
+    <h3><a href="https://github.com/opendatamesh-initiative/odm-cli">ODM CLI</a></h3>
+    <img src="../images/logos/opendatamesh.png" alt="upload icon" width="60" style="vertical-align:middle; margin-right:6px;"/>
+    <p>Command line interface to interact with ODM Platform Services
+    </p>
+  </div>
+
+  <div class="gallery-box">
+    <h3><a href="https://github.com/opendatamesh-initiative/odm-cli-extensions">ODM CLI Extensions</a></h3>
+    <img src="../images/logos/opendatamesh.png" alt="upload icon" width="60" style="vertical-align:middle; margin-right:6px;"/>
+    <p>Framework for extending the Open Data Mesh Command Line (ODM CLI)
+    </p>
+  </div>
+
+   <div class="gallery-box">
+    <h3><a href="https://github.com/opendatamesh-initiative/odm-cli-extensions-starter">ODM CLI Extensions Starter</a></h3>
+    <img src="../images/logos/opendatamesh.png" alt="upload icon" width="60" style="vertical-align:middle; margin-right:6px;"/>
+    <p>starting project to implement a ImporterExtension, an Extension of the Open Data Mesh Command Line
+    </p>
+  </div>
+
+  <div class="gallery-box">
+    <h3><a href="https://github.com/opendatamesh-initiative/odm-cli-extensions-importer-jdbc">ODM CLI Importer JDBC Extension</a></h3>
+    <img src="../images/logos/opendatamesh.png" alt="upload icon" width="60" style="vertical-align:middle; margin-right:6px;"/>
+    <p>Command-line extension for the Open Data Mesh CLI that allows importing database metadata using JDBC
+    </p>
+  </div>
+
+</div>
 
 ## Technologies
 
