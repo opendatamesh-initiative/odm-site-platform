@@ -10,9 +10,7 @@ At its core, *Data Mesh* is built on four guiding pillars that unlock its full p
 
 ### Domain-oriented data ownership
 
-<p align="center">
-  <img src="../images/concepts/domains.svg" alt="Domains"/>
-</p>
+![Domains](../images/concepts/domains.svg){style="display:block; margin-left:auto; margin-right:auto"}
 
 In *Data Mesh*, data responsibility shifts to the business domains that know it best. Each domain owns and manages its data end-to-end, ensuring higher quality, accuracy, and relevance. This decentralized approach brings data closer to the people who understand it, turning every domain into a true steward of its data.
 
@@ -22,9 +20,7 @@ Data is *managed as a product*, designed with its users in mind. Each data produ
 
 > A data product is a modular building block in a Data Mesh architecture, designed to make enterprise data assets easy to use, reuse, and maximize in value.
 
-<p align="center">
-  <img src="../images/concepts/data-product.svg" alt="Data Product"/>
-</p>
+![Data Product](../images/concepts/data-product.svg){style="display:block; margin-left:auto; margin-right:auto"}
 
 A data product is characterized by:
 
@@ -40,13 +36,25 @@ A data product is characterized by:
 
 A modern, self-serve platform gives domains the tools they need to publish, manage, and consume data with ease. By removing technical barriers, it accelerates innovation and empowers teams to work with data independently, without relying on a central bottleneck.
 
-<p align="center">
-  <img src="../images/concepts/self-serve-data-platform.svg" alt="Self-serve Data Platform"/>
-</p>
+A *Platform Engineering team* is responsible for the initial development, maintenance, and evolution of the self-serve platform
+
+![Self-serve Data Platform](../images/concepts/self-serve-data-platform.svg){style="display:block; margin-left:auto; margin-right:auto"}
+
+#### What is an XOps Platform
+
+A *self-serve data infrastructure as a platform* is organized as a system of planes: at the lowest plane lies the data infrastructure, while above it are other planes designed to make the development, maintenance, and consumption of data products more efficient and effective. This platform is called *XOps Platform*, which combines the capabilities of a DataOps Platform with those of an Enterprise Data Marketplace. 
+
+The figure below illustrates the planes of the *XOps Platform* built on top of the data infrastructure.
+
+![Platform Planes](../images/concepts/platform-planes.svg){style="display:block; margin-left:auto; margin-right:auto"}
 
 ### Federated computational governance
 
 Governance in Data Mesh is decentralized yet coordinated. Common standards for security, compliance, and quality are applied consistently across domains, while allowing flexibility at the local level. Automated policies ensure trust and scalability without slowing down the business.
+
+![Federated Computational Governance](../images/concepts/federated-computational-governance.svg){style="display:block; margin-left:auto; margin-right:auto"}
+
+Representatives from each domain team, the *Platform Engineering team*, and other specialized roles make up a *Federated Governance Committee*. Policies defined by the committee are implemented as code by the platform and automatically enforced across all data products.
 
 [Federated Computational Governance](./federated-computational-governance.md): summary of the interaction between the federated governance and the platform.
 
