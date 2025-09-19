@@ -1,3 +1,0 @@
-# Mesh Experience Plane
-
-The *Mesh Experience Plane* serves as an abstraction for mesh-level functionalities that operate across various data products. It facilitates tasks like searching for data products within the mesh and navigating the lineage graph via connections between data products (input and output) across the nodes of the mesh. In essence, this plane provides a streamlined interface for managing and interacting with interconnected data products within the ecosystem, enabling to harness the full potential of distributed and interconnected data resources.
