@@ -1,70 +1,57 @@
 # Architecture
 
-This section aims to briefly describe the Platform architecture, listing and detailing each component of the ODM Platform.
+This section aims to briefly describe the Platform architecture, listing and detailing each component of the *ODM Platform*.
+
+## Big Picture
 
 The following image depicts a diagram of the architecture.
 
-![Architecture-diagram](../images/architecture/architecture.png)
+![Architecture-diagram](../images/architecture/architecture.svg){style="display:block; margin-left:auto; margin-right:auto;" width=70%}
+
+As you can see, the architecture is composed of two planes:
+
+* [**Control Plane** (previously called *Product Plane*)](#control-plane): it provides the services that help build and consume data products, managing their lifecycle.
+* [**Utility Plane**](#utility-plane): it allows decoupling the management of data products from the underlying technological infrastructure.
+
+It turns out that the ODM Platform’s main modules are technology-independent: data products are created and managed through the *Control Plane* services, independently of the underlying physical layer, which is decoupled by the *Utility Plane* **adapters**.
 
 
-!!! info
+## Control Plane
 
-    _API names in the Product Plane do not necessarily exhibit what's implemented in the application. The only purpose here is to show each module's capabilities._
-
-As you can see, the architecture is composed of two planes reflecting those proposed by Data Mesh theory:
-
-* **Product Plane**: the ODM implementation of the [Data Product Experience Plane](../concepts/logical-planes/data-product-experience-plane.md), which helps to build and consume data products, as well as managing their entire lifecycle. 
-* **Utility Plane**: the ODM implementation of the [Data Infrastructure (Utility) Plane](../concepts/logical-planes/utility-plane.md), which aims to decouple the data product management from the underlying physical infrastructure.
-
-It turns out that the ODM Platform main modules are technology-independent: data products are created and managed via the Product Plane independently of the underlying physical layer, which is decoupled by the Utility Plane and the Adapters.
-
-
-## Product Plane
-
-The *Product Plane* exposes the core microservices of the ODM Platform. Each microservice offers a set of APIs to deal with every phase of the data product lifecycle. ODM Platform uses the *Data Product Descriptor* to create, deploy and operate the data product instances in the mesh architecture.
+The *Control Plane* exposes the **core microservices** of the ODM Platform. Each microservice offers a set of APIs to deal with every phase of the data product lifecycle. *ODM Platform* uses the [*Data Product Descriptor*](../concepts/index.md#what-is-a-data-product-descriptor) to create, deploy and operate the data product instances in the data architecture.
 
 The Product Plane provides the following set of microservices:
 
-* [Blueprint Microservice](./product-plane/blueprint.md): it handles data product bootstrap and initialization leveraging on a deep integration with Git services.
-* [Registry Microservice](./product-plane/registry.md): it registers a new data product with a unique identifier and a data product version within the mesh, making it visible to the mesh governance processes.
-* [Policy Microservice](./product-plane/policy.md): it handles services to apply and run embedded computational policies on every data product of the mesh.
-* [DevOps Microservice](./product-plane/devops.md): it manages the entire data product lifecycle (i.e., development, test, deploy, decommissioning).
-* [Notification Microservice](./product-plane/notification.md): it manages listeners and dispatches notifications upon events reception.
-* [Params Microservice](./product-plane/params.md): it is a custom ODM microservice to handle common parameters and variables within the entire platform.
+* [Blueprint Service](https://github.com/opendatamesh-initiative/odm-platform/tree/main/product-plane-services/blueprint-server): it handles data product bootstrap and initialization from template projects, called blueprints, leveraging a deep integration with Git services.
+* [Registry Service](https://github.com/opendatamesh-initiative/odm-platform/tree/main/product-plane-services/registry-server): it handles the registration of a data product and its versions within the platform, making it accessible to other services and discoverable by users.
+* [Policy Service](https://github.com/opendatamesh-initiative/odm-platform/tree/main/product-plane-services/policy-server): it handles the registration and validation of governance policies as code, integrating with other services to enforce controls at significant events of the data product lifecycle.
+* [DevOps Service](https://github.com/opendatamesh-initiative/odm-platform/tree/main/product-plane-services/devops-server): it handles the invocation and orchestration of the underlying CI/CD pipelines to deploy the data product as an atomic deployment unit (*architectural quantum*).
+* [Marketplace Service](https://github.com/opendatamesh-initiative/odm-platform-pp-marketplace-server): it handles data access requests to the output ports of data products submitted by data consumers, orchestrating the necessary actions to physically grant access to the exposed data assets.
+* [Notification Service](https://github.com/opendatamesh-initiative/odm-platform/tree/main/product-plane-services/notification-server): it handles the forwarding of notifications about significant events in the data product lifecycle to all registered observers, decoupling the execution of the main action from the delivery of notifications.
 
 Each microservice is ready to use and represents an available feature of the platform.
 
+!!! info
+
+    _The Open Data Mesh Platform isn’t meant to replace low-level infrastructure tools (like CI/CD pipeline logic). Instead, it provides a higher-level abstraction that orchestrates end-to-end data product processes, shielding users from the complexity of low-level tasks, whose implementation depends on the specifics of the underlying infrastructure technologies._
 
 ## Utility Plane
 
-The *Utility Plane* exposes a set of services useful for the mesh functionality and infrastructure decoupling, like:
+The *Utility Plane* exposes a set of **adapter microservices** that interface with the available infrastructure technologies, delegating the execution of low-level operations required for the data product lifecycle. Examples include invoking a CI/CD pipeline, sending a command to an IAM tool, or uploading metadata to a data governance system. These adapters translate requests into the formats expected by the specific tool APIs.
 
-* [Executors](./utility-plane/executor/index.md): they act as a proxy between the mesh platform and specific DevOps tools.
-* [Observers](./utility-plane/observer/index.md): they collect and react to events occurred in the mesh platform.
-* [Validators](utility-plane/validator/index.md): they are services dedicated to the evaluation of computational policies.
+The adapters can be classified into:
 
-Each microservice exposes an interface requiring a real implementation of it. The aim here is to give a starting point and a blueprint structure for the realization of the specific services. Any implementation of the Utility Plane services is called *Adapter*.
+* [Observers](../integration-hub/index.md#observers): they collect and react to significant events in the data product lifecycle. Observers register with the Notification Service: when an event occurs, it sends the event payload, containing all relevant metadata, to the registered observers so that each can react accordingly. One of the most common use cases for observers is integrating with external data governance, metadata management, and experience tools, leveraging existing investments in these systems.
 
-### Adapters
+* [Validators](../integration-hub/index.md#validators): they forward requests to verify computational policies to external engines in response to data product lifecycle events (e.g., when a new version of a data product is registered, or when a deployment activity is initiated). This ensures that safety gates are applied to prevent errors in managing the data product lifecycle. One of the most common use cases is checking the compliance of data product descriptive metadata or infrastructure-as-code scripts against company-wide standards, ensuring effective data product discovery by users and consistently supporting automated processes, including data product deployment activities.
 
-An *Adapter* is a technology-specific implementation of the Utility Plane services: it is the component that decouples the mesh platform from the real infrastructure.
+* [Executors](../integration-hub/index.md#executors): they receive requests to execute a command on the infrastructure and forward them to the designated infrastructure tool, passing all necessary metadata for the action and receiving back the results and status of the operation. Common use cases include interacting with CI/CD tools or with enterprise applications for managing access permissions to resources.
 
-Each Adapter is pluggable to the ODM Platform via configuration properties. ODM users are required to configure all the adapters they need to work with the underlying infrastructure layer.
+* [CLI Tools](../integration-hub/index.md#cli-tools): they provide command-line interfaces to interact programmatically with the ODMP Platform services within data product development and release processes. Common use cases include integrating custom connectors to facilitate the compilation of the Data Product Descriptor by extracting metadata from infrastructure tools, or testing the data product’s compliance with computational policies, before registering a new version of the data product in the platform.
 
-ODM Platform offers an implementation of the following Adapters:
+For more details, you can check the list of available adapters and starter projects on the [Integration Hub](../integration-hub/index.md) page.
 
-* [Azure DevOps Executor](./utility-plane/executor/adapters/executor-azuredevops.md): an executor able to work with <a href="https://azure.microsoft.com/en-us/products/devops/" target="_blank">Azure DevOps:octicons-link-external-24:</a> APIs to build, test, deploy data products.
-* [Blindata Observer](./utility-plane/observer/adapters/blindata.md): an observer that forwards notifications to <a href="https://blindata.io/"
-target="_blank">Blindata:octicons-link-external-24:</a> in response to events. 
-* [OPA Validator](utility-plane/validator/adapters/opa.md): a specific implementation of a validator that uses <a href="https://www.openpolicyagent.org/" target="_blank">Open Policy Agent:octicons-link-external-24:</a> as the engine to validate computational policies.
+!!! info
 
-## Technologies
+    _For each category of adapter, a **standard API** is available that all adapter instances must implement. This ensures that the platform can be easily extended by installing existing adapters or by plugging in custom-developed adapters tailored to the specific infrastructure. Contributors to the ODM initiative are also working on providing **starter Github projects** to facilitate the development of custom adapters for specific categories or use cases._
 
-ODM Platform is a multi-module Java application composed of multiple microservices. The following is the list of the development technologies: 
-
-* Java
-* Maven
-* Spring
-* Spring Boot
-
-All the services make use of this set of technologies as a baseline. Each single service can employ additional tools to meet different needs.
