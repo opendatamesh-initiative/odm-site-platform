@@ -15,48 +15,21 @@ nav:
   - Concepts: 
     - './concepts/index.md'
     - 'Site Map': './overview/sitemap.md'
-  - Architecture: 
+  - Architecture:
     - './architecture/index.md'
-    - 'Product Plane':
-        - 'Blueprint': './architecture/product-plane/blueprint.md'
-        - 'Registry': './architecture/product-plane/registry.md'
-        - 'Policy': './architecture/product-plane/policy.md'
-        - 'DevOps': './architecture/product-plane/devops.md'
-        - 'Notification': './architecture/product-plane/notification.md'
-        - 'Params': './architecture/product-plane/params.md'
-    - 'Utility Plane':
-        - 'Executor':
-          - './architecture/utility-plane/executor/index.md'
-          - 'Adapters':
-              - 'Executor Azure DevOps': './architecture/utility-plane/executor/adapters/executor-azuredevops.md'
-        - 'Observer':
-          - './architecture/utility-plane/observer/index.md'
-          - 'Adapters':
-              - 'Blindata': './architecture/utility-plane/observer/adapters/blindata.md'
-        - 'Validator':
-            - './architecture/utility-plane/validator/index.md'
-            - 'Adapters':
-                - 'OPA': './architecture/utility-plane/validator/adapters/opa.md'
-    - 'Platform Core':
-        - './architecture/platform-core/index.md'
-        - 'Commons':
-            - './architecture/platform-core/commons/index.md'
-        - 'DPDS Parser':
-            - './architecture/platform-core/dpds-parser/index.md'
-    - 'ODM CLI': 
-        - './architecture/odm-cli/index.md'
-        - 'Local Commands': './architecture/odm-cli/local.md'
-        - 'Registry Commands': './architecture/odm-cli/registry.md'
-        - 'Blueprint Commands': './architecture/odm-cli/blueprint.md'
-        - 'Policy Commands': './architecture/odm-cli/policy.md'
+    - 'Site Map': './overview/sitemap.md'
+  - Integration Hub:
+      - './integration-hub/index.md'
+      - 'Site Map': './overview/sitemap.md'
   - API Doc:
     - './api-doc/index.md'
+    - 'Site Map': './overview/sitemap.md'
   - Community:
     - './community/index.md'
-    - 'Quantyca': './community/quantyca.md'
+    - 'Site Map': './overview/sitemap.md'
   - Resources:
     - './resources/index.md'
-    - 'External Tools': './resources/tools.md'
+    - 'Site Map': './overview/sitemap.md'
 
 ##theme: readthedocs
 theme:

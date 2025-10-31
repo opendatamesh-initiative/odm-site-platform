@@ -32,7 +32,9 @@ Below is a concise overview of the platform's capabilities. More details can be 
 - **Data Marketplace Workflow Management** — APIs that orchestrate workflows controlling user access to data product outputs, ensuring smooth and secure marketplace operations.
 
 
-> **Note:** The Open Data Mesh Platform isn’t meant to replace low-level infrastructure tools (like CI/CD pipeline logic). Instead, it provides a higher-level abstraction that orchestrates end-to-end data product processes, shielding users from the complexity of low-level tasks, whose implementation depends on the specifics of the underlying infrastructure technologies.
+!!! info
+
+    _The Open Data Mesh Platform isn’t meant to replace low-level infrastructure tools (like CI/CD pipeline logic). Instead, it provides a higher-level abstraction that orchestrates end-to-end data product processes, shielding users from the complexity of low-level tasks, whose implementation depends on the specifics of the underlying infrastructure technologies._
 
 
 ## Blindata Integration

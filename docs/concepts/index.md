@@ -2,17 +2,6 @@
 
 The *XOps Platform* is the core component that enables cross-functional domain teams and users to be autonomus in managing and consuming data products. The aim of this page is to be a landing for readers and to guide through the main concepts and the relevant context.
 
-  - [Data Mesh Paradigm](#data-mesh-paradigm)
-    - [Domain-oriented data ownership](#domain-oriented-data-ownership)
-    - [Data as a product](#data-as-a-product)
-        - [What is a *Data Product Descriptor*](#what-is-a-data-product-descriptor)
-    - [Self-serve data infrastructure as a platform](#self-serve-data-infrastructure-as-a-platform)
-        - [What is an *XOps Platform*](#what-is-an-xops-platform)
-            - [Control Plane](#control-plane)
-            - [Utility Plane](#utility-plane)
-            - [Esperience Plane](#experience-plane)
-    - [Federated computational governance](#federated-computational-governance)
-
 ## Data Mesh paradigm
 
 *Data Mesh* is a socio-technical paradigm that transforms how organizations manage data at scale. Instead of relying on a single central team, it empowers business domains to own their data as products, supported by a self-serve platform and guided by federated computational governance. The result: faster value, higher quality, and data that truly serves the business.
@@ -49,7 +38,7 @@ According to the principle of [*domain-oriented data ownership*](#domain-oriente
 
 #### What is a *Data Product Descriptor*
 
-A *Data Product Descriptor* is a document containing comprehensive information regarding a data product, including its fully qualified name, ownership details, domain, version, interface components, and internal elements. You can find more information and a deeper explanation about that on the dedicated <a href="https://dpds.opendatamesh.org/concepts/data-product-descriptor/" target="_blank">DPDS:octicons-link-external-24:</a> site.
+A *Data Product Descriptor* is a document containing comprehensive information regarding a data product, including its fully qualified name, ownership details, domain, version, interface components, and internal elements. You can find more information and a deeper explanation about that on the dedicated <a href="https://dpds.opendatamesh.org/concepts/data-product-descriptor/" target="_blank">DPDS</a> site.
 
 The metadata defined in the Data Product Descriptor are fundamental for executing all stages of the data product lifecycle.
 
