@@ -22,7 +22,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y libcairo2-dev libfreetype6-dev libffi-dev libjpeg-dev libpng-dev libz-dev
-          python -m pip install mkdocs-material mkdocs-git-revision-date-localized-plugin pillow cairosvg
+          python -m pip install mkdocs-material mkdocs-git-revision-date-localized-plugin mkdocs-exclude pillow cairosvg
       # Use MkDocs to build the site (check build status after invoking deployer)
       - name: Build the site
         run: python3 -m mkdocs build
