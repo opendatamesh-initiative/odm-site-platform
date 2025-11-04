@@ -2,37 +2,15 @@
 
 This section lists the API documentation for any module of the ODM Platform.
 
-Such documentation is automatically generated through Maven, OpenAPI and <a href="https://redocly.com/" target="_blank">Redocli:octicons-link-external-24:</a> for any module of the Product Plane and every existing adapter implementing services of the Utility Plane.
+Such documentation is automatically generated through Maven, OpenAPI and <a href="https://redocly.com/" target="_blank">Redocli</a> for any module of the *Control Plane* (previously called *Product Plane*).
 
-The documentation is available for any existing version.
+??? info
+    Documentation is only available for the latest version. It is not yet available for the Marketplace Service
 
-??? doc-block "1.0.3"
+??? doc-block "1.0.34"
 
-    * <a href="../../../assets/redoc/doc/1.0.3/blueprint-server.html" target="_blank">Blueprint Server:octicons-link-external-24:</a>
-    * <a href="../../../assets/redoc/doc/1.0.3/devops-server.html" target="_blank">Devops Server:octicons-link-external-24:</a>
-    * <a href="../../../assets/redoc/doc/1.0.3/notification-server.html" target="_blank">Notification Server:octicons-link-external-24:</a>
-    * <a href="../../../assets/redoc/doc/1.0.3/policy-server.html" target="_blank">Policy Server:octicons-link-external-24:</a>
-    * <a href="../../../assets/redoc/doc/1.0.3/registry-server.html" target="_blank">Registry Server:octicons-link-external-24:</a>
-
-??? doc-block "0.9.0"
-
-    * <a href="../../../assets/redoc/doc/0.9.0/blueprint-server.html" target="_blank">Blueprint Server:octicons-link-external-24:</a>
-    * <a href="../../../assets/redoc/doc/0.9.0/devops-server.html" target="_blank">Devops Server:octicons-link-external-24:</a>
-    * <a href="../../../assets/redoc/doc/0.9.0/executor-azure-devops-server.html" target="_blank">Executor Azure Devops Server:octicons-link-external-24:</a>
-    * <a href="../../../assets/redoc/doc/0.9.0/notification-server.html" target="_blank">Notification Server:octicons-link-external-24:</a>
-    * <a href="../../../assets/redoc/doc/0.9.0/observer-blindata-server.html" target="_blank">Observer Blindata Server:octicons-link-external-24:</a>
-    * <a href="../../../assets/redoc/doc/0.9.0/policy-server.html" target="_blank">Policy Server:octicons-link-external-24:</a>
-    * <a href="../../../assets/redoc/doc/0.9.0/registry-server.html" target="_blank">Registry Server:octicons-link-external-24:</a>
-    * <a href="../../../assets/redoc/doc/0.9.0/validator-opa-server.html" target="_blank">Validator Opa Server:octicons-link-external-24:</a>
-
-??? doc-block "0.8.0"
-
-    * <a href="../../../assets/redoc/doc/0.8.0/blueprint-server.html" target="_blank">Blueprint Server:octicons-link-external-24:</a>
-    * <a href="../../../assets/redoc/doc/0.8.0/devops-server.html" target="_blank">Devops Server:octicons-link-external-24:</a>
-    * <a href="../../../assets/redoc/doc/0.8.0/registry-server.html" target="_blank">Registry Server:octicons-link-external-24:</a>
-
-??? doc-block "0.7.0"
-
-    * <a href="../../../assets/redoc/doc/0.7.0/blueprint-server.html" target="_blank">Blueprint Server:octicons-link-external-24:</a>
-    * <a href="../../../assets/redoc/doc/0.7.0/devops-server.html" target="_blank">Devops Server:octicons-link-external-24:</a>
-    * <a href="../../../assets/redoc/doc/0.7.0/registry-server.html" target="_blank">Registry Server:octicons-link-external-24:</a>
+    * <a href="../../../assets/redoc/doc/1.0.34/blueprint-server.html" target="_blank">Blueprint Server</a>
+    * <a href="../../../assets/redoc/doc/1.0.34/devops-server.html" target="_blank">Devops Server</a>
+    * <a href="../../../assets/redoc/doc/1.0.34/notification-server.html" target="_blank">Notification Server</a>
+    * <a href="../../../assets/redoc/doc/1.0.34/policy-server.html" target="_blank">Policy Server</a>
+    * <a href="../../../assets/redoc/doc/1.0.34/registry-server.html" target="_blank">Registry Server</a>

@@ -116,14 +116,13 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+  - pymdownx.blocks.html
   - pymdownx.tabbed:
       alternate_style: true
-  # - pymdownx.emoji:
-  #     emoji_index: !!python/name:materialx.emoji.twemoji
-  #     emoji_generator: !!python/name:materialx.emoji.to_svg
   - def_list
   - pymdownx.tasklist:
       custom_checkbox: true
+
 
 plugins:
   - git-revision-date-localized:
@@ -132,6 +131,8 @@ plugins:
       cards_color:
         fill: "#ff8f00" 
         text: "#FFFFFF"
-      
+  - exclude:
+      glob:
+        - "obsolete/*"
 copyright: >
   Copyright &copy; 2023 Quantyca S.p.A. - <a href="#__consent">Change cookie settings</a>

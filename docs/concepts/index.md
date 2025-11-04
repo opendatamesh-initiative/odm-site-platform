@@ -18,7 +18,9 @@ In *Data Mesh*, data responsibility shifts to the business domains that know it 
 
 Data is *managed as a product*, designed with its users in mind. Each data product comes with clear documentation, quality standards, and reliable access. This ensures that data is not only available, but also trustworthy, discoverable, and ready to deliver real value. 
 
-> A data product is a modular building block in a *Data Mesh* architecture, designed to make enterprise data assets easy to use, reuse, and maximize in value.
+!!! note
+
+    _A data product is a modular building block in a *Data Mesh* architecture, designed to make enterprise data assets easy to use, reuse, and maximize in value._
 
 The following figure shows the anatomy of a data product.
 
@@ -34,7 +36,9 @@ A data product is characterized by:
 
 According to the principle of [*domain-oriented data ownership*](#domain-oriented-data-ownership), a data product is tied to a specific business domain. This does not mean, however, that it should only be used within that domain. On the contrary, by promoting its sharing across the entire organization, the overall value for the enterprise increases.
 
-> **Note**: a data product does not only include the data assets it exposes, but also the metadata and all the application and infrastructure components required to fulfill its purpose.
+!!! note
+
+    A data product does not only include the data assets it exposes, but also the metadata and all the application and infrastructure components required to fulfill its purpose.
 
 #### What is a *Data Product Descriptor*
 
@@ -88,7 +92,9 @@ The figure below illustrates the planes of the *XOps Platform* built on top of t
 The *XOps Platform*, or just the *platform*, as it is referred to in this documentation, is divided into three *logical planes*. 
 In the conceptualization of the DataMeshOps functionalities, a *plane* embodies a logical assembly of capabilities with complementary goals and significant functional unity. Each plane holds a clear responsibility, collaboratively working towards a shared overarching goal: establishing a *self-service data infrastructure as a platform* under the guidance of a *federated computational governance*.
 
-> The aim of each plane is to abstract the complexities of the underlying one, providing a set of interfaces (such as APIs) for the functionalities it encompasses. These interfaces act as gateways to access the capabilities within the plane. Data product developers and data platform users can interact directly with the various planes of the platform.
+!!! note
+
+    The aim of each plane is to abstract the complexities of the underlying one, providing a set of interfaces (such as APIs) for the functionalities it encompasses. These interfaces act as gateways to access the capabilities within the plane. Data product developers and data platform users can interact directly with the various planes of the platform.
 
 Each of the three planes is briefly described below.
 
@@ -101,7 +107,7 @@ A deeper description of the planes is available in their dedicated sections.
 ##### Control Plane
 The *Control Plane* aims to manage the entire lifecycle of data products. It is the core component of the *XOps platform* as it is responsible for orchestrating all the other components. As a high-level abstraction of the platform, it helps in building, maintaining, and evolving data products. In particular, it offers specific interfaces to handle the full lifecycle of a data product (initialization, validation, registration, search, deployment, decommissioning).
 
-The services provided by this plane are not standalone and self-sufficient; instead, they rely on the underlying services provided by the [Utility Plane](#utility-plane.md), which offers specialized implementations tailored to the low-level infrastructure services used. This approach ensures that the *Control Plane* remains independent from the underlying infrastructure.
+The services provided by this plane are not standalone and self-sufficient; instead, they rely on the underlying services provided by the [Utility Plane](#utility-plane), which offers specialized implementations tailored to the low-level infrastructure services used. This approach ensures that the *Control Plane* remains independent from the underlying infrastructure.
 
 ##### Utility Plane
 The *Utility Plane* assumes the critical role of connecting the *Control Plane* services to the foundational infrastructure resources required for the establishment and operation of the mesh network. Its responsibilities include the interaction with multiple low-level components essential for the mesh's functionality, such as storage systems, computational resources, and identity management frameworks.

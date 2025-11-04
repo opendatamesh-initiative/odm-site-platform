@@ -6,7 +6,7 @@ We love your input! That is afterall the  main reason why we decieded to relese 
     We want to make contributing to this project as easy and transparent as possible. We do not have anyway a formal contribution process like other open standard yet (ex. <a href="https://github.com/asyncapi/spec/blob/master/CONTRIBUTING.md" target="_blank">AsyncAPI Specification Contribution Guide</a>). We want to define a lightweight process in the upcoming months collecting also your feedbacks on the different possibilities. 
 
 ## Contributing
-You can contribute to this project in the following ways:
+You can contribute to this project in the following ways: 
 
 - send an informal feedback through our comunication channels (<a href="https://join.slack.com/t/opendatamesh/shared_invite/zt-1jrqfghls-68AxK_QzypaOeNyOkOwuog" target="_blank">slack</a> and <a href="mailto:odm.info@quantyca.it" target="_blank">mail</a>)
 - open a formal request through <a href="https://github.com/orgs/opendatamesh-initiative/discussions" target="_blank">github discussions</a>

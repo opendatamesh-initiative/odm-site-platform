@@ -33,7 +33,7 @@ Each microservice is ready to use and represents an available feature of the pla
 
 !!! info
 
-    _The Open Data Mesh Platform isn’t meant to replace low-level infrastructure tools (like CI/CD pipeline logic). Instead, it provides a higher-level abstraction that orchestrates end-to-end data product processes, shielding users from the complexity of low-level tasks, whose implementation depends on the specifics of the underlying infrastructure technologies._
+    The Open Data Mesh Platform isn’t meant to replace low-level infrastructure tools (like CI/CD pipeline logic). Instead, it provides a higher-level abstraction that orchestrates end-to-end data product processes, shielding users from the complexity of low-level tasks, whose implementation depends on the specifics of the underlying infrastructure technologies.
 
 ## Utility Plane
 
@@ -53,5 +53,5 @@ For more details, you can check the list of available adapters and starter proje
 
 !!! info
 
-    _For each category of adapter, a **standard API** is available that all adapter instances must implement. This ensures that the platform can be easily extended by installing existing adapters or by plugging in custom-developed adapters tailored to the specific infrastructure. Contributors to the ODM initiative are also working on providing **starter Github projects** to facilitate the development of custom adapters for specific categories or use cases._
+    For each category of adapter, a **standard API** is available that all adapter instances must implement. This ensures that the platform can be easily extended by installing existing adapters or by plugging in custom-developed adapters tailored to the specific infrastructure. Contributors to the ODM initiative are also working on providing **starter Github projects** to facilitate the development of custom adapters for specific categories or use cases.
 
