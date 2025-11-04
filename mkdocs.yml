@@ -2,7 +2,7 @@ site_name: Open Data Mesh Platform
 site_description: Open Data Mesh Platform
 site_url: https://platform.opendatamesh.org
 
-repo_url: https://github.com/opendatamesh-initiative/odm-site-platform
+#repo_url: https://github.com/opendatamesh-initiative/odm-site-platform
 edit_uri: edit/main/docs/
 
 dev_addr: '127.0.0.1:1234'
@@ -11,25 +11,20 @@ nav:
   - Home: './index.md'
   - Overview:
     - './overview/index.md'
-    - 'Site Map': './overview/sitemap.md'
+    - Site Map: './overview/sitemap.md'
   - Concepts: 
     - './concepts/index.md'
-    - 'Site Map': './overview/sitemap.md'
   - Architecture:
     - './architecture/index.md'
-    - 'Site Map': './overview/sitemap.md'
   - Integration Hub:
       - './integration-hub/index.md'
-      - 'Site Map': './overview/sitemap.md'
   - API Doc:
     - './api-doc/index.md'
-    - 'Site Map': './overview/sitemap.md'
   - Community:
     - './community/index.md'
-    - 'Site Map': './overview/sitemap.md'
   - Resources:
     - './resources/index.md'
-    - 'Site Map': './overview/sitemap.md'
+ 
 
 ##theme: readthedocs
 theme:
