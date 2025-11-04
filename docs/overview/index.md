@@ -34,12 +34,13 @@ Below is a concise overview of the platform's capabilities. More details can be 
 
 !!! info
 
-    _The Open Data Mesh Platform isn’t meant to replace low-level infrastructure tools (like CI/CD pipeline logic). Instead, it provides a higher-level abstraction that orchestrates end-to-end data product processes, shielding users from the complexity of low-level tasks, whose implementation depends on the specifics of the underlying infrastructure technologies._
+    The Open Data Mesh Platform isn’t meant to replace low-level infrastructure tools (like CI/CD pipeline logic). Instead, it provides a higher-level abstraction that orchestrates end-to-end data product processes, shielding users from the complexity of low-level tasks, whose implementation depends on the specifics of the underlying infrastructure technologies.
 
 
 ## Blindata Integration
 
-> **ODMP + Blindata**: web UI, enterprise security, ontology management, and a powerful data marketplace — all in one platform.
+!!! info
+    **ODMP + Blindata**: web UI, enterprise security, ontology management, and a powerful data marketplace — all in one platform.
 
 The *Open Data Mesh Platform* seamlessly integrates with [Blindata](https://blindata.io/product/) — a complete suite of solutions for data governance and compliance. With Blindata, *ODMP* is elevated with an intuitive web interface, enterprise-grade security, powerful business ontology management, and streamlined data marketplace workflows. In fact, Blindata adds an *Experience Plane* on top of the platform, bringing the full power of *ODMP* closer to business users.
 

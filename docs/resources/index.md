@@ -1,6 +1,15 @@
 # Resources
 
-## Table of contents
-<!-- no toc -->
-- [Managing Data as a Product](https://www.oreilly.com/library/view/managing-data-as/9781835468531/)
-- [Data Product Marketplace](https://www.quantyca.it/en/usecase/data-product-marketplace/)
+| Resource | Description |
+|----------|------------|
+|[Data Product Descriptor Specification](https://dpds.opendatamesh.org/) |  Website of the specification for describing a data product provided by the Open Data Mesh initiative. |
+|[Managing Data as a Product](https://www.amazon.com/Managing-Data-Product-product-centered-socio-technical/dp/1835468535) | Book edited by the creator of the [DPDS specification](https://dpds.opendatamesh.org/). |
+| [thedatajoy.space](https://thedatajoy.space/) | Personal website of the creator of the [DPDS specification](https://dpds.opendatamesh.org/). |
+| [Data Product Marketplace](https://www.quantyca.it/en/usecase/data-product-marketplace/) | Explanation of what a data product marketplace is and what it enables. |
+
+
+
+
+
+
+
