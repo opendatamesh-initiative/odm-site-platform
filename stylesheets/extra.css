@@ -1,0 +1,52 @@
+:root > * {
+  --wave-darker-color: var(--md-primary-fg-color--dark);
+ /*
+  --md-primary-fg-color--light: #BBDEFB;
+  --md-primary-fg-color--dark:  #1976D2;
+  --md-primary-fg-color: #2196F3;
+  */
+  --md-primary-fg-color--light: #C5CAE9;
+  --md-primary-fg-color--dark:  #303F9F;
+  --md-primary-fg-color: #3F51B5;
+  --md-accent-fg-color: #ED8C17;
+  --md-accent-fg-color--light: #fba63f;
+  --md-accent-fg-color--dark: #c56000;
+  --md-typeset-a-color: var(--md-primary-fg-color--dark);
+}
+
+
+
+
+.md-grid {
+  max-width: 90%;
+}
+
+::selection {
+  background: var(--md-accent-fg-color--light); /* WebKit/Blink Browsers */
+  color: white
+}
+
+::-moz-selection {
+  background: var(--md-accent-fg-color--light); /* Gecko Browsers */
+  color: white
+}
+
+/* Doc Accordion */
+:root {
+  --md-admonition-icon--doc-block: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBVcGxvYWRlZCB0bzogU1ZHIFJlcG8sIHd3dy5zdmdyZXBvLmNvbSwgR2VuZXJhdG9yOiBTVkcgUmVwbyBNaXhlciBUb29scyAtLT4NCjxzdmcgZmlsbD0iIzAwMDAwMCIgaGVpZ2h0PSI4MDBweCIgd2lkdGg9IjgwMHB4IiB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiANCgkgdmlld0JveD0iMCAwIDUxMi4wMDEgNTEyLjAwMSIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8Zz4NCgk8Zz4NCgkJPHBhdGggZD0iTTQ2My45OTYsMTI2Ljg2NEwzNDAuMTkyLDMuMDYxQzMzOC4yMzEsMS4xMDEsMzM1LjU3NCwwLDMzMi44MDMsMEg5NS43MjZDNjcuNzI0LDAsNDQuOTQ0LDIyLjc4Miw0NC45NDQsNTAuNzg0djQxMC40MzQNCgkJCWMwLDI4LjAwMSwyMi43ODEsNTAuNzgzLDUwLjc4Myw1MC43ODNoMzIwLjU0N2MyOC4wMDIsMCw1MC43ODMtMjIuNzgxLDUwLjc4My01MC43ODNWMTM0LjI1Mw0KCQkJQzQ2Ny4wNTYsMTMxLjQ4Miw0NjUuOTU1LDEyOC44MjQsNDYzLjk5NiwxMjYuODY0eiBNMzQzLjI1NSwzNS42NzlsODguMTI3LDg4LjEyNkgzNzMuMTRjLTcuOTg0LDAtMTUuNDktMy4xMDktMjEuMTM0LTguNzUzDQoJCQljLTUuNjQzLTUuNjQzLTguNzUyLTEzLjE0OC04Ljc1MS0yMS4xMzFWMzUuNjc5eiBNNDQ2LjE1OCw0NjEuMjE3YzAsMTYuNDc5LTEzLjQwNiwyOS44ODUtMjkuODg0LDI5Ljg4NUg5NS43MjYNCgkJCWMtMTYuNDc5LDAtMjkuODg1LTEzLjQwNi0yOS44ODUtMjkuODg1VjUwLjc4NGMwLjAwMS0xNi40NzksMTMuNDA3LTI5Ljg4NiwyOS44ODUtMjkuODg2aDIyNi42MzF2NzMuMDIxDQoJCQljLTAuMDAyLDEzLjU2NSw1LjI4LDI2LjMxOCwxNC44NzEsMzUuOTA5YzkuNTkyLDkuNTkyLDIyLjM0NSwxNC44NzQsMzUuOTExLDE0Ljg3NGg3My4wMThWNDYxLjIxN3oiLz4NCgk8L2c+DQo8L2c+DQo8Zz4NCgk8Zz4NCgkJPHBhdGggZD0iTTI3NS4wOTIsMzUxLjQ5MmgtNC42NzhjLTUuNzcsMC0xMC40NDksNC42NzgtMTAuNDQ5LDEwLjQ0OXM0LjY3OSwxMC40NDksMTAuNDQ5LDEwLjQ0OWg0LjY3OA0KCQkJYzUuNzcsMCwxMC40NDktNC42NzgsMTAuNDQ5LTEwLjQ0OVMyODAuODYyLDM1MS40OTIsMjc1LjA5MiwzNTEuNDkyeiIvPg0KCTwvZz4NCjwvZz4NCjxnPg0KCTxnPg0KCQk8cGF0aCBkPSJNMjM2LjYxLDM1MS40OTJIMTM1LjExOGMtNS43NywwLTEwLjQ0OSw0LjY3OC0xMC40NDksMTAuNDQ5czQuNjc5LDEwLjQ0OSwxMC40NDksMTAuNDQ5SDIzNi42MQ0KCQkJYzUuNzcsMCwxMC40NDktNC42NzgsMTAuNDQ5LTEwLjQ0OVMyNDIuMzgxLDM1MS40OTIsMjM2LjYxLDM1MS40OTJ6Ii8+DQoJPC9nPg0KPC9nPg0KPGc+DQoJPGc+DQoJCTxwYXRoIGQ9Ik0zNzYuODgyLDMwMy43NDdIMTM1LjExOWMtNS43NywwLTEwLjQ0OSw0LjY3OC0xMC40NDksMTAuNDQ5YzAsNS43NzEsNC42NzksMTAuNDQ5LDEwLjQ0OSwxMC40NDloMjQxLjc2Mw0KCQkJYzUuNzcsMCwxMC40NDktNC42NzgsMTAuNDQ5LTEwLjQ0OUMzODcuMzMxLDMwOC40MjUsMzgyLjY1MiwzMDMuNzQ3LDM3Ni44ODIsMzAzLjc0N3oiLz4NCgk8L2c+DQo8L2c+DQo8Zz4NCgk8Zz4NCgkJPHBhdGggZD0iTTM3Ni44ODIsMjU2SDEzNS4xMTljLTUuNzcsMC0xMC40NDksNC42NzgtMTAuNDQ5LDEwLjQ0OWMwLDUuNzcxLDQuNjc5LDEwLjQ0OSwxMC40NDksMTAuNDQ5aDI0MS43NjMNCgkJCWM1Ljc3LDAsMTAuNDQ5LTQuNjc4LDEwLjQ0OS0xMC40NDlDMzg3LjMzMSwyNjAuNjc4LDM4Mi42NTIsMjU2LDM3Ni44ODIsMjU2eiIvPg0KCTwvZz4NCjwvZz4NCjxnPg0KCTxnPg0KCQk8cGF0aCBkPSJNMzc2Ljg4MiwyMDguMjU1SDEzNS4xMTljLTUuNzcsMC0xMC40NDksNC42NzgtMTAuNDQ5LDEwLjQ0OWMwLDUuNzcxLDQuNjc5LDEwLjQ0OSwxMC40NDksMTAuNDQ5aDI0MS43NjMNCgkJCWM1Ljc3LDAsMTAuNDQ5LTQuNjc4LDEwLjQ0OS0xMC40NDlTMzgyLjY1MiwyMDguMjU1LDM3Ni44ODIsMjA4LjI1NXoiLz4NCgk8L2c+DQo8L2c+DQo8L3N2Zz4=');
+}
+.md-typeset .admonition.doc-block,
+.md-typeset details.doc-block {
+  border-color: #6c757d; /* gray color for accordion bar */
+}
+.md-typeset .doc-block > .admonition-title,
+.md-typeset .doc-block > summary {
+  background-color: #f8f9fa; /* gray background for accordion content */
+  color: #333; /* black text color for accordion content */
+}
+.md-typeset .doc-block > .admonition-title::before,
+.md-typeset .doc-block > summary::before {
+  background-color: #6c757d; /* gray color for accordion bar */
+  -webkit-mask-image: var(--md-admonition-icon--doc-block);
+          mask-image: var(--md-admonition-icon--doc-block);
+}
